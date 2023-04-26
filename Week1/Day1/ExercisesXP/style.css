@@ -1,0 +1,59 @@
+header{
+    padding-top: 20px;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+span{
+    background-color:  yellow;
+}
+
+.cat__block{
+    margin-left: 30px;
+}
+
+.cat-sense{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.center{
+    text-align: center;
+}
+
+.border{
+    border: 15px solid rgb(242, 244, 217);
+}
+
+.liontable{
+    
+    border-collapse: separate; 
+    border-spacing: 5px;
+    margin-bottom: 50px;
+}
+
+.liontable th{
+    border: 1px solid red;
+    padding: 5px;
+    color: red;
+}
+
+.liontable .headers{
+    font-weight: bold;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.liontable td{
+   
+        padding: 5px; 
+        border: 1px solid #000000; 
+
+}
+
+.borderlion{
+    border:15px solid rgb(255, 193, 79);
+}
