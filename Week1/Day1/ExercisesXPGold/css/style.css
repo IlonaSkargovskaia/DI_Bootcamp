@@ -1,0 +1,136 @@
+header{
+    background-color: rgb(245, 245, 245);
+    padding: 10px 0;
+}
+
+a{
+    transition: .3s ease-in-out;
+}
+
+h1 a{
+    color: #717171;
+    font-size: 24px;
+}
+
+h1 a:hover{
+    text-decoration: none;
+}
+
+.container{
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.head__block{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.signin__btn{
+    background-color: #058acc;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+a.signin__btn{
+    color: #fff;
+    text-decoration: none;
+}
+
+a.signin__btn:hover{
+    background-color: #04557d;
+}
+
+.lead{
+    margin-bottom: 0;
+    background: url(../img/bg.jpg) no-repeat center bottom;
+    background-size: cover;
+}
+
+.lead__bg{
+    background-color: rgba(0,0,0,0.2);
+    padding: 130px 0;
+}
+
+.lead__block {
+    max-width: 63%;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+}
+.lead__title h2{
+    font-weight: normal;
+    font-size: 42px;
+    line-height: initial;
+}
+.lead__form {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 15px;
+    align-items: baseline;
+}
+.signup__btn {
+    background-color: #058acc;
+    padding: 6px 40px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.signup__btn:hover{
+    background-color: #04557d;
+    color: #fff;
+    text-decoration: none;
+}
+
+.lead__form #email{
+    padding: 12px 15px;
+    min-width: 300px;
+    font-size: 17px;
+}
+
+.advantages{
+    background-color: rgb(245, 245, 245);
+    padding: 100px 0;
+}
+
+.advant__block{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 50px;
+    text-align: center;
+}
+
+.advant__item{
+    max-width: 20%;
+}
+
+.advant__img{
+    color: #058acc;
+    font-size: 70px;
+    text-align: center;
+    min-height: 88px;
+}
+
+.advant__title{
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.advant__desc{
+    color: #a7a7a7;
+}
+
+footer{
+    padding: 50px 0;
+}
+
+.copyrights{
+    text-align: center;
+}
