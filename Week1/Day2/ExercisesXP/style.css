@@ -11,11 +11,10 @@ header{
     overflow: hidden;
 }
 
-/* .container{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-} */
+main{
+    margin-bottom: 200px;
+}
+
 
 .logo{
     display: inline;
@@ -31,8 +30,12 @@ header{
 .header__link a{
     color: #fff;
     text-decoration: none;
+    transition: .3s ease-in-out;
 }
 
+.header__link a:hover{
+    color: #42a890;
+}
 
 .fa-solid{
     color: #fff;
