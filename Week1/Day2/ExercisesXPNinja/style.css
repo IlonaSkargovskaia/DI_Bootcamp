@@ -1,0 +1,110 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+}
+
+.login{
+    display: flex;
+    justify-content: center;
+
+}
+
+.login__leftBLock{
+    padding: 80px 35px 20px 35px;
+    background: #fbfbfb;
+}
+
+.login__col {
+    min-width: 280px;
+}
+.login__title {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.login__form input{
+    display: block;
+    margin: 20px 0;
+    min-width: 92%;
+    border: none;
+    background-color: #f0f0f0;
+    padding: 10px;
+    font-size: 12px;
+}
+.login__memory {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color: #777;
+}
+
+.memory__link a{
+    color:#777;
+}
+.login__btn {
+    border: none;
+    background-color: #9c27b0;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 10px;
+    width: 99.9%;
+    margin-bottom: 20px;
+}
+.login__social {
+
+}
+/* .social__title span:after,.social__title
+span:before{
+    content:"\00a0\00a0\00a0\00a0\00a0";
+    text-decoration:line-through;
+    display: block;
+    width: 40%;
+} */
+
+.social__title {
+    text-align: center;
+    position: relative;
+    color: #777;
+    margin-bottom: 20px;
+}
+.social__title span {
+    display: inline-block;    
+}
+.social__title span:before, .social__title
+span:after {
+    border-top: 1px solid rgb(174, 174, 174);
+    display: block;
+    height: 1px;
+    content: " ";
+    width: 27%;
+    position: absolute;
+    left: 0;
+    top: 7px;
+}
+.social__title span:after {
+   right: 0;  
+   left: auto; 
+}
+
+.social__icons {
+    text-align: center;
+    color: #9b9b9b;
+    font-size: 20px;
+}
+.fa {
+    margin: 10px;
+}
+.fa-facebook {
+}
+.fa-instagram {
+}
+.fa-linkedin {
+}
+.copyright {
+
+    text-align: center;
+    margin-top: 60px;
+    color: #777;
+}
+
