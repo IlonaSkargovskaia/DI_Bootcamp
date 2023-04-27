@@ -1,0 +1,51 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    background-color: #000;
+}
+
+.header__block{
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* .container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+} */
+
+.logo{
+    display: inline;
+    float: left;
+}
+
+.header__link{
+    display: inline;
+    float: right;
+    margin-top: 10px;
+}
+
+.header__link a{
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.fa-solid{
+    color: #fff;
+    font-size: 40px;
+}
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
