@@ -3,7 +3,12 @@ body{
     font-size: 12px;
 }
 
+a{
+    transition: .3s ease-in-out;
+}
+
 .login{
+    margin-top: 30px;
     display: flex;
     justify-content: center;
 
@@ -50,17 +55,14 @@ body{
     padding: 10px;
     width: 99.9%;
     margin-bottom: 20px;
+    transition: .3s ease-in-out;
+    cursor: pointer;
 }
-.login__social {
 
+.login__btn:hover{
+    background-color: #491656;
 }
-/* .social__title span:after,.social__title
-span:before{
-    content:"\00a0\00a0\00a0\00a0\00a0";
-    text-decoration:line-through;
-    display: block;
-    width: 40%;
-} */
+
 
 .social__title {
     text-align: center;
@@ -89,22 +91,67 @@ span:after {
 
 .social__icons {
     text-align: center;
+    
+}
+
+.social__icons a{
     color: #9b9b9b;
     font-size: 20px;
 }
+
+.social__icons a:hover{
+    color: #9527a9;
+}
+
 .fa {
     margin: 10px;
 }
-.fa-facebook {
-}
-.fa-instagram {
-}
-.fa-linkedin {
-}
+
 .copyright {
 
     text-align: center;
     margin-top: 60px;
     color: #777;
 }
+/* rightBlock */
+.login__rightBlock {
+    padding: 160px 35px 20px 35px;
+    background-image: linear-gradient(to bottom right, #252130, #9527a9);
+    color:#fff;
+}
+.register__block {
+    text-align: center;
+}
+.register__img {
+    font-size: 75px;
+}
+.register__title {
+    font-size: 35px;
+    font-weight: bold;
+
+}
+.register__description {
+    max-width: 90%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.register__btn {
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    padding: 10px 15px 10px 29px;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #fff;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+
+.register__btn:hover{
+    color:#252130;
+    background-color: #fff;
+}
+
+
 
