@@ -1,0 +1,18 @@
+.div{
+    width: 30px;
+    height: 30px;
+    background: yellow;
+    margin: 10px;
+    border: 1px solid #000;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-center{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
