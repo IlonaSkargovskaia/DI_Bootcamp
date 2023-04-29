@@ -1,0 +1,146 @@
+
+
+body{
+    font-family: 'Red Hat Display', sans-serif;
+    color: #5a5a5a;
+}
+
+h1{
+    font-weight: 400;
+}
+
+h2, h3 {
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #bbbbbb;
+}
+a{
+    text-decoration: none;
+}
+
+.wrapper {
+    
+}
+.container {
+    display: flex;
+    gap: 20px;
+}
+.leftBlock {
+    background-color: #e7e5e8;
+    padding: 30px;
+    height: 100vh;
+
+}
+.about__col {
+    text-align: center;
+    padding-top: 80px;
+
+}
+
+.about__avatar {
+   
+}
+
+.about__avatar img{
+    border-radius: 50%;
+    max-width: 150px;
+    border: 1px solid #cbcbcb;
+}
+.about__title {
+    text-transform: uppercase;
+    text-align: center;
+    
+}
+.about__proff {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #bbbbbb;
+    margin-bottom: 20px;
+}
+.about__contactsBlock {
+}
+.contacs__phone {
+    margin-bottom: 20px;
+}
+.contacts__email {
+    margin-bottom: 20px;
+}
+.contacts__address {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #bbb;
+}
+.about__socialLinks {
+    padding-top: 30px;
+}
+.about__socialLinks .fa{
+    display: block;
+    margin: 40px auto;
+    border-radius: 50%;
+    background-color: #5a5a5a;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    padding: 15px;
+    font-size: 28px;
+}
+
+.about__socialLinks .fa:hover{
+    background-color: #bbbbbb;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+.rightBlock {
+    padding: 65px 30px 0 0;
+}
+.desc__col {
+}
+.desc__profile {
+}
+.title {
+    font-size: 26px;
+}
+.desc__education {
+}
+.desc__subtitle {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.desc__skills {
+}
+
+.skills__menu{
+    display: flex;
+    
+}
+.left {
+}
+.right {
+}
+.desc__experience {
+}
+
+@media screen and (max-width: 775px) {
+    .skills__menu{
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .leftBlock{
+        width: 100%;
+        height: 100%;
+    }
+    .container{
+        flex-wrap: wrap;
+    }
+
+    .about__socialLinks {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .rightBlock{
+        padding: 30px;
+    }
+}
