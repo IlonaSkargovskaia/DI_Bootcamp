@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+html,h1,h2,h3,h4,h5,h6,a{
+    font-family: "Raleway";
+}
+
+img{
+    width: 100%;
+}
+
+.navmenu{
+    background-color: #2497a2;
+    
+}
+
+.navmenu a{
+    color: #fff;
+}
+
+.head__top{
+    background: url(../img/bg.png) no-repeat center center;
+    
+    background-size: cover;
+    color: #fff;
+}
+
+.mask{
+    padding: 300px 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.head__desc{
+    margin-bottom: 20px;
+}
+
