@@ -12,8 +12,23 @@ body{
     font-weight: 300;
 }
 
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+  }
+
 h2,h3,h4{
     color: #2c3e50;
+    font-weight: 200;
 }
 
 h2 span{
@@ -209,5 +224,46 @@ p.about__small{
 
 .portfolio{
     background-color: #f8f9fa;
-    padding: 3rem 0;
+    padding: 6rem 0;
+}
+
+.portfolio__grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 4rem;
+}
+
+.portfolio__filter ul{
+    display: flex;
+    justify-content: center;
+
+    gap: 3.5rem;
+    margin: 4rem 0;
+}
+
+.portfolio__filter ul > li {
+    list-style-type: none;
+}
+
+.portfolio__item {
+
+    text-align: center;
+}
+
+.item__img{
+    
+}
+.item__img img{
+    object-fit: cover;
+    height: 35rem;
+    width: 100%;
+}
+.item__title {
+    font-size: 2.2rem;
+    margin: 1rem 0;
+}
+.item__desc {
+    text-transform: uppercase;
+    color: #cccccc;
 }
