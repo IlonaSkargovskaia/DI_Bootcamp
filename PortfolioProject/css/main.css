@@ -46,6 +46,7 @@ img{
 }
 
 
+
 section .btn{
     font-size: 1.6rem;
     border-radius: 10rem !important;
@@ -238,12 +239,21 @@ p.about__small{
     display: flex;
     justify-content: center;
 
-    gap: 3.5rem;
+    gap: 4.5rem;
     margin: 4rem 0;
 }
 
 .portfolio__filter ul > li {
     list-style-type: none;
+}
+
+.portfolio__filter a{
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.portfolio__filter a:hover{
+    text-decoration: underline;
 }
 
 .portfolio__item {
@@ -267,3 +277,93 @@ p.about__small{
     text-transform: uppercase;
     color: #cccccc;
 }
+
+/* experience */
+
+.experience h2{
+    margin-bottom: 6rem;
+}
+
+.gray-bg {
+    background-color: #f5f5f5;
+    padding: 6rem 0;
+}
+
+.resume-box {
+    background: #ffffff;
+    box-shadow: 0 0 1.25rem rgba(31, 45, 61, 0.08);
+    border-radius: 10px;
+  }
+  .resume-box ul {
+    margin: 0;
+    padding: 3rem 2rem;
+    list-style-type: none;
+  }
+  .resume-box li {
+    position: relative;
+    padding: 0 2rem 0 6rem;
+    margin: 0 0 3rem;
+  }
+  .resume-box li:last-child {
+    margin-bottom: 0;
+  }
+  .resume-box li:after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 2rem;
+    border-left: 1px dashed #0dcaf0;
+    bottom: 0;
+  }
+  .resume-box .icon {
+    width: 4rem;
+    height: 4rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: #0dcaf0;
+    line-height: 4rem;
+    background: #ffffff;
+    text-align: center;
+    z-index: 1;
+    border: 1px dashed;
+    border-radius: 50%;
+  }
+  .resume-box .time {
+    background: #0dcaf0;
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 0.2rem 1rem;
+    display: inline-block;
+    margin-bottom: 1.2rem;
+    border-radius: 2rem;
+    font-weight: 600;
+  }
+  .resume-box h5 {
+    font-weight: 700;
+    color: #2c3e50;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  .resume-box p {
+    margin: 0;
+  }
+  
+  .resume-box li:after {
+      content: "";
+      position: absolute;
+      top: 0px;
+      left: 2rem;
+      border-left: 1px dashed #0dcaf0;
+      bottom: 0;
+  }
+
+  /* blog */
+
+  .blog{
+    padding: 6rem 0;
+  }
+
+  .blog h2{
+    margin-bottom: 6rem;
+  }
