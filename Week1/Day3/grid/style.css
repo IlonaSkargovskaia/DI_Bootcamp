@@ -60,5 +60,39 @@
     
 }
 
+.cont{
+    display: flex;
+    border: 2px solid red;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    font-size: 30px;
+}
+
+.cont > *{
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.div1{
+    flex-grow: 1;
+    min-height: 100px;
+}
+
+.div2{
+    margin: 50px 100px;
+    min-height: 300px;
+}
+
+.div3{
+    flex-grow: 1;
+    min-height: 100px;
+}
+
 
 
