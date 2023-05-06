@@ -137,6 +137,11 @@ ul.navbar-nav a:hover{
     height: 100vh;
     background-size: cover;
     color: #fff;
+
+    background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .head__blockFlex{
@@ -337,11 +342,21 @@ p.about__small{
 
 .portfolio__item {
 
+    
+    background: #fff;
+    -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    padding-bottom: 1rem;
     text-align: center;
 }
 
-.item__img{
-    
+.portfolio__item:hover{
+    cursor: pointer;
+    box-shadow: 0 1px 30px rgba(248, 157, 54, 0.5);
 }
 .item__img img{
     object-fit: cover;
@@ -350,7 +365,7 @@ p.about__small{
 }
 .item__title {
     font-size: 2.2rem;
-    margin: 1rem 0;
+    margin: 1rem;
 }
 .item__desc {
     text-transform: uppercase;
@@ -366,6 +381,11 @@ p.about__small{
 .gray-bg {
     background-color: #f5f5f5;
     padding: 6rem 0;
+}
+
+.experience__row{
+    display: flex;
+    gap: 4rem;
 }
 
 .resume-box {
@@ -389,11 +409,12 @@ p.about__small{
   .resume-box li:after {
     content: "";
     position: absolute;
-    top: 0px
+    top: 0px;
     left: 2rem;
     border-left: 1px dashed #ffbd39;
     bottom: 0;
   }
+
   .resume-box .icon {
     width: 4rem;
     height: 4rem;
@@ -437,10 +458,64 @@ p.about__small{
       bottom: 0;
   }
 
+  .resume__col h3{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-top: 0;
+  }
+
+/* facts */
+
+.facts{
+    background: url(../img/bg_facts.jpeg) no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.facts .mask{
+    height: auto;
+}
+
+.facts__bg{
+    padding: 3rem 1rem;
+}
+
+.facts .title{
+    color: #fff;
+}
+
+.facts__counts{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin: 7rem 0;
+}
+
+.facts__subtitle{
+    color: #fff;
+}
+
+.item__icon{
+    color: #ffbd39;
+    font-size: 3rem;
+}
+
+.item__count{
+    font-size: 4rem;
+    font-weight: 800;
+    color: #fff;
+}
+
   /* blog */
 
 .blog{
     padding: 6rem 0;
+    background-color: #f8f9fa;
   }
 
 .blog h2{
@@ -454,13 +529,62 @@ p.about__small{
 }
 
 .blog__card{
-    border: 1px solid #ccc;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    text-align: left;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.blog__card a{
+    text-decoration: none;
+    color: #2c3d50;
+}
+
+.blog__card a:hover{
+    color: #ffbd39;
 }
 
 .card__details{
     padding: 2rem;
+}
+
+.card__title{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    color: #2c3e50;
+}
+
+.card__text{
+    font-size: 1.4rem;
+
+    overflow: hidden;
+      text-overflow: ellipsis;
+      display: -moz-box;
+      -moz-box-orient: vertical;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      line-clamp: 3;
+      box-orient: vertical;
+}
+
+.card__details > button{
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    margin-top: 2rem;
+    letter-spacing: 0;
+    border: 2px solid #ffbd39;
+    background-color: transparent;
+}
+
+.card__details > button:hover{
+    background-color:#ffbd39;
+    color: #fff;
 }
 
 .card__img{
@@ -471,4 +595,26 @@ p.about__small{
 .card__img img{
     height: 17rem;
     object-fit: cover;
+    transition: 1s;
+}
+
+.card__img img:hover{
+    transform: scale(1.2); 
+}
+
+.card__bottom, .blog__date, .blog__comments{
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-right: 1rem;
+}
+
+.blog__date > p, .blog__comments > p{
+    font-size: 1rem;
+}
+
+/* contacts */
+
+.contacts{
+    padding: 6rem 0;
 }
