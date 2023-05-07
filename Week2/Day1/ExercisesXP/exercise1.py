@@ -67,7 +67,9 @@ else:
 
 
 
-
+get_num = int(input('Write a number between 1 to 100: '))
+if (get_num % 3 == 0) and (get_num % 5 == 0):
+    print ('FizzBuzz')
 
 
 

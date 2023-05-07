@@ -405,7 +405,7 @@
                 <div class="contacts__col-left">
                     <div class="col-left__text">
                         <div class="text__location">
-                            <i class="bi bi-display"></i>
+                            <i class="bi bi-geo-alt"></i>
                             <h4>Location:</h4>
                             <p>Israel, Kiryat Yam, H-arishonim str., 5</p>
                         </div>
@@ -421,23 +421,31 @@
                         </div>
                     </div>
                     <div class="col-left__map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13407.551705727885!2d35.0728375!3d32.848218949999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151db70929803c03%3A0x7ae55a1435cea6ef!2sKiryat%20Yam!5e0!3m2!1sen!2sil!4v1683367123694!5m2!1sen!2sil" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13407.551705727885!2d35.0728375!3d32.848218949999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151db70929803c03%3A0x7ae55a1435cea6ef!2sKiryat%20Yam!5e0!3m2!1sen!2sil!4v1683367123694!5m2!1sen!2sil" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
                 <div class="contacts__col-right">
                     <div class="col-right__form">
-                        <form action="/">
-                            <label for="yourname">Your Name
-                                <input type="text" id="yourname">
-                            </label>
+                        <form action="/" class="form-control">
+                            <div class="form__row">
+                                <div class="form__row-left">
+                                    <label for="yourname">Your Name
+                                        <input type="text" id="yourname">
+                                    </label>
+                                </div>
+                               <div class="form__row-right">
+                                <label for="yourphone">Your Phone
+                                    <input type="tel" id="yourphone">
+                                </label>
+                               </div>
+                                
+                            </div>
                             <label for="youremail">Your email
                                 <input type="email" id="youremail">
                             </label>
-                            <label for="yourphone">Your Phone
-                                <input type="tel" id="yourphone">
-                            </label>
-                            <textarea id="message" rows="4" cols="50">Message</textarea>
-                            <input type="submit" value="Submit">
+                            
+                            <textarea id="message" rows="10">Message</textarea>
+                            <input type="submit" value="Submit" class="btn btn-hire">
                         </form>
                     </div>
                 </div>
