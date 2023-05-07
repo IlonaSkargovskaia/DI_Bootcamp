@@ -29,13 +29,30 @@
 
 #conditionals
 
-bank_amount = 2500
-computer_price = 5000
-phone_price = 2000
+# bank_amount = 2500
+# computer_price = 5000
+# phone_price = 2000
 
-if bank_amount >= computer_price:
-    print('I can buy a computer')
-elif bank_amount >= phone_price:
-    print('I can buy a phone')
-else:
-    print("you don't have enough money")
+# if bank_amount >= computer_price:
+#     print('I can buy a computer')
+# elif bank_amount >= phone_price:
+#     print('I can buy a phone')
+# else:
+#     print("you don't have enough money")
+
+
+# username = input('What is your username? ')
+# password = input('What is your password? ')
+
+# pass_leng = len(password)
+# hid_pas = pass_leng * '*'
+
+# print(f'{username} - your password {hid_pas} is {pass_leng} letters long')
+
+
+#Ternary Operator
+# [если истина] if [выражение] else [если ложь]
+
+# x, y = 25, 50
+# big = x if x < y else y
+# print(big) # output 25
