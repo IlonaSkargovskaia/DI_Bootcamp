@@ -697,3 +697,10 @@ p.about__small{
     justify-content: space-between;
     gap: 1rem;
 }
+
+.form-control .btn{
+    width: auto;
+    margin: 0 auto;
+    border: none;
+    margin-top: 1rem;
+}
