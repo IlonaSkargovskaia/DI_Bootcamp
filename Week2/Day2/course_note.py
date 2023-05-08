@@ -32,18 +32,18 @@
 # sentence.split("*") # --> ["hello", "world", "my", "name", "is", "john"]
 
 
-#loops
-numbers = [1, 2, 3, 4, 5]
-for num in range(1, len(numbers)-1):
-    if numbers[num] % 2 == 0:
-        print('the number is even')
-    else:
-        print('the number is odd')
+# #loops
+# numbers = [1, 2, 3, 4, 5]
+# for num in range(1, len(numbers)-1):
+#     if numbers[num] % 2 == 0:
+#         print('the number is even')
+#     else:
+#         print('the number is odd')
 
 
-# for num in range(6): # 0 - 5
+# # for num in range(6): # 0 - 5
 
-print(list(range(1, 6)))
+# print(list(range(1, 6)))
 
-for num in range(1, 6):
-    print(num)
+# for num in range(1, 6):
+#     print(num)
