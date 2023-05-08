@@ -41,3 +41,23 @@ basket.clear()
 print(basket)
 
 
+# Create a list containing the following sequence 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5 (don’t hard-code the sequence).
+
+import numpy as np
+
+float_numbers = []
+for i in np.arange(1.5, 5.5, 0.5):
+    float_numbers.append(i)
+
+print(float_numbers)
+
+
+ #Use a for loop to print all numbers from 1 to 20, inclusive.
+# Using a for loop, that loops from 1 to 20(inclusive), print out every element which has an even index.
+
+for num in range(1, 21):
+    print(num) # 1,2,3 ..
+
+for even in range(1, 21):
+    if even % 2 == 0:
+        print(even) # 2, 4, 6 ...
