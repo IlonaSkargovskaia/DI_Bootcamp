@@ -61,3 +61,15 @@ for num in range(1, 21):
 for even in range(1, 21):
     if even % 2 == 0:
         print(even) # 2, 4, 6 ...
+
+# Write a while loop that will continuously ask the user for their name, unless the input is equal to your name.
+
+my_name = "Ilona"
+user_answer = ''
+
+while user_answer != my_name:
+    user_answer = input('Write your name: ')
+
+print('You write right name!')
+
+
