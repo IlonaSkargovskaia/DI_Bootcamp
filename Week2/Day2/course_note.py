@@ -1,52 +1,35 @@
-#sequence
+# list : sequence of elements
 
+# create a list 
+# alphabet = ["a", "b", "c"]
 
-# colors = ['blue', 'red', 'pink']
-# my_favorite_color = colors[1]
-# print(my_favorite_color)
+# 1. retrieve elements from a list
+# first_letter = alphabet[0] # "a"
 
-# colors = ['blue', 'red', 'pink', ['a', 'b', 'c']]
-# letters_c = colors[3][2]
-# print(letters_c)
+# 2. add element in the list
 
+# alphabet.insert(2, "w") # ["a", "b", "w", "c"]
+# alphabet.append("hello") # ["a", "b", "w", "c", "hello"]
 
-# dir(list) - все методы в теминале к спискам
+# 3. delete from the list
 
-# colors = ['blue', 'red', 'pink']
-# colors.append('yellow') # add the color to the end
+# alphabet.pop() # ["a", "b", "w", "c"]
+# alphabet.pop(2) # ["a", "b", "c"]
+# alphabet.remove("b") # ["a", "c"]
 
-# colors.insert(1, 'green')
-# print(colors)
+# 4. copy a part of a list or the whole list
 
+# colors = ["blue", "red", "yellow", "pink"]
 
-# sentence = 'Hello world How are you'
-# lst_word = sentence.split(' ') # ['Hello', 'world', 'How', 'are', 'you']
-# print(lst_word)
+# colors[1:3] # 3 is not included ["red", "yellow"]
+# colors[1:] # ["red", "yellow", "pink"]
+# colors[:] # ["blue", "red", "yellow", "pink"]
+# colors[::3]  # ["blue", "pink"]
 
-# colors = ['blue', 'red', 'pink']
+# 5. Transform a string into a list
 
-# # deleting by index:
-# # colors.pop() #delete last element
-# # colors.pop(1) #delete the element at position 1
-
-# #deleting by value
-# colors.remove("red")
-
-# #copy list
-# colors = ['blue', 'red', 'pink']
-# new_list = colors[:]
-
-# colors = ['blue', 'red', 'pink']
-# new_list = colors[::2] #шаг 2 при прохождении всего лист, выбираем каждый второй элемент
-
-
-# list1 = [5, 10, 15, 20, 25, 50, 20]
-# # list1[3] = 200
-
-# # better way
-# find_number = list1.index(20) # 3 position
-# list1[find_number] = 200
-# print(list1)
+# sentence = "hello*world*my*name*is*john" 
+# sentence.split("*") # --> ["hello", "world", "my", "name", "is", "john"]
 
 
 #loops
