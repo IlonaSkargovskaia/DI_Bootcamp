@@ -30,3 +30,5 @@ import random
 new_str = list(user_str)
 random.shuffle(new_str)
 print(''.join(new_str))
+
+
