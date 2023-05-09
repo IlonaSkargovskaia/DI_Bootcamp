@@ -13,8 +13,9 @@ num = get_answer[0]
 new_list = [num]
 
 
-for i in range(1, leng): #[7, 14, 21, 28, 35]
-    new_list.append(new_list[i-1] + num)
+for i in range(leng): #[7, 14, 21, 28, 35]
+    new_list.append(new_list[i] + num)
+    print(new_list[i])
     
 print(new_list)
 

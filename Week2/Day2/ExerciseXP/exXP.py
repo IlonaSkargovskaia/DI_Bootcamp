@@ -90,7 +90,27 @@
 #     print('You chose a new fruit. I hope you enjoy')
 
 
-#8 - didn't done
+
+#8 Pizza
+
+run = True
+toppings = []
+
+while run:
+    user_ans = input('Write your topping (or write "quit" for exit): ')
+    if user_ans == 'quit':
+        run = False
+        break
+    toppings.append(user_ans)
+    print(f'You added {user_ans}')
+
+total = 10
+
+for topping in toppings:
+    total += 2.5
+print(toppings)
+print(f'Your total price with toppings is {total}')
+
 
 
 
@@ -105,10 +125,10 @@
 
 # Store the total cost of all the family’s tickets and print it out
 
-total = 0
-ages = input('Write ages separated by comma: ') 
-convert_ages_num = int(ages.split(',')) #error
-print(ages)
+# total = 0
+# ages = input('Write ages separated by comma: ') 
+# convert_ages_num = int(ages.split(',')) #error
+# print(ages)
 
 
 # A group of teenagers are coming to your movie theater and want to watch a movie that is restricted for people between the ages of 16 and 21.
