@@ -152,7 +152,23 @@ print(f'Your total price is {total}')
 # At the end, print the final list.
 
 
+#??????
 
 
 
-# 10, 11 - havn't time to do these tasks
+# 10
+
+# Use the above list called sandwich_orders.
+# Make an empty list called finished_sandwiches.
+# As each sandwich is made, move it to the list of finished sandwiches.
+# After all the sandwiches have been made, print a message listing each sandwich that was made , such as I made your tuna sandwich.
+
+sandwich_orders = ["Tuna sandwich", "Avocado sandwich", "Egg sandwich", "Sabih sandwich", "Pastrami sandwich"]
+
+finished_sandwiches = []
+
+while len(sandwich_orders) > 0:
+    sandwich = sandwich_orders.pop()
+    finished_sandwiches.append(sandwich)
+
+print(finished_sandwiches)
