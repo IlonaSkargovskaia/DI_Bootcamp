@@ -56,3 +56,24 @@ make_shirt("L", "I love you")
 make_shirt()
 make_shirt("M")
 make_shirt(text = "New", size = "S")
+
+
+#Exercise 6: Magicians
+
+magician_names = ['Harry Houdini', 'David Blaine', 'Criss Angel']
+
+def show_magicians(list):
+    for name in list:
+        print(name)
+
+show_magicians(magician_names)
+
+
+def make_great(list):
+    new_list = []
+    for name in list:
+        new_list.append(name + " the Great")
+    print(new_list)
+    
+make_great(magician_names)
+
