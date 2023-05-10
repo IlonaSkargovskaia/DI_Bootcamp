@@ -8,17 +8,17 @@
 #"dodo" ➞ { "d": [0, 2], "o": [1, 3] }
 
 
-# user_answer = input('Write your word: ')
-# word_dict = {}
+user_answer = input('Write your word: ')
+word_dict = {}
 
-# for position,letter in enumerate(user_answer):
+for position,letter in enumerate(user_answer):
 
-#     if letter in word_dict:
-#         word_dict[letter].append(position)
-#     else:
-#         word_dict[letter] = [position]
+    if letter in word_dict:
+        word_dict[letter].append(position)
+    else:
+        word_dict[letter] = [position]
     
-# print(word_dict)
+print(word_dict)
 
 
 
