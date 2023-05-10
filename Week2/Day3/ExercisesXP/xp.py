@@ -111,4 +111,7 @@ new_brand = dict(brand) #copy of brand
 new_brand.update(more_on_zara)
 print(new_brand)
 
+#14
+print(new_brand["number_stores"])
+
 
