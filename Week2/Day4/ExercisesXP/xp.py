@@ -82,13 +82,22 @@ make_great(magician_names)
 
 #7 Exercise 7 : Temperature Advice
 
-def get_random_temp():
-    temp_num = random.randint(-10,40)
+def get_random_temp(season):
+    #temp_num = random.randint(-10,40)
+    if season == "winter":
+        temp_num = random.randint(-10,5)
+    elif season == "autumn":
+        temp_num = random.randint(0,15)
+    elif season == "summer":
+        temp_num = random.randint(18,35)
+    elif season == "spring":
+        temp_num = random.randint(0,15)
     return temp_num
-get_random_temp()
+get_random_temp("winter")
 
 
-def main():
+def main(user_answer):
+
     random_temp = get_random_temp()
     if 32 < random_temp <= 40:
         print(f"The temperature right now is {random_temp} - it's very hot! Stay at home")
@@ -102,4 +111,6 @@ def main():
         print("Brrr, that’s freezing! Wear some extra layers today")
         
     #print(f"The temperature right now is {random_temp} degrees Celsius")
-main()
+user_season = input('write one of seasons: "winter", "autumn", "summer" or "spring"')
+main(user_season)
+
