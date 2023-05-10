@@ -77,3 +77,29 @@ def make_great(list):
     
 make_great(magician_names)
 
+
+
+
+#7 Exercise 7 : Temperature Advice
+
+def get_random_temp():
+    temp_num = random.randint(-10,40)
+    return temp_num
+get_random_temp()
+
+
+def main():
+    random_temp = get_random_temp()
+    if 32 < random_temp <= 40:
+        print(f"The temperature right now is {random_temp} - it's very hot! Stay at home")
+    elif 24 < random_temp <= 32:
+        print(f"The temperature right now is {random_temp} - nice weather!")
+    elif 16 < random_temp <= 24:
+        print(f"The temperature right now is {random_temp} - Don't forget your jacket!")
+    elif 0 < random_temp <= 16:
+        print(f"The temperature right now is {random_temp} - Quite chilly! Dont forget your coat!")
+    else:
+        print("Brrr, that’s freezing! Wear some extra layers today")
+        
+    #print(f"The temperature right now is {random_temp} degrees Celsius")
+main()
