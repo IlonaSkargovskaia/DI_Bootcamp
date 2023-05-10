@@ -124,7 +124,7 @@ tuple_list = list(enumerate(users))
 disney_users_A = {}
 for key, val in tuple_list:
     disney_users_A.setdefault(val, key)
-print(disney_users_A)
+print(disney_users_A) #{'Mickey': 0, 'Minnie': 1, 'Donald': 2, 'Ariel': 3, 'Pluto': 4}
 
 
 #2
@@ -137,5 +137,27 @@ disney_users_C = sorted(disney_users_A.items())
 print(disney_users_C)
 
 
+#4
+result_disney_A = list(disney_users_A.keys())
+print(result_disney_A)
+
+for item in result_disney_A:
+    if "i" in item:
+        continue
+    else:
+        result_disney_A.remove(item)
+
+print(result_disney_A)
 
 
+res2_A = list(disney_users_A.keys())
+result = []
+#['Mickey', 'Minnie', 'Donald', 'Ariel', 'Pluto']
+for item in res2_A:
+    print(item[0])
+    if item[0] == "M" or item[0] == "P":
+        result.append(item)
+    else:
+        continue
+
+print(result)
