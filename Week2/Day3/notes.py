@@ -27,9 +27,9 @@
 # print(sample_dict['class']['student']['marks']['math'])
 
 
-names = ['Tom', 'Dick', 'Harry']
-ages = [10, 20 ,30]
+# names = ['Tom', 'Dick', 'Harry']
+# ages = [10, 20 ,30]
 
 
-new_list = dict(zip(names, ages))
-print(new_list)
+# new_list = dict(zip(names, ages))
+# print(new_list)
