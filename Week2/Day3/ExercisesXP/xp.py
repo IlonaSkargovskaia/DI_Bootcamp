@@ -18,25 +18,36 @@ family = {
     "morty" : 5,
     "summer" : 8
 }
+
+user_name = input("Write your name: ")
+user_age = int(input("Write your age: "))
+
+family[user_name] = user_age 
+
+#prices
 old_price = 15
 kids_price = 10
 baby_price = 0
 
+#total for family
 total = 0
 
-for age in family.values():
-    # print(price)
+for name, age in family.items():
+    
     if age >= 12:
-        print(f"You are old person and price is {old_price}$")
+        print(f"{name} is old person and price is {old_price}$")
         total += old_price
     elif 3 <= age < 12:
-        print(f"You are child and price is {kids_price}$")
+        print(f"{name} is child and price is {kids_price}$")
         total += kids_price
     else:
-        print(f"You are baby and your price is {baby_price}$")
+        print(f"{name} is baby and price is {baby_price}$")
         total += baby_price
 
-print(f"Your total price for tickets is {total}")
+
+print(f"Total price for tickets is {total}")
+
+
 
 
 
