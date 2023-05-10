@@ -58,23 +58,57 @@ brand = {
     "international_competitors" : ["Gap", "H&M", "Benetton"],
     "number_stores" : 7000,
     "major_color" : {
-        "France" : "blue",
-        "Spain" : "red",
-        "US" : ["pink", "green"]
-    }
+                    "France" : "blue",
+                    "Spain" : "red",
+                    "USA" : ["pink", "green"]
+                    }
 }
 
-#2
+#3
 brand["number_stores"] = 2
 
-#3
+#4
 #delete last element from types and get a string with type of clients
 brand["type_of_clothes"].pop()
 clients_list = brand["type_of_clothes"]
-print(', '.join(clients_list))
+clients_string = ', '.join(clients_list)
+print(f"Zara's clients are {clients_string} ")
+
+#5
+brand["country_creation"] = "Spain"
+
+#6
+if "international_competitors" in brand:
+    brand["international_competitors"].append("Desigual")
+
+#7
+brand.pop("creation_date")
+
+#8
+print(brand["international_competitors"][-1])
+
+#9 - get major-colors in USA
+colors_list = brand["major_color"]["USA"]
+colors_string = ', '.join(colors_list)
+print(colors_string)
+
+#10 - amount keys-values pairs
+amount_pair = len(brand.keys()) #7
+print(amount_pair)
+
+#11
+print(brand.keys())
 
 
+#12
+more_on_zara = {
+    "creation_date" : 1975,
+    "number_stores" : 10000
+}
 
-
+#13 add more_on_zara to brand
+new_brand = dict(brand) #copy of brand
+new_brand.update(more_on_zara)
+print(new_brand)
 
 
