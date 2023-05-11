@@ -48,3 +48,4 @@ loop_over_values(name = "John", age = 12)
 #{'name': 'John', 'age': 12}
 loop_over_values(name = "John", age = 12, day = "Monday")
 #{'name': 'John', 'age': 12, 'day': 'Monday'}
+
