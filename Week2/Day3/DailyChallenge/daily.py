@@ -8,17 +8,17 @@
 #"dodo" ➞ { "d": [0, 2], "o": [1, 3] }
 
 
-user_answer = input('Write your word: ')
-word_dict = {}
+# user_answer = input('Write your word: ')
+# word_dict = {}
 
-for position,letter in enumerate(user_answer):
+# for position,letter in enumerate(user_answer):
 
-    if letter in word_dict:
-        word_dict[letter].append(position)
-    else:
-        word_dict[letter] = [position]
+#     if letter in word_dict:
+#         word_dict[letter].append(position)
+#     else:
+#         word_dict[letter] = [position]
     
-print(word_dict)
+# print(word_dict)
 
 
 
@@ -28,30 +28,32 @@ print(word_dict)
 
 
 items_purchase = {
-    "Water" : "1",
-    "Bread" : "3",
-    "Bananas" : "4",
-    "Pan": "100",
-    "Spoon": "2"
+    "Water" : "$1",
+    "Bread" : "$3",
+    "Bananas" : "$4",
+    "Pan": "$1000",
+    "Spoon": "$2"
 }
 
 wallet = int(input('How much money do you have ($)? '))
 
-#получаю значения из словаря
-get_values = items_purchase.values()
-#перевожу строки в числа и получаю массив значений [1, 3, 4, 100, 2]
-get_values_num = []
-for item in get_values:
-    get_values_num.append(int(item))
+get_pairs = items_purchase.items() #[('Water', '$1'), ('Bread', '$3'), ('Bananas', '$4'), ('Pan', '$100'), ('Spoon', '$2')]
+print(get_pairs)
 
+can_buy = []
 
-#цикл, где в кошельке по очереди будет отниматься стоимость каждого продукта 
-for item in get_values_num:
-    while wallet > 0:
-        
-   
+for key, value in get_pairs:
+    #убираем все что не число
+    value = int(''.join(ch for ch in value if ch.isdigit()))
+    print(value)
 
+    if value <= wallet:
+        can_buy.append(key)
 
+if len(can_buy) == 0:
+    print("Nothing")
 
-print(get_values_num)
+can_buy = sorted(can_buy)
+print(can_buy)
+
 

@@ -108,7 +108,7 @@ def main(user_answer):
     elif 0 < random_temp <= 16:
         print(f"The temperature right now is {random_temp} - Quite chilly! Dont forget your coat!")
     else:
-        print("Brrr, that’s freezing! Wear some extra layers today")
+        print("Brrr, thats freezing! Wear some extra layers today")
         
     #print(f"The temperature right now is {random_temp} degrees Celsius")
 user_season = input('write one of seasons: "winter", "autumn", "summer" or "spring"')
