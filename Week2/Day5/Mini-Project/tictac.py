@@ -56,14 +56,23 @@ def change_players():
             
         #чередую ходы
         turn += 1
+        print(turn)
         turn = turn % 2
+        print(turn)
+
         #чередую игроков
         if pl == "X":
             pl = "O"
         else:
             pl = "X"
-
-                
+          
 change_players()
+
+
+#checking board if empty 
+
+def is_place_empty(row, col):
+    return place[row][col] == " "
+is_place_empty()
 
 
