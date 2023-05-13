@@ -1,5 +1,11 @@
 #create_board
 
+# Instructions
+# The game is played on a grid that’s 3 squares by 3 squares.
+# Players take turns putting their marks (O or X) in empty squares.
+# The first player to get 3 of their marks in a row (up, down, across, or diagonally) is the winner.
+# When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.
+
 def init_board():
     #массив с пустыми ячейками
     board = [[' ', ' ', ' '],
@@ -33,7 +39,6 @@ def update_board(row, col, player):
 def is_place_empty(row, col):
     return board[row][col] == " "
 
-
 #проверка победителя
 def check_winner(player):
     #horizontal
@@ -51,6 +56,16 @@ def check_winner(player):
     if(board[0][2] == player and board[1][1] == player and board[2][0] == player):
         return True
     
+#ничья
+def check_dead_heat():
+    for row in range(len(board)):
+        for col in range(len(board)):
+            if is_place_empty(row, col):
+                return False
+    return True
+
+
+
 #structure game
 turn = 0
 game_over = False
@@ -82,6 +97,11 @@ while not game_over:
     if check_winner(player):
         game_over = True
         print(f"Player '{player}' is winner! Congratulations")
+
+#check dead_heat
+    if check_dead_heat():
+        game_over = True
+        print("Nobody won. you have a draw")
 
 #which player turn
     turn += 1
