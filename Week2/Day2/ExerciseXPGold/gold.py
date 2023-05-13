@@ -16,4 +16,12 @@ def ex_2():
         if i % 5 == 0 and i % 7 == 0:
             print(i)
 
-ex_2()
+
+
+#ex3
+
+names = ['Samus', 'Cortana', 'V', 'Link', 'Mario', 'Cortana', 'Samus']
+
+user_answer = input("Write your name: ")
+if user_answer in names:
+    print(names.index(user_answer))
