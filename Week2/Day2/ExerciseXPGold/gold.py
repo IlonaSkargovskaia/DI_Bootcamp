@@ -25,3 +25,20 @@ names = ['Samus', 'Cortana', 'V', 'Link', 'Mario', 'Cortana', 'Samus']
 user_answer = input("Write your name: ")
 if user_answer in names:
     print(names.index(user_answer))
+
+
+#ex4
+
+num1 = int(input("Write 1 number: "))
+num2 = int(input("Write 2 number: "))
+num3 = int(input("Write 3 number: "))
+
+max_num = max(num1, num2, num3)
+print(max_num)
+
+
+#ex5
+alpha = "abcdefghijklmnopqrstuvwxyz"
+for letter in alpha:
+    print(letter)
+
