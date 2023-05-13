@@ -59,3 +59,28 @@ loop_over_values(name = "John", age = 12)
 loop_over_values(name = "John", age = 12, day = "Monday")
 #{'name': 'John', 'age': 12, 'day': 'Monday'}
 
+
+
+
+#Fibonacci sequence
+
+num_terms = int(input("How many terms do you want?"))
+
+n1, n2 = 0, 1
+count = 0
+
+if num_terms <= 0:
+    print("Please, enter another integer >= 0")
+elif num_terms == 1:
+    print(f"Fibonacci sequence upto {n1} terms")
+#generate fibonacci
+else:
+    print("Fibonacci sequence: ")
+    while count < num_terms:
+        print(n1)
+        sum1 = n1 + n2
+        #update values
+        n1 = n2
+        n2 = sum1
+        count += 1
+

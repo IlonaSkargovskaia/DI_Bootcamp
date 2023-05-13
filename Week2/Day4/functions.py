@@ -196,4 +196,15 @@ def super_vowels(string) :
 my_sentence = super_vowels('aoftrpsdga')
 print(my_sentence)
 
+#find sum square elem
+
+def square_sum(numbers):
+    for i in numbers:
+        print(sum(i**2))
+
+square_sum([1, 2])
+
+
+
+
 
