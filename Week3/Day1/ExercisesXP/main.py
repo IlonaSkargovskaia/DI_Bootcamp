@@ -24,4 +24,29 @@ oldest_cat_id = oldest() #1
 print(f"The oldest {cats[oldest_cat_id].name} and is {cats[oldest_cat_id].age} years old")
 
 
+#2
+class Dog:
+    def __init__(self, name_dog, height_dog):
+        self.name = name_dog
+        self.height = height_dog
 
+    def bark(self):
+        print (f"{self.name} goes woof!")
+
+    def jump(self):
+        print(f"{self.name} jumps {self.height * 2}")
+
+davids_dog = Dog("Rex", 50)
+davids_dog.bark()
+davids_dog.jump()
+print(f"David's dog name is {davids_dog.name} and he is {davids_dog.height}cm")
+
+sarahs_dog = Dog("Teacup", 20)
+sarahs_dog.bark()
+sarahs_dog.jump()
+print(f"David's dog name is {sarahs_dog.name} and he is {sarahs_dog.height}cm")
+
+if davids_dog.height > sarahs_dog.height:
+    print(f"Davids dog {davids_dog.name} is bigger")
+else:
+    print(f"Sarahs dog {sarahs_dog.name} is bigger")
