@@ -8,6 +8,6 @@ print(result_str)
 
 #2 List Comprehension
 start_str = "without,hello,bag,world"
-res_str = ', '.join(item for item in sorted(start_str.split(',')))
+res_str = ', '.join([item for item in sorted(start_str.split(','))])
 print(res_str)
     

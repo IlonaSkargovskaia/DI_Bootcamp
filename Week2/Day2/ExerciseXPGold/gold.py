@@ -44,12 +44,23 @@
 
 
 #ex6
-users_words = list(input("Write 7 words separate by comma: ").split(','))
-let = input("Write 1 letter: ")
+# users_words = list(input("Write 7 words separate by comma: ").split(','))
+# let = input("Write 1 letter: ")
 
-for item in users_words:
-    if let in item:
-        print(users_words.index(item))
-    else:
-        print("This letter is not in any word ")
+# for item in users_words:
+#     if let in item:
+#         print(users_words.index(item))
+#     else:
+#         print("This letter is not in any word ")
+
+#ex7
+# create_list = []
+# for num in range(1, 1000001):
+#     create_list.append(num)
+
+# min_num = min(create_list)
+# max_num = max(create_list)
+
+# sum_el = sum(create_list)
+# print(sum_el)
 
