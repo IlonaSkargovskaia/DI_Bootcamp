@@ -18,12 +18,16 @@ def cr_matrix():
 cr_matrix()
 
 
-def sent():
-    lst = cr_matrix()
-    new_sent = ""
-    for col in lst:
-        for ch in col:
-            if ch.isalpha():
-                new_sent += ch
-    print(new_sent)
-sent()
+def create_sentence() :
+    lst = cr_matrix() 
+    sentence = ""
+    for column in lst : 
+        for char in column:
+            if char.isalpha() :
+                sentence += char
+            else :
+                sentence += " "
+
+    print(sentence)
+
+create_sentence()
