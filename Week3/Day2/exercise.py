@@ -62,111 +62,37 @@ dev1.coding_with_partner(dev2)
 
 
 
+#module
+# from name_file import methods
+# from random import choice
+import random
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# class Developer(Employee):
-
-#     def __init__(self, firstname, lastname, age, job = "developer", salary = 15000):
-#         super().__init__(firstname, lastname, age, job, salary)
-#         self.coding_skills = []
+def game():
+    lst_names = ["John", "Lea", "Emma", "Josh", "Eli"]
+    lst_lastnames = ["Cohen", "Smith", "Doe", "Sevi", "Swatz"]
+    lst_jobs = ["developer", "dancer", "cowboy", "tennis player", "doctor"]
+    all_employees = []
     
-#     def add_skills(self, *skills): #args
-#         for skill in skills:
-#             self.all_skills.append(skill)
-#         # self.all_skills.extend(skills)
-#         print(self.coding_skills)
+    for i in range(10):
+        random_name = random.choice(lst_names)
+        random_lastname = random.choice(lst_lastnames)
+        random_job = random.choice(lst_jobs)
+        random_age = random.randint(18, 65)
+        random_salary = random.randint(10000, 40000)
 
-#     def coding(self):
-#         all_skills = ", ".join(self.coding_skills)
-#         sentence = f"{self.firstname} knows: {all_skills}"
-#         print(sentence)
-        
-# developer1 = Developer("Tom", "Cruiz", 34)
-# developer1.add_skills("Python", "JS")
-
-
-# class Person():
-
-#     def can_walk(self):
-#         print("я могу ходить")
-
-#     def can_breathe(self):
-#         print("могу дышать")
-
-# class Doctor(Person):
-
-#     def can_cure(self):
-#         print("я могу лечить")
-
-
-# doc = Doctor()
-# #наследую от родителя методы и атрибуты
-# doc.can_walk() 
-# doc.can_breathe()
-# #метод ребенка
-# doc.can_cure()
-
-#является ли Doctor подклассом Person и получу true или false
-#print(issubclass(Doctor, Person))
-
-#к какому классу принадлежит объект: принадлежит ли doc классу doctor?
-#print(isinstance(doc, Doctor)) #true
-#print(isinstance(doc, Person)) #true
-
-#посмотреть какие есть методы у ребенка
-#print(dir(Doctor))
-
-
-
-
-
-
-
-
-# #module
-# # from name_file import methods
-# # from random import choice
-# import random
-
-# def game():
-#     lst_names = ["John", "Lea", "Emma", "Josh", "Eli"]
-#     lst_lastnames = ["Cohen", "Smith", "Doe", "Sevi", "Swatz"]
-#     lst_jobs = ["developer", "dancer", "cowboy", "tennis player", "doctor"]
-#     all_employees = []
+#создаем новых 10 случайных эмплои
+        new_employee = Employee(random_name, random_lastname, random_age, random_job, random_salary)
+        print(new_employee.__dict__)
+        all_employees.append(new_employee)
+        print(all_employees) #list with 10 objects
+        print(all_employees[0].get_fullname())
     
-#     for i in range(10):
-#         random_name = random.choice(lst_names)
-#         random_lastname = random.choice(lst_lastnames)
-#         random_job = random.choice(lst_jobs)
-#         random_age = random.randint(18, 65)
-#         random_salary = random.randint(10000, 40000)
+    # print(random.choice(lst_names))
+    # print(random.choice(lst_lastnames))
+    # print(random.choice(lst_jobs))
+    # print(random.randint(18, 65))
+    # print(random.randint(10000, 40000))
 
-# #создаем новых 10 случайных эмплои
-#         new_employee = Employee(random_name, random_lastname, random_age, random_job, random_salary)
-#         print(new_employee.__dict__)
-#         all_employees.append(new_employee)
-#         print(all_employees) #list with 10 objects
-#         print(all_employees[0].get_fullname())
-    
-#     # print(random.choice(lst_names))
-#     # print(random.choice(lst_lastnames))
-#     # print(random.choice(lst_jobs))
-#     # print(random.randint(18, 65))
-#     # print(random.randint(10000, 40000))
-
-# game()
+game()
 
 
