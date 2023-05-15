@@ -44,17 +44,22 @@ class Developer(Employee):
         return self.codding_skills
     
     def coding(self):
-        all_skills = self.add_skills()
-        sentence = ', '.join(self.codding_skills)
-        print(f"{self.firstname} knows {sentence} languages")
+        all_skills = ', '.join(self.codding_skills)
+        sentence = f"{self.firstname} knows {all_skills} languages"
+        return sentence
+
+    def coding_with_partner(self, other_developer):
+        print(f"{self.coding()} - {other_developer.coding()}")
 
 dev1 = Developer("Tom", "Cruiz", 30)
 print(f"{dev1.firstname} {dev1.lastname} {dev1.age} years old")
 dev2 = Developer("Angelina", "Jolie", 23)
 print(f"{dev2.firstname} {dev2.lastname} {dev2.age} years old")
+dev1.add_skills("Dev", "Javascript", "Python")
+dev2.add_skills("PHP", "Ruby")
+dev1.coding_with_partner(dev2)
 
-print(dev1.add_skills("Dev", "Javascript", "Python"))
-print(dev1.coding())
+
 
 
 
