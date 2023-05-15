@@ -115,13 +115,17 @@ class Zoo:
             self.animals.remove(animal_sold)
 
     def sort_animals(self):
+
         self.animals.sort()
         print(self.animals) #['Baboon', 'Bear', 'Cat', 'Dinasour', 'Elefant', 'Emu']
         
         self.groups = {}
-        first_letters = {item[0] for item in self.animals} 
+        first_letters = {item[0] for item in self.animals} #set
+        print(first_letters)
+        
         for key, value in enumerate(first_letters):
-            self.groups[key + 1] = [item for item in self.animals if item[0] == value]
+            self.groups[key + 1\] = [item for item in self.animals if item[0] == value]
+        
         
     def get_groups(self):
         print(self.groups)

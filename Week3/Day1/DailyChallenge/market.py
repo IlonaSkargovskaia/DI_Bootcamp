@@ -55,15 +55,22 @@ class Farm:
         print(f"\n\tE-I-E-I-0!")
 
     def get_animal_types(self):
-        self.sort_list = sorted(self.animals.keys())
-        print(self.sort_list)
-        return self.sort_list
+        sort_list = list(self.animals.keys())
+        print(sorted(sort_list)) #['cow', 'goat', 'sheep']
+        return sorted(sort_list)
 
     def get_short_info(self):
         #call function get_animal
-        self.get_animal_types()
-        animals_str = ', '.join(self.sort_list)
-        print(f"{self.name} has {animals_str}")
+        all_keys_animals = self.get_animal_types()
+
+        for animal, amount in self.animals.items():
+            if amount > 1:
+                position_animal = all_keys_animals.index(animal)
+                all_keys_animals[position_animal] += "s"
+        
+        print(all_keys_animals)
+        join_str = ', '.join(all_keys_animals[:-1])
+        print(f"{self.name} has {join_str} and {all_keys_animals[-1]}")
         
 
 macdonald = Farm("McDonald's farm")
@@ -71,7 +78,7 @@ macdonald.add_animal('cow', 5)
 macdonald.add_animal('sheep')
 macdonald.add_animal('sheep')
 macdonald.add_animal('goat', 12)
-print(macdonald.get_info())
+macdonald.get_info()
 
 # macdonald.get_animal_types()
 macdonald.get_short_info()

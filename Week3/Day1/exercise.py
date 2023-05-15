@@ -64,6 +64,16 @@ def game():
     # print(random.randint(18, 65))
     # print(random.randint(10000, 40000))
 
-
-
 game()
+
+
+class PlayerCharacter:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    
+    def run(self):
+        return self
+    
+player1 = PlayerCharacter("andrei", 100)
+print(player1.run())
