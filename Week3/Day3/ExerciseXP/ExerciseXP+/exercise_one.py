@@ -119,6 +119,43 @@ ex_7()
 # Neptune: orbital period 164.79132 Earth years
 # So if you are told someone is 1,000,000,000 seconds old, the function should output that they are 31.69 Earth-years old.
 
-def ex_8():
+def ex_8(sec):
+    our_planet = round(sec / 31557600, 2)
+    print(our_planet)
+
+    how_old = {
+        "our_planet" : our_planet,
+        "merkuriy" : our_planet * 0.2408467,
+        "venera" : our_planet * 0.61519726,
+        "mars" : our_planet * 1.8808158,
+        "yupiter" : our_planet * 11.862615,
+        "saturn" : our_planet * 29.447498,
+        "uran" : our_planet *  84.016846,
+        "neptun" : our_planet * 164.79132
+    }
+    result = str(how_old)
+    print(result)
+
+ex_8(1000000000)
 
 
+#Exercise 9 : Faker Module
+# Instructions
+# Install the faker module, and take a look at the documentation and learn how to properly implement faker in your code.
+# Create an empty list called users. Tip: It should be a list of dictionaries.
+# Create a function that adds new dictionaries to the users list. Each user has the following keys: name, adress, langage_code. Use faker to populate them with fake data.
+
+from faker import Faker
+fake = Faker()
+
+users = []
+
+def new_user():
+    new_user = {
+        'name': fake.name(),
+        'address': fake.address(),
+        'language_code': fake.language_code()
+    }
+
+    print(new_user)
+new_user()
