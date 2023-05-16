@@ -61,7 +61,7 @@ class Dog:
     #represent the object to the developer only
     #work with shell
     def __repr__(self):
-        sentence = f"Dog - {self.name} {self.color} {self.breed}"
+        sentence = f"Dog( - {self.name} {self.color} {self.breed})"
         return sentence
     
     def __gt__(self, other_dog):
@@ -80,6 +80,7 @@ class Dog:
 john_dog = Dog('rex', 'brown', 'chihuahua', 3)
 sara_dog = Dog('lola', 'white', 'malin', 5)
 #print(john_dog) - str method
+# print(repr(john_dog)) - represent method
 
 print(john_dog > sara_dog) #which one is older
 
@@ -99,3 +100,16 @@ print(puppy) #str_metod
 # x = 4
 # y = 5
 # x + y = x.__add__(y) - dunder methods
+
+
+class PrintList(object):
+
+    def __init__(self, my_list):
+        self.mylist = my_list
+
+    def __repr__(self):
+        return str(self.mylist)
+
+
+printlist = PrintList(["a", "b", "c"])
+print(printlist.__repr__()) #['a', 'b', 'c']
