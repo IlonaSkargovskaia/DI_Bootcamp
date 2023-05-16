@@ -27,7 +27,7 @@ class Circle:
     def from_diameter(cls, diameter):
         
         return cls(diameter = diameter, radius = diameter/2)
- #area   
+#area   
     def get_area(self) -> float:
         return 3.14 * self.radius ** 2
     
