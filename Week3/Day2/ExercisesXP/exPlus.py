@@ -32,7 +32,7 @@ class Family:
                     return False
                 
     def family_presentation(self):
-        print(f"Family {self.lastname} consists of:")
+        print(f"Family '{self.lastname}' consists of:")
         for item in self.members:
             print(item['name']) #key from every dict
         
@@ -82,6 +82,7 @@ class TheIncredibles(Family):
                         {'name':'Michael','age':35,'gender':'Male','is_child':False,'power': 'fly','incredible_name':'MikeFly'},
                         {'name':'Sarah','age':32,'gender':'Female','is_child':False,'power': 'read minds','incredible_name':'SuperWoman'}
                     ]
+        self.lastname = last_name
     
     def use_power(self, name):
         for member in self.members:
@@ -91,6 +92,13 @@ class TheIncredibles(Family):
                 else:
                     print(f"{member['name']} under 18 years old")
 
+    def incredible_presentation(self):
+        super().family_presentation()
+        for member in self.members:
+            print(f"{member['name']} : {member['power']}")
+
+
 
 inc = TheIncredibles("Savin")
 inc.use_power("Sarah")
+inc.incredible_presentation()
