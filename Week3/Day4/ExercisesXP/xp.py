@@ -42,11 +42,32 @@ def get_random_sentence(length):
     sentence = []
     words_for_sentence = get_words_from_file("Week3/Day4/ExercisesXP/words.txt")
     for word in range(length):
-        sentence.append(random.choice(words_for_sentence))
+        sentence.append(random.choice(words_for_sentence).lower())
     print(' '.join(sentence))
 
 get_random_sentence(5)
 
+
+def main():
+    print("My program asking user to input sentence length and give him sentence with random words of that length")
+    
+    user_length = input("How long do you want to be the sentence? Write the number (2 - 20): ")
+
+    try:
+        if user_length != int:
+            raise TypeError("you give me a wrong datatype")
+    
+    except TypeError as error:
+        print("TYPE ERROR")
+        print(error)
+    
+    except ValueError as error:
+        print("Write please numbers between 2- 20")
+        print(error)
+
+    get_random_sentence(user_length)
+
+main()
 
     
 
