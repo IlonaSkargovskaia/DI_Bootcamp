@@ -41,3 +41,39 @@ class Student_TLV(Student):
 studTlv = Student_TLV.create_high_school_student(16)
 print(studTlv)
 print(studTlv.city)
+
+
+
+
+#декораторы класса
+
+class User:
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+
+    def get_info(self):
+        print(f"{self.name} - {self.email}")
+
+    @classmethod
+    #передали лист в качестве данных принимаемых классом
+    def get_info_class(cls, data):
+        name, email = data
+        return cls(name, email)
+    
+    @staticmethod
+    #не видит класс, и мы не можем обратиться напрямую к self
+    #нужно передать объект к которому применится этот метод
+    def get_info_static(self):
+        print(f"{self.name} - {self.email}")
+
+
+user_list = ["Admin2", "test@test.com"]
+#присваиваем объекту список через метод @classmethod
+user = User.get_info_class(user_list)
+#вызываем функцию принт для объекта user
+user.get_info() #Admin2 - test@test.com
+#передаем объект в статикметод чтобы он сработал
+user.get_info_static(user) #Admin2 - test@test.com
+
+
