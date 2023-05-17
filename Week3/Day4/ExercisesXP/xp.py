@@ -23,7 +23,7 @@
 # Ask the user how long they want the sentence to be. Acceptable values are: an integer between 2 and 20. Validate your data and test your validation!
 # If the user inputs incorrect data, print an error message and end the program.
 # If the user inputs correct data, run your code.
-
+import random
 
 def get_words_from_file(file):
 
@@ -32,7 +32,23 @@ def get_words_from_file(file):
         words_collection = []
         for word in file.readlines():
             words_collection.append(word.strip())
-        print(words_collection)
+        #print(words_collection)
+        return words_collection
 
 
 get_words_from_file("Week3/Day4/ExercisesXP/words.txt")
+
+def get_random_sentence(length):
+    sentence = []
+    words_for_sentence = get_words_from_file("Week3/Day4/ExercisesXP/words.txt")
+    for word in range(length):
+        sentence.append(random.choice(words_for_sentence))
+    print(' '.join(sentence))
+
+get_random_sentence(5)
+
+
+    
+
+
+
