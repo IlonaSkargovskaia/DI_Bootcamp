@@ -1,5 +1,6 @@
 #I'm soorry, but I haven't time today to do this task, give me please more time
 import collections
+import string
 
 class Text:
 
@@ -23,10 +24,19 @@ class Text:
             print(text_from_file)
             return text_from_file
 
+
+# class TextModification(Text):
+
+#     def del_punct(self):
         
+#         for punc in string.punctuation:
+#             if punc in self.str:
+#                 print(punc)
+
 
 
 text = Text("A good book would good good sometimes cost as much as a good house")
 text.amount_word("good")
 
 text_file = Text.text_from_file("Week3/Day4/DailyChallenge/the_stranger.txt")
+
