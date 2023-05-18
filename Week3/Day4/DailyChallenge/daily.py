@@ -3,8 +3,6 @@ import collections
 
 class Text:
 
-    my_string = "A good book would sometimes cost as much as a good house."
-
     def __init__(self, string):
         self.str = string
 
@@ -17,8 +15,18 @@ class Text:
         #{'good': 2, 'as': 2, 'A': 1, 'book': 1, 'would': 1, 'sometimes': 1, 'cost': 1, 'much': 1, 'a': 1, 'house': 1}
         most_common = counter.most_common()[0] #first max occurance
         print(most_common)
+
+    @classmethod
+    def text_from_file(cls, file):
+        with open(file, 'r') as file:
+            text_from_file = file.read()
+            print(text_from_file)
+            return text_from_file
+
         
 
 
 text = Text("A good book would good good sometimes cost as much as a good house")
 text.amount_word("good")
+
+text_file = Text.text_from_file("Week3/Day4/DailyChallenge/the_stranger.txt")
