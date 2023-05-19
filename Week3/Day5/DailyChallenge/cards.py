@@ -37,39 +37,60 @@
 
 import random
 
+#create one card
 class Card:
 
-    def __init__(self, suit, val):
-        self.suit = suit
-        self.value = val
+    def __init__(self, suite, value):
+        self.suite = suite
+        self.value = value
 
     def show(self):
-        print(f"{self.value} of {self.suit}")
+        print(f"{self.value} of {self.suite}")
+
+suites = ["Hearts", "Diamonds", "Clubs", "Spades"]
+values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+
 
 class Deck:
     def __init__(self):
         self.cards = []
-        self.build()
+        self.create_deck()
 
-    def build(self):
-        for s in ["Hearts", "Diamonds", "Clubs", "Spades"]:
-            for v in range(1, 14):
+    #adding one card from Card class to list self.cards through the loop
+    def create_deck(self):
+        for s in suites:
+            for v in values:
                 self.cards.append(Card(s, v))
 
     def show(self):
-        for c in self.cards:
-            c.show()
+        for card in self.cards:
+            card.show()
 
     def shuffle(self):
         if len(self.cards) == 52:
             random.shuffle(self.cards)
         # print(self.cards)
 
+    def deal(self):
+        rand_choice = random.choice(self.cards)
+        self.cards.remove(rand_choice)
+        print("Card removed from deck")
+        return rand_choice
 
-card = Card("Card", 6)
-card.show()
+#one card from deck
+one_card = Card("Card", 10)
+one_card.show()
 
 deck = Deck()
+#see deck before shuffle
 deck.show()
+print("Stop ordered deck")
+
 deck.shuffle()
+#see on the deck after shuffle
+deck.show()
+
+#delete random card
+deck.deal()
+#see on the deck in the final
 deck.show()
