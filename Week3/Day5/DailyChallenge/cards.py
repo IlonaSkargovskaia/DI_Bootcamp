@@ -34,33 +34,42 @@
 # should have a shuffle method which makes sure the deck of cards has all 52 cards and then rearranges them randomly.
 # should have a method called deal which deals a single card from the deck. After a card is dealt, it should be removed from the deck.
 
+
 import random
 
 class Card:
-    # suit (Hearts, Diamonds, Clubs, Spades) 
-    # value (A,2,3,4,5,6,7,8,9,10,J,Q,K)
-    def __init__(self, suit, value):
-        self.suit = suit
-        self.value = value
 
-card_suits = ['hearts', 'diamonds', 'clubs', 'spades']
-card_values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+    def __init__(self, suit, val):
+        self.suit = suit
+        self.value = val
+
+    def show(self):
+        print(f"{self.value} of {self.suit}")
 
 class Deck:
     def __init__(self):
-        self.cards_deck = []
+        self.cards = []
+        self.build()
+
+    def build(self):
+        for s in ["Hearts", "Diamonds", "Clubs", "Spades"]:
+            for v in range(1, 14):
+                self.cards.append(Card(s, v))
+
+    def show(self):
+        for c in self.cards:
+            c.show()
 
     def shuffle(self):
-        if len(self.cards_deck) == 52:
-            random.shuffle(self.cards_deck)
-        print(self.cards_deck)
+        if len(self.cards) == 52:
+            random.shuffle(self.cards)
+        # print(self.cards)
 
-#obj in class Deck
+
+card = Card("Card", 6)
+card.show()
+
 deck = Deck()
-
-for suit in card_suits:
-    for value in card_values:
-        a = Card(suit, value)
-        deck.cards_deck.append(a)
-
+deck.show()
 deck.shuffle()
+deck.show()
