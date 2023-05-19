@@ -6,25 +6,21 @@ class AnagramChecker:
 
     def __init__(self):
         file = open("Week3/Day5/ExerciseXP/MiniProject2/sowpods.txt", "r")
-        #want to create a list from given words file
+        #create a list from given words file
         self.words_list = []
         for word in file.readlines():
+            #deleted spaces and \n from every line in file and append to list
             self.words_list.append(word.strip())
-        print(self.words_list)
 
     def is_valid_word(self, word):
         self.word = word.upper()
         #if letter in given word is in eng alphabet - then true, else - False
         for letter in self.word:
-            if letter.isalpha():
-                True
-            else:
-                False
+            if letter.isalpha(): True
+            else: False
         #check if word in file
-        if self.word in self.words_list:
-            True
-        else:
-            False
+        if self.word in self.words_list: True
+        else: False
 
 
     def get_anagrams(self):
@@ -37,10 +33,10 @@ class AnagramChecker:
                 self.anagram.append(word)
         #delete word which find from list
         self.anagram.remove(self.word)
-        print(self.anagram)
+        return self.anagram
 
 
 
-word = AnagramChecker()
-word.is_valid_word(input("Write any word: "))
-word.get_anagrams()
+# word = AnagramChecker()
+# word.is_valid_word(input("Write any word: "))
+# word.get_anagrams()
