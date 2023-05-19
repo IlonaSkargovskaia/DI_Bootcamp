@@ -35,5 +35,27 @@ print("It is the order in which a method is searched for in a classes hierarchy"
 # should have a shuffle method which makes sure the deck of cards has all 52 cards and then rearranges them randomly.
 # should have a method called deal which deals a single card from the deck. After a card is dealt, it should be removed from the deck.
 
+import random
+
+class Card:
+
+    def __init__(self, suit, value):
+        self.suit = suit
+        self.value = value
+
+class Deck:
+
+    def __init__(self):
+        self.card_deck = []
+
+    def suffle(self):
+        if len(self.card_deck) == 52:
+            random.shuffle(self.card_deck)
+
+        print(self.card_deck)   
+
+card_suit = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
+card_value = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+
 
 
