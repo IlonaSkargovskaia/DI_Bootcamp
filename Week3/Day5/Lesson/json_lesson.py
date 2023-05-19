@@ -60,6 +60,7 @@
 # import requests
 # parameters = {"limit" : 2}
 # response = requests.get("https://pokeapi.co/api/v2/pokemon", params=parameters)
+
 # #convert to python dict
 # info = response.json()
 # print(info["results"])
