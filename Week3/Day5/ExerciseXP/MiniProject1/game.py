@@ -38,10 +38,7 @@ class Game:
         return self.computer_item
     
     def get_game_result(self):
-        self.user_item = self.set_user_item()
-        self.computer_item = self.get_computer_item()
-        #Your answer is rock
-        #Computer answer is paper
+        
         if self.user_item == self.computer_item:
             print("It is draw")
         elif self.user_item == "rock":
@@ -61,12 +58,13 @@ class Game:
                 print("Computer wins!")
         
 
-
-           
-       
+    def play(self):
+        self.user_item = self.set_user_item()
+        self.computer_item = self.get_computer_item()
+        self.results = self.get_game_result()          
            
 
 play = Game()
 #play.set_user_item()
 #play.get_computer_item()
-play.get_game_result()
+play.play()
