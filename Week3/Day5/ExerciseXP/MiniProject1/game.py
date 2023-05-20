@@ -24,11 +24,13 @@ class Game:
          # "rock", "paper", "scissors" - "камень" / "бумага" / "ножницы"
          # бумага наркывает камень, ножницы режут бумагу, камень тупит ножницы
         self.choice = ["rock", "paper", "scissors"]
+        
+        
 
     def set_user_item(self):
         self.user_item  = None
         while  self.user_item not in self.choice:
-            self.user_item= input("write your choice: 'rock', 'paper', 'scissors'? ")
+            self.user_item= input("write your choice: 'rock', 'paper', 'scissors'? ").lower()
         print(f"Your answer is {self.user_item}")
         return self.user_item
     
@@ -37,34 +39,43 @@ class Game:
         print(f"Computer answer is {self.computer_item}")
         return self.computer_item
     
+
     def get_game_result(self):
         
         if self.user_item == self.computer_item:
             print("It is draw")
+            return "draw"
         elif self.user_item == "rock":
             if self.computer_item == "scissors":
                 print("You win!!!")
+                return "win"
             else:
                 print("Computer wins!")
+                return "lose"
         elif self.user_item == "paper":
             if self.computer_item == "rock":
                 print("You win!!!")
+                return "win"
             else:
                 print("Computer wins!")
+                return "lose"
         elif self.user_item == "scissors":
             if self.computer_item == "paper":
                 print("You win!!!")
+                return "win"
             else:
                 print("Computer wins!")
+                return "lose"
         
 
     def play(self):
         self.user_item = self.set_user_item()
         self.computer_item = self.get_computer_item()
-        self.results = self.get_game_result()          
+        
+        return self.get_game_result()         
            
 
-play = Game()
+#play = Game()
 #play.set_user_item()
 #play.get_computer_item()
-play.play()
+#play.play()

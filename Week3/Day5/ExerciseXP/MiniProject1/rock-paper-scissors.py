@@ -1,20 +1,37 @@
-#What You Will Create
-# Mini-Project: Rock, Paper, Scissors
-# Rock-paper-scissors is an old game that can be played between two people. You can read about it in wikipedia
+import game as game
 
-# We will create a game for the user to play Rock-paper-scissors against the computer.
-
-# The user will input his/her move (rock/paper/scissors),
-# and the computer will select either rock, paper or scissors at random.
-# We will then compare the user’s move with the computer’s move, and determine the results of the game:
-
-# The user won
-
-# The computer won (the user lost)
-# A draw (tie)
-# We will print the outcome of each game: the user’s choice, the computer’s choice, and the result.
-
-# The user will be able to play again and again. Once the user decides to exit the program, we will print a summary of the outcomes of all the games: how many times they won, lost or and tied the computer.
+def get_user_menu_choice():
+    print("\nMenu:\nPlay a new game - (p)\nShow scores - (s)\nQuit - (q)")
+    return input("Choose one option: ")
 
 
+def print_results(results):
+    print(f"\nWins: {results['win']}\nLosses: {results['lose']}\nDraws: {results['draw']}\n")
+
+results = {'win': 0, 'lose': 0, 'draw': 0}
+
+
+def main():
+    answer = False
+    while not answer:
+        user_choice = get_user_menu_choice().lower()
+        if user_choice in "psq":
+            answer = True
+        else:
+            answer = False
+        
+        if user_choice == 'p':
+            print("Game start")
+            start_game = game.Game()
+            results[start_game.play()] += 1
+            print_results(results)
+            main()
+        elif user_choice == 's':
+            print_results(results)
+            main()
+        elif user_choice == 'q':
+            pass
+
+#get_user_menu_choice()
+main()
 
