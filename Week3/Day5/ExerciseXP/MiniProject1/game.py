@@ -20,20 +20,48 @@ import random
 
 class Game:
 
+    def __init__(self):
+         # "rock", "paper", "scissors" - "камень" / "бумага" / "ножницы"
+         # бумага наркывает камень, ножницы режут бумагу, камень тупит ножницы
+        self.choice = ["rock", "paper", "scissors"]
 
     def set_user_item(self):
-        self.user_choice = ["rock", "paper", "scissors"]
-        self.user_answer  = None
-        while  self.user_answer not in self.user_choice:
-            self.user_answer = input("write your choice: 'rock', 'paper', 'scissors'? ")
-        
-        print(f"Your answer is {self.user_answer}")
-        return self.user_answer
+        self.user_item  = None
+        while  self.user_item not in self.choice:
+            self.user_item= input("write your choice: 'rock', 'paper', 'scissors'? ")
+        print(f"Your answer is {self.user_item}")
+        return self.user_item
     
     def get_computer_item(self):
-        self.comp_choice = ["rock", "paper", "scissors"]
-        print(random.choice(self.comp_choice))
-        return random.choice(self.comp_choice)
+        self.computer_item = random.choice(self.choice)
+        print(f"Computer answer is {self.computer_item}")
+        return self.computer_item
+    
+    def get_game_result(self):
+        self.user_item = self.set_user_item()
+        self.computer_item = self.get_computer_item()
+        #Your answer is rock
+        #Computer answer is paper
+        if self.user_item == self.computer_item:
+            print("It is draw")
+        elif self.user_item == "rock":
+            if self.computer_item == "scissors":
+                print("You win!!!")
+            else:
+                print("Computer wins!")
+        elif self.user_item == "paper":
+            if self.computer_item == "rock":
+                print("You win!!!")
+            else:
+                print("Computer wins!")
+        elif self.user_item == "scissors":
+            if self.computer_item == "paper":
+                print("You win!!!")
+            else:
+                print("Computer wins!")
+        
+
+
            
        
            
@@ -41,3 +69,4 @@ class Game:
 play = Game()
 #play.set_user_item()
 #play.get_computer_item()
+play.get_game_result()
