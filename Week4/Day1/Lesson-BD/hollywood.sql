@@ -155,6 +155,11 @@ WHERE actor_id = 9
 RETURNING *
 
 
+-- выбрать первых четырех и отсортировать в алфав.порядке по фамилии
+-- SELECT last_name, first_name, birth_date FROM students
+-- ORDER BY first_name ASC LIMIT 4 
+
+
 
 
 
