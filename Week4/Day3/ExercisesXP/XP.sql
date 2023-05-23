@@ -81,6 +81,88 @@
 
 
 
+-- PART 2
+-- UPDATE film
+-- SET language_id = 2
+-- WHERE title = 'Ace Goldfinger'
+
+-- keys
+-- SELECT * FROM information_schema.table_constraints WHERE table_name = 'customer';
+-- as I see right - address_id is a foreign key for table address
+-- when we insert to customer table we need to use address_id as unique
+
+
+--3
+-- DROP TABLE customer_review
+-- this was easy step, because customer_review is a children from film
+
+
+--4
+-- SELECT COUNT(*) FROM rental
+-- WHERE return_date IS null
+
+--5
+-- SELECT film_id, title, rental_rate FROM film
+-- WHERE film_id IN (
+-- 	SELECT film_id FROM inventory
+-- 	WHERE inventory_id IN (
+-- 		SELECT inventory_id FROM rental
+-- 		WHERE return_date IS null)
+-- 	)
+-- ORDER BY rental_rate DESC LIMIT 30
+
+
+--6 (we'll get film_id = 659)
+-- SELECT * 
+-- FROM film
+-- INNER JOIN film_actor
+-- ON film.film_id = film_actor.film_id
+-- INNER JOIN actor
+-- ON film_actor.actor_id = actor.actor_id
+-- WHERE description ILIKE '%sumo%' AND first_name = 'Penelope' AND last_name = 'Monroe'
+
+
+-- 6/2
+-- SELECT * 
+-- FROM film
+-- INNER JOIN film_category 
+-- ON film.film_id = film_category.film_id
+-- INNER JOIN category 
+-- ON film_category.category_id = category.category_id
+-- WHERE length < 60 AND rating = 'R' AND category.name = 'Documentary'
+
+
+
+-- 6/3
+-- SELECT title 
+-- FROM film
+-- INNER JOIN inventory 
+-- ON film.film_id = inventory.film_id
+-- INNER JOIN rental 
+-- ON inventory.inventory_id = rental.inventory_id
+-- INNER JOIN customer 
+-- ON rental.customer_id = customer.customer_id
+-- WHERE first_name = 'Matthew' AND last_name ='Mahan' 
+-- AND rental_rate > 4 AND return_date BETWEEN '2005-07-28' AND '2005-08-01'
+
+
+
+-- 6/4
+
+SELECT * 
+FROM film
+INNER JOIN inventory
+ON film.film_id = inventory.film_id
+INNER JOIN rental 
+ON inventory.inventory_id = rental.inventory_id
+INNER JOIN customer 
+ON rental.customer_id = customer.customer_id
+WHERE first_name = 'Matthew' AND last_name ='Mahan' 
+AND (title ILIKE '%boat%' OR description ILIKE '%boat%')
+ORDER BY replacement_cost DESC LIMIT 1
+
+-- film_id = 848
+
 
 
 
