@@ -1,99 +1,71 @@
--- Delete
+-- CREATE TABLE movie (
+--     movie_id SERIAL PRIMARY KEY, 
+--     movie_title VARCHAR (50) NOT NULL, 
+--     movie_story TEXT, 
+--     actor_playing_id INTEGER REFERENCES actor (actor_id)
+-- )
 
--- - удаляет данные и не сбрасывает идентификатор таблицы.
--- - работает со словом FROM
--- - работает медленно, тк записывает и хранит все в памяти
+-- SELECT * FROM movie
+-- SELECT * FROM actor
+-- INSERT INTO movie (movie_title, movie_story,actor_playing_id) 
+-- VALUES('Gravity','Gravity is a 2013 science fiction thriller',
+--       (SELECT actor_id FROM actor 
+-- 	   WHERE first_name='Georges' AND last_name='Cloney'));
 
--- Delete FROM Developers_Institute
+-- INSERT INTO movie (movie_title, movie_story,actor_playing_id)
+-- VALUES('Oceans Eleven',
+--        'Danny Ocean, wants to pull off the crime of the century, by ripping off three Casinos at the same time,',
+--        (SELECT actor_id FROM actor 
+-- 		WHERE first_name='Georges' AND last_name='Cloney'));
 
+-- INSERT INTO movie (movie_title, movie_story)
+-- VALUES('HarryPotter',
+--        'Bla Bla');
 
-
--- Truncate
-
--- - сбрасывает идентификатор конкретной таблицы.
--- - со словом TABLE
--- - ничего не хранит в памяти - работает быстро
-
--- Truncate TABLE Developers_Institute
-
-
--- Арифметические операции
-
--- прибавить к каждой оценке студента 100
--- SELECT id, name, marks, marks + 100
---    AS "marks+50" FROM students;
-
-
--- сложение двух столбцов
--- SELECT id, name, marks, marks + id
---    AS "marks+id" FROM students;
-
-
--- - прибавить 10 к тем студентам чьи оценки больше 50
--- SELECT id, name, marks, marks +10
---    AS "cond_marks+10" FROM students where marks>50;
-
--- точно также можно умножать делить и вычитать
+-- INSERT INTO movie (movie_title, movie_story, actor_playing_id)
+-- VALUES('Beauty and the Beast',
+--        'Bla Bla',
+--       (SELECT actor_id FROM actor 
+-- 	   WHERE first_name='Maty' AND last_name='Damon'));
 
 
-
-
--- Agregate functions
--- вид функции, которая работает с несколькими строками запроса одновременно, возвращая один результат.
-
--- avg(expression) - среднее значение expression всех строк в группе.
--- count(expression) -  количество  для каждой группы строк, где expression не NULL
--- max(expression) -  максимальное значение expression в сгруппированных строках
--- min(expression) -  минимальное значение expression в сгруппированных строках
--- sum(expression) -  сумму значений expression в сгруппированных строках
-
-
--- AS
--- Псевдонимы SQL используются для присвоения таблице или столбцу в таблице временного имени .
--- Псевдонимы часто используются, чтобы сделать имена столбцов более читабельными.
-
--- Синтаксис столбца псевдонима
--- SELECT column_name AS alias_name
--- FROM table_name;
-
--- Синтаксис таблицы псевдонимов
--- SELECT column_name(s)
--- FROM table_name AS alias_name;
-
--- получить first_name и age с псевдонимами
--- SELECT first_name AS name_actor, age AS birth_date FROM actors;
-
-
--- DISTINCT - ВЫБРАТЬ строки с уникальными значениями (first_name, мы получим «Matt» один раз, даже если их несколько «Matt» в таблице.)
--- SELECT DISTINCT first_name FROM actors;
-
-
--- IN (NOT IN) - проверяем есть ли значение в списке значений
--- value IN (value1,value2,...)
-
--- Получите актеров, которых зовут Мэтт, Леа или Дэвис
--- SELECT * FROM actors WHERE first_name in ('Matt','Lea','Davis');
+-- FIND ALL THE MOVIES WHERE CLOONEY PLAYS
+-- SELECT first_name, last_name, movie_title
+-- FROM actor
+-- INNER JOIN movie ON actor.actor_id = movie.actor_playing_id
+-- WHERE last_name = 'Cloney'
 
 
 
--- BETWEEN
--- Получить актеров, дата рождения которых находится между двумя датами
--- SELECT * FROM actors WHERE age between '1961-01-01' and '1962-01-01';
+-- find the lastname and the movie title
+-- movie title must contain the word "beauty"
+
+-- SELECT actor.last_name, movie.movie_title
+-- FROM actor
+-- INNER JOIN movie ON actor.actor_id = movie.actor_playing_id
+-- WHERE movie_title ILIKE '%beauty%'
 
 
--- GROUP BY
--- связывания строк по критериям.
 
--- SELECT 
---    column_1, 
---    column_2,
---    aggregate_function(column_3)
--- FROM 
---    table_name
--- GROUP BY 
---    column_1,
---    column_2;
+-- ПОКАЗАТЬ ВСЕ ПЕРЕСЕКАЮЩИЕСЯ СТРОКИ INNER JOIN
+-- SELECT last_name, movie_title
+-- FROM actor
+-- INNER JOIN movie ON actor_id = actor_playing_id
 
--- SELECT first_name, last_name, sum(number_oscars) FROM actors GROUP BY first_name, last_name;
+
+-- show everything from actor and only what is common from movie LEFT
+-- SELECT first_name, last_name, movie_title
+-- FROM actor
+-- LEFT JOIN movie ON actor_id = actor_playing_id
+
+
+
+-- show everything from movie and only what is common from actor RIGHT
+-- SELECT first_name, last_name, movie_title
+-- FROM actor
+-- RIGHT JOIN movie ON actor_id = actor_playing_id
+
+
+
 
 
