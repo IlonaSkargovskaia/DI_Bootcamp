@@ -11,11 +11,11 @@
 -- 	last_name VARCHAR(50) NOT NULL
 -- )
 
-CREATE TABLE customer_profile(
-	id SERIAL PRIMARY KEY,
-	isLoggedIN BOOLEAN DEFAULT FALSE,
-	customer_id INTEGER UNIQUE REFERENCES customer(id)
-)
+-- CREATE TABLE customer_profile(
+-- 	id SERIAL PRIMARY KEY,
+-- 	isLoggedIN BOOLEAN DEFAULT FALSE,
+-- 	customer_id INTEGER UNIQUE REFERENCES customer(id)
+-- )
 
 -- INSERT INTO customer(first_name, last_name)
 -- VALUES
