@@ -1,5 +1,4 @@
 from menu_item import *
-import psycopg2
 
 connection = psycopg2.connect(
     database="XPday4", 
@@ -32,10 +31,8 @@ class MenuManager:
         return result
 
 
-item2 = MenuManager.get_by_name('Burger')
-print(item2)
-item = MenuManager.get_all()
-print(item)
+# item2 = MenuManager.get_by_name('Burger')
+# print(item2)
+# item = MenuManager.get_all()
+# print(item)
 
-cursor.close()
-connection.close()

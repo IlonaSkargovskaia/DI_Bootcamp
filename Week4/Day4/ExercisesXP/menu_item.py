@@ -49,8 +49,8 @@ if __name__ == '__main__':
  # item.delete()
  # item.update('Vegan Burger', 45)
 
-cursor.close()
-connection.close()
+# cursor.close()
+# connection.close()
 
 
 
