@@ -12,11 +12,11 @@ connection = psycopg2.connect(
 
 cursor = connection.cursor()
 
-cursor.execute("CREATE TABLE countries (id SERIAL PRIMARY KEY, name VARCHAR(100) NOT NULL, capital VARCHAR(100) NOT NULL, flag_code VARCHAR(50) NOT NULL, subregion VARCHAR(200) NOT NULL, population BIGINT)")
+# cursor.execute("CREATE TABLE countries (id SERIAL PRIMARY KEY, name VARCHAR(100) NOT NULL, capital VARCHAR(100) NOT NULL, flag_code VARCHAR(50) NOT NULL, subregion VARCHAR(200) NOT NULL, population BIGINT)")
 
-connection.commit()
+# connection.commit()
 
-cursor.execute("DROP TABLE IF EXISTS countries")
+#cursor.execute("DROP TABLE IF EXISTS countries")
 
 for i in range(10):
     countries_api = requests.get('https://restcountries.com/v3.1/all')
@@ -38,4 +38,5 @@ for i in range(10):
 print('done')
 
 
-
+cursor.close()
+connection.close()
