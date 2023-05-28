@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile user</title>
+</head>
+<body>
+    {% if gendre == 'M'%}
+        Hello mr. {{name}}
+    {% else %}
+        Hello mrs. {{name}}
+    {% endif %}
+    
+    <p>Your age is {{ age }}</p>
+
+    <p>Your hobbies is:</p>
+    <ul>
+        {% for hobby in hobbies_list %}
+        <li>{{ hobby }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
