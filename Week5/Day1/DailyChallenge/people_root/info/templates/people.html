@@ -9,7 +9,7 @@
 <body>
     <p>Sorted list by age:</p>
     {% for pers in people%}
-    <p><a href="people/{{pers.id}}">{{ pers.name }}</a>, {{pers.age}}, {{pers.country}}</p>
+    <p><a href="people/{{pers.id}}">{{ pers.name|title }}</a>, {{pers.age}}, {{pers.country | upper}}</p>
     {% endfor %}
     
 </body>
