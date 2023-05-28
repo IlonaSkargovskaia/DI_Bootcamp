@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>People</title>
+    <title>Person</title>
 </head>
 <body>
-    <p>Sorted list by age:</p>
-    {% for pers in people%}
-    <p><a href="people/{{pers.id}}">{{ pers.name }}</a>, {{pers.age}}, {{pers.country}}</p>
+    {% for person in people %}
+        {% if person.id == id %}
+            <p>Person: {{ person.name }}, {{ person.age }}, {{ person.country }}</p>
+        {% endif %}
     {% endfor %}
-    
 </body>
 </html>

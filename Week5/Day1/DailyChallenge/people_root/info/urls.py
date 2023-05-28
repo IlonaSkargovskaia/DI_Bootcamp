@@ -3,5 +3,6 @@ from . import views
 
 # one urlpattern per line
 urlpatterns = [
-    path('', views.people)
+    path('people', views.people),
+    path('people/<int:id>', views.person)
 ]
