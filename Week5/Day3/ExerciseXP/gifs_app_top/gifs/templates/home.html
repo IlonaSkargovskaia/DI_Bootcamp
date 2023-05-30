@@ -1,0 +1,11 @@
+<!-- наследуем от шаблона layout -->
+{% extends 'layout.html'%}
+
+<!-- внутрь блока title из layout помещаю код -->
+{% block title %}{{title}}{% endblock %}
+
+<!-- внутрь блока content из layout помещаю код -->
+{% block content %}
+    Homepage here will be gifs
+    {{gifs.title}}
+{% endblock %}
