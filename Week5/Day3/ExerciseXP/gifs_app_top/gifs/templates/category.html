@@ -1,4 +1,4 @@
-<!-- наследуем от шаблона layout -->
+
 {% extends 'layout.html'%}
 
 <!-- внутрь блока title из layout помещаю код -->
@@ -6,14 +6,14 @@
 
 <!-- внутрь блока content из layout помещаю код -->
 {% block content %}
+<div style="text-align: center;">
+    <h3>All gifs from: "{{ category.category_name }}" </h3>
     
-    <div style="text-align: center;">
-        <h3>Gifs website</h3>
-    {% for gif in gifs %}
+    {% for gif in category.gifs.all %}
         <div style="display: inline-block;">
-            <img src="{{ gif.url }}" style="height: 150px; margin: 0 10px;">
-            <p>{{gif.title}}</p>
+                <img src="{{ gif.url }}" style="height: 150px; margin: 0 10px;">
+                <p>{{gif.title}}</p>
         </div>
     {% endfor %}
-    </div>
+</div>    
 {% endblock %}

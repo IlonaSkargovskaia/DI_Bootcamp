@@ -1,0 +1,18 @@
+{% extends 'layout.html'%}
+
+<!-- внутрь блока title из layout помещаю код -->
+{% block title %}{{title}}{% endblock %}
+
+<!-- внутрь блока content из layout помещаю код -->
+{% block content %}
+<div style="text-align: left;">
+    <h3>Info about gif: "{{ gif_id.title }}" </h3>
+    
+    
+    <img src="{{gif_id.url}}" alt="">
+    <p>Name: {{ gif_id.title }}</p>
+    <p>Uploader: {{ gif_id.uploader_name }}</p>
+    <p>Date: {{ gif_id.created_at }}</p>
+    
+</div>    
+{% endblock %}

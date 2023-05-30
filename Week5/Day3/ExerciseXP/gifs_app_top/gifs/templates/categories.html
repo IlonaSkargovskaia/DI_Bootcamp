@@ -1,4 +1,3 @@
-<!-- наследуем от шаблона layout -->
 {% extends 'layout.html'%}
 
 <!-- внутрь блока title из layout помещаю код -->
@@ -8,12 +7,9 @@
 {% block content %}
     
     <div style="text-align: center;">
-        <h3>Gifs website</h3>
-    {% for gif in gifs %}
-        <div style="display: inline-block;">
-            <img src="{{ gif.url }}" style="height: 150px; margin: 0 10px;">
-            <p>{{gif.title}}</p>
-        </div>
+        <h3>{{title}}</h3>
+    {% for cat in categories %}
+            <p><a href="{% url 'category' cat.id%}">{{cat}}</a></p>
     {% endfor %}
     </div>
 {% endblock %}
