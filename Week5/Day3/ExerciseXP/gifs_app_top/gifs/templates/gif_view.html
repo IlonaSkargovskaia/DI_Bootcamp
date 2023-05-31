@@ -13,6 +13,9 @@
     <p>Name: {{ gif_id.title }}</p>
     <p>Uploader: {{ gif_id.uploader_name }}</p>
     <p>Date: {{ gif_id.created_at }}</p>
-    
+
+    {%for category in categories%}
+    {{category}}
+    {%endfor%}
 </div>    
 {% endblock %}
