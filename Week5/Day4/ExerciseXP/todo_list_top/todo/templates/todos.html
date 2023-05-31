@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All todos</title>
+    <title>{{title}}</title>
 </head>
 <body>
-    All todos
+    <h3>{{title}}</h3>
+    {% for task in todos %}
+        <p>Task: {{task.title}} </p>
+        <p>Details: {{task.details}} </p>
+        <p>Date creation: {{task.date_creation}} </p>
+        <p>Deadline: {{task.deadline_date}} </p>
+        <p>Category: {{task.category}} </p>
+
+        <button type="submit">Done</button>
+    {% endfor %}
+    
+    <p><a href="../add-task/">Add new task</a></p>
 </body>
 </html>

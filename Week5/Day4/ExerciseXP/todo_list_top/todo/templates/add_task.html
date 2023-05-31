@@ -11,7 +11,9 @@
     <form method="POST">
         {% csrf_token %}
         {{form.as_p}}
-        <button type="button"> Submit </button>
+        <button type="submit"> Submit </button>
     </form>
+    <br>
+    <a href="../all-todos/">See all the tasks</a>
 </body>
 </html>

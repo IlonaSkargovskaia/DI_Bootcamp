@@ -14,8 +14,8 @@ class Todo(models.Model):
     details = models.TextField()
     has_been_done = models.BooleanField(default=False)
     date_creation = models.DateField(auto_now_add=True)
-    date_completion = models.DateField(blank=True)
-    deadline_date = models.DateField()
+    date_completion = models.DateField(blank=True, null=True)
+    deadline_date = models.DateField(blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
