@@ -8,4 +8,5 @@ urlpatterns = [
     path('gif_view/<int:gif_id>/', views.gif_view, name='gif_view'),
     path('categories/', views.categories, name='categories'),
     path('add-gifs/', views.add_gif, name='add_gif'),
+    path('add-category/', views.add_category, name='add_category'),
 ]

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Gif, Category
-from .forms import GifForm
+from .forms import *
 
 
 def add_gif(request):
@@ -15,6 +15,19 @@ def add_gif(request):
     context = {'form' : add_form}
 
     return render(request, 'add_gifs.html', context)
+
+def add_category(request):
+
+    if request.method == 'POST':
+            data = request.POST
+            filled_form = CategoryForm(data)
+            # сохраняем в БД
+            filled_form.save()
+
+    add_category = CategoryForm()
+    context = {'form' : add_category}
+
+    return render(request, 'add_category.html', context)
 
 def homepage(request):
 
