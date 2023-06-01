@@ -11,7 +11,7 @@
     <form method="POST">
         <!--  защита -->
         {%csrf_token%}
-        {{form}}
+        <input type="text" name="search" placeholder="search...">
         <button type="submit"> search </button>
     </form>
 </body>

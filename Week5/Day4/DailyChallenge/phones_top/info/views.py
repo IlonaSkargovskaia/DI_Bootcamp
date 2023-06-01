@@ -1,14 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Person
 from .forms import PhoneForm
 
 def search_phone(request):
-
+    
     if request.method == 'POST':
-        
-        phone_form = PhoneForm(request.POST)
-        if phone_form.is_valid()
-#спросить у Юры как сделать redirect а вернее проверить на условие валидации...не догоняю эту тему
+        query = request.POST['search']
+
+        if PhoneForm({'number' : query}).is_valid():
+            return redirect('phone', number = query)
+        else:
+            return redirect('name', input_name = query)
+
     return render(request, 'search-phone.html')
     
 
