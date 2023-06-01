@@ -1,0 +1,19 @@
+<!-- наследуем от шаблона layout -->
+{% extends 'layout.html'%}
+
+<!-- внутрь блока title из layout помещаю код -->
+{% block title %}{{title}}{% endblock %}
+
+<!-- внутрь блока content из layout помещаю код -->
+{% block content %}
+    
+    <div style="text-align: center;">
+        <h3>Gifs website</h3>
+    {% for gif in gifs %}
+        <div style="display: inline-block;">
+            <img src="{{ gif.url }}" style="height: 150px; margin: 0 10px;">
+            <p>{{gif.title}}</p>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

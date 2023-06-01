@@ -1,0 +1,15 @@
+{% extends 'layout.html'%}
+
+<!-- внутрь блока title из layout помещаю код -->
+{% block title %}{{title}}{% endblock %}
+
+<!-- внутрь блока content из layout помещаю код -->
+{% block content %}
+    
+    <div style="text-align: center;">
+        <h3>{{title}}</h3>
+    {% for cat in categories %}
+            <p><a href="{% url 'category' cat.id%}">{{cat}}</a></p>
+    {% endfor %}
+    </div>
+{% endblock %}

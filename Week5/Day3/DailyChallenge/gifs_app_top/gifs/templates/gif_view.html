@@ -1,0 +1,22 @@
+{% extends 'layout.html'%}
+
+<!-- внутрь блока title из layout помещаю код -->
+{% block title %}{{title}}{% endblock %}
+
+<!-- внутрь блока content из layout помещаю код -->
+{% block content %}
+<div style="text-align: left;">
+    
+    <img src="{{gif.url}}" alt="">
+    <p>Name: {{ gif.title }}</p>
+    <p>Uploader: {{ gif.uploader_name }}</p>
+    <p>Date: {{ gif.created_at }}</p>
+
+    <p>Likes: {{ gif.likes }}</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" style = 'background-color: green' name="like">Like</button>
+        <button type="submit" style = 'background-color: red' name="dislike">Dislike</button>
+    </form>
+</div>    
+{% endblock %}
