@@ -7,7 +7,7 @@ from django.utils.text import gettext_lazy as _
 class Customer(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    email = models.EmailField(default = 'test@gmail.com')
+    email = models.EmailField(default = 'test@gmail.com', unique=True)
     phone_number = PhoneNumberField(region='IL')
     address = models.CharField(max_length=150)
     city = models.CharField(max_length=50)
@@ -26,7 +26,7 @@ class Vehicle(models.Model):
     size = models.ForeignKey('VehicleSize', on_delete = models.CASCADE)
 
     def __str__(self):
-        return self.vehicle_type
+        return f'{str(self.vehicle_type)} | {str(self.size)} '
 
 #тип транспорта
 class VehicleType(models.Model):

@@ -32,3 +32,28 @@ def add_customer(request):
     context = {'page_title' : 'Add new customer', 'form' : customer_form}
 
     return render(request, 'add_customer.html', context)
+
+def all_vehicles(request):
+
+    vehicles = Vehicle.objects.all().order_by('vehicle_type')
+
+    context = {
+        'page_title' : "All vehicles",
+        'vehicles' : vehicles
+    }
+
+    return render(request, 'vehicles.html', context)
+
+
+def add_vehicle(request):
+    if request.method == 'POST':
+        data = request.POST
+        filled_form = VehicleForm(data)
+        if filled_form.is_valid():
+            filled_form.save()
+
+    #GET
+    vehicle_form = VehicleForm()
+    context = {'page_title' : 'Add new vehicle', 'form' : vehicle_form}
+
+    return render(request, 'add_vehicle.html', context)

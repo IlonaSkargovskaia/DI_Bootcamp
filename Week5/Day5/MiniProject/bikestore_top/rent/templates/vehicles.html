@@ -1,0 +1,17 @@
+{% extends 'layout.html'%}
+
+<!-- внутрь блока title из layout помещаю код -->
+{% block title %}Vehicles{% endblock %}
+
+<!-- внутрь блока content из layout помещаю код -->
+{% block content %}
+    <h1>{{page_title}}</h1>
+    
+    {% for veh in vehicles %}
+        <p><b>{{veh.vehicle_type}}</b></p>
+        <p>{{veh.size}}</p>
+        <p>{{veh.real_cost}}</p>
+        <p>{{veh.date_created}}</p>
+        <br>
+    {% endfor %}
+{% endblock %}
