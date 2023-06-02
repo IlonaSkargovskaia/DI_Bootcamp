@@ -5,13 +5,13 @@ from django.utils.text import gettext_lazy as _
 
 # Прокат велосипедов и скутеров - Bike And Scooter Rental
 class Customer(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     email = models.EmailField(default = 'test@gmail.com')
     phone_number = PhoneNumberField(region='IL')
     address = models.CharField(max_length=150)
-    city = models.CharField(max_length=30)
-    country = models.CharField(max_length=30)
+    city = models.CharField(max_length=50)
+    country = models.CharField(max_length=50)
 
 #Vehicle - транспортное средство
 class Vehicle(models.Model):
