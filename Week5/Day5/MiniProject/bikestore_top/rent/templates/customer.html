@@ -1,0 +1,10 @@
+{% extends 'layout.html'%}
+
+<!-- внутрь блока title из layout помещаю код -->
+{% block title %}Customer by ID{% endblock %}
+
+<!-- внутрь блока content из layout помещаю код -->
+{% block content %}
+    <h1>{{page_title}}</h1>
+    <p>{{customer.first_name}} {{customer.last_name}}</p>
+{% endblock %}
