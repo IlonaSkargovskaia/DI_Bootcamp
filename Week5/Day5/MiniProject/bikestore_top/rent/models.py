@@ -45,11 +45,12 @@ class VehicleSize(models.Model):
 #rental - аренда
 class Rental(models.Model):
     rental_date = models.DateTimeField()
-    return_date = models.DateTimeField(null=True)
+    return_date = models.DateTimeField(null=True, blank=True)
     customer = models.ForeignKey('Customer', on_delete=models.CASCADE)
     vehicle = models.ForeignKey('Vehicle', on_delete = models.CASCADE)
 
-    
+    def __str__(self):
+        return f'{str(self.customer)} | {str(self.vehicle)} '
 
 #арендная плата
 class RentalRate(models.Model):

@@ -1,6 +1,22 @@
 from django.shortcuts import render
 from .models import *
 from .forms import *
+import datetime
+
+def home(request):
+    context = {
+        'page_title': "Bike & Scooter Rental | Homepage",
+    }
+    return render(request, 'index.html', context)
+
+
+def all_rentals(request):
+    context = {
+        'page_title' : "All rentals",
+        'rental' : Rental.objects.all().order_by('-return_date')
+    }
+
+    return render(request, 'rental.html', context)
 
 
 def all_customers(request):
@@ -57,3 +73,6 @@ def add_vehicle(request):
     context = {'page_title' : 'Add new vehicle', 'form' : vehicle_form}
 
     return render(request, 'add_vehicle.html', context)
+
+
+
