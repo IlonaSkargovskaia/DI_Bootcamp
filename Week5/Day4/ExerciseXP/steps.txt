@@ -1,0 +1,10 @@
+- create project, app, include app in settings
+- connect to DB
+- create models
+- forms.py for todo and category
+- views for adding todo
+- templates
+- urls
+
+- create view for all tasks
+- create DoneForm with instance (ModelChoiceField)
