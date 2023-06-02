@@ -13,6 +13,9 @@ class Customer(models.Model):
     city = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.first_name
+
 #Vehicle - транспортное средство
 class Vehicle(models.Model):
     vehicle_type = models.ForeignKey('VehicleType', on_delete = models.CASCADE)
@@ -22,27 +25,41 @@ class Vehicle(models.Model):
 
     size = models.ForeignKey('VehicleSize', on_delete = models.CASCADE)
 
+    def __str__(self):
+        return self.vehicle_type
+
 #тип транспорта
 class VehicleType(models.Model):
     name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 #размер
 class VehicleSize(models.Model):
     name = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
+
 #rental - аренда
 class Rental(models.Model):
     rental_date = models.DateTimeField()
-    return_date = models.DateTimeField()
+    return_date = models.DateTimeField(null=True)
     customer = models.ForeignKey('Customer', on_delete=models.CASCADE)
     vehicle = models.ForeignKey('Vehicle', on_delete = models.CASCADE)
+
+    
 
 #арендная плата
 class RentalRate(models.Model):
     #суточная арендная ставка
-    daily_rate = models.FloatField()
+    daily_rate = models.FloatField(null=True, blank=True)
     vehicle_type = models.ForeignKey('VehicleType', on_delete=models.CASCADE)
     vehicle_size = models.ForeignKey('VehicleSize', on_delete = models.CASCADE)
+
+    def __str__(self):
+        return f'{self.vehicle_type} | {self.vehicle_size}'
 
 #место хранения транспорта откуда можно арендовать
 #capacity - вместимость
@@ -50,6 +67,9 @@ class RentalStation(models.Model):
     name = models.CharField(max_length=100)
     capacity = models.IntegerField()
     address = models.ForeignKey('Address', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 
 
 class Address(models.Model):
@@ -61,3 +81,6 @@ class Address(models.Model):
         max_length=6,
         validators=[RegexValidator('^[0-9]{6}$', _('Invalid postal code'))],
     )
+
+    def __str__(self):
+        return self.address, self.address2
