@@ -59,9 +59,11 @@ def all_customers(request):
 
 def customer(request, pk):
     customer = Customer.objects.get(id = pk)
+    rentals = Rental.objects.filter(customer=customer)
     context = {
         'page_title' : f'Customer №{customer.id}',
-        'customer' : customer
+        'customer' : customer,
+        'rentals' : rentals
     }
 
     return render(request, 'customer.html', context)

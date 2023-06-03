@@ -9,4 +9,9 @@
     <p>Name: {{customer.first_name}} {{customer.last_name}}</p>
     <p>Contacts: {{customer.email}} | {{customer.phone_number}}</p>
     <p>Address: {{customer.address}}, {{customer.city}}, {{customer.country}}</p>
+    <hr>
+    <b>Orders from this customer:</b>
+    {% for rental in rentals %}
+        <a href="{% url 'rental' rental.id %}"> #{{rental.id}} - {{ rental.vehicle.vehicle_type }}</a>
+    {% endfor %}
 {% endblock %}
