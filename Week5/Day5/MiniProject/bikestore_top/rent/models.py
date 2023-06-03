@@ -46,8 +46,8 @@ class VehicleSize(models.Model):
 class Rental(models.Model):
     rental_date = models.DateTimeField()
     return_date = models.DateTimeField(null=True, blank=True)
-    customer = models.ForeignKey('Customer', on_delete=models.CASCADE)
-    vehicle = models.ForeignKey('Vehicle', on_delete = models.CASCADE)
+    customer = models.ForeignKey('Customer', on_delete=models.CASCADE, related_name='customer')
+    vehicle = models.ForeignKey('Vehicle', on_delete = models.CASCADE, related_name='vehicle')
 
     def __str__(self):
         return f'{str(self.customer)} | {str(self.vehicle)} '
@@ -56,8 +56,8 @@ class Rental(models.Model):
 class RentalRate(models.Model):
     #суточная арендная ставка
     daily_rate = models.FloatField(null=True, blank=True)
-    vehicle_type = models.ForeignKey('VehicleType', on_delete=models.CASCADE)
-    vehicle_size = models.ForeignKey('VehicleSize', on_delete = models.CASCADE)
+    vehicle_type = models.ForeignKey('VehicleType', on_delete=models.CASCADE, related_name='vehicle_type')
+    vehicle_size = models.ForeignKey('VehicleSize', on_delete = models.CASCADE, related_name='vehicle_size')
 
     def __str__(self):
         return f'{self.vehicle_type} | {self.vehicle_size}'

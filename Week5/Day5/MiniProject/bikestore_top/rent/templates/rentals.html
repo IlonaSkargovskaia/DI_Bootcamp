@@ -9,7 +9,14 @@
     {% for rent in rental %}
         <p>Customer: <a href="{% url 'rental' rent.id%}">{{rent.customer}} </a> </p>
         <p>Vehicle: {{rent.vehicle}}</p>
-        <p><b>Rental date:</b> {{rent.rental_date}}</p>  <p><b>Return date: {{rent.return_date}}</b></p>
+        <p><b>Rental date:</b> {{rent.rental_date}}</p> 
+       
+
+        {% if rent.return_date != None %}
+            <p><b>Return date: {{rent.return_date}}</b></p>
+        {% else %}
+            <p style="color: red"><b>Not yet returned</b></p>
+        {% endif %}
     <hr>
     {% endfor %}
 {% endblock %}

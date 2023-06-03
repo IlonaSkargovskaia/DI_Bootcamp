@@ -17,8 +17,8 @@
             <a href="{% url 'rental' rental.id %}"> #{{rental.id}} - {{ rental.vehicle.vehicle_type }}</a>
         {% endfor %}
     {% else %}
-        <b>Not yet returned</b>
         {% for rental in rentals %}
+            <b>Not yet returned: </b>
             <p><a href="{% url 'rental' rental.id %}"> #{{rental.id}} - {{ rental.vehicle.vehicle_type }}</a></p>
         {% endfor %}
     {% endif %}
