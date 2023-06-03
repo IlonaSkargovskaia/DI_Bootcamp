@@ -10,8 +10,18 @@
     <p>Contacts: {{customer.email}} | {{customer.phone_number}}</p>
     <p>Address: {{customer.address}}, {{customer.city}}, {{customer.country}}</p>
     <hr>
-    <b>Orders from this customer:</b>
-    {% for rental in rentals %}
-        <a href="{% url 'rental' rental.id %}"> #{{rental.id}} - {{ rental.vehicle.vehicle_type }}</a>
-    {% endfor %}
+
+    {% if rental.return_date != None%}
+        <b>Orders from this customer:</b>
+        {% for rental in rentals %}
+            <a href="{% url 'rental' rental.id %}"> #{{rental.id}} - {{ rental.vehicle.vehicle_type }}</a>
+        {% endfor %}
+    {% else %}
+        <b>Not yet returned</b>
+        {% for rental in rentals %}
+            <p><a href="{% url 'rental' rental.id %}"> #{{rental.id}} - {{ rental.vehicle.vehicle_type }}</a></p>
+        {% endfor %}
+    {% endif %}
+
+    
 {% endblock %}
