@@ -16,7 +16,38 @@ def all_rentals(request):
         'rental' : Rental.objects.all().order_by('-return_date')
     }
 
+    return render(request, 'rentals.html', context)
+
+
+
+def rental(request, pk):
+
+    given_rental = Rental.objects.get(id=pk)
+
+    if request.method == "POST":
+        given_rental.return_date = datetime.datetime.now()
+        given_rental.save()
+
+    context = {
+        'page_title': f'Rental N{given_rental.id}',
+        'rental': given_rental,
+    }
+
     return render(request, 'rental.html', context)
+
+
+def add_rental(request):
+    if request.method == 'POST':
+        data = request.POST
+        filled_form = NewRentalForm(data)
+        if filled_form.is_valid():
+            filled_form.save()
+
+    #GET
+    rental_form = NewRentalForm()
+    context = {'page_title' : 'Add new rental', 'form' : rental_form}
+
+    return render(request, 'add_rental.html', context)
 
 
 def all_customers(request):
@@ -59,6 +90,17 @@ def all_vehicles(request):
     }
 
     return render(request, 'vehicles.html', context)
+
+
+def vehicle(request, pk):
+    vehicle = Vehicle.objects.get(id = pk)
+    
+    context = {
+        'page_title' : f"Vehicle '{vehicle.vehicle_type}'",
+        'vehicle' : vehicle
+    }
+
+    return render(request, 'vehicle.html', context)
 
 
 def add_vehicle(request):

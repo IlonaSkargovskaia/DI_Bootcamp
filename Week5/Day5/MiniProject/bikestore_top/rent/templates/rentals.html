@@ -1,0 +1,15 @@
+{% extends 'layout.html'%}
+
+<!-- внутрь блока title из layout помещаю код -->
+{% block title %}All rentals{% endblock %}
+
+<!-- внутрь блока content из layout помещаю код -->
+{% block content %}
+    <h1>{{page_title}}</h1>
+    {% for rent in rental %}
+        <p>{{rent.customer}}</p>
+        <p>{{rent.vehicle}}</p>
+        <p>Rental date: {{rent.rental_date}} | Return date: {{rent.return_date}}</p>
+    <hr>
+    {% endfor %}
+{% endblock %}

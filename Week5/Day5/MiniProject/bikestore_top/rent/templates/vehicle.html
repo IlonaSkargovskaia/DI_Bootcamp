@@ -1,0 +1,15 @@
+{% extends 'layout.html'%}
+
+<!-- внутрь блока title из layout помещаю код -->
+{% block title %}Customer by ID{% endblock %}
+
+<!-- внутрь блока content из layout помещаю код -->
+{% block content %}
+    <h1>{{page_title}}</h1>
+    <p> <u> Details: </u></p>
+    <p>Type: {{vehicle.vehicle_type}} ({{vehicle.size}})</p>
+    <p>Created date: {{vehicle.date_created}}</p>
+    <p>Real cost: {{vehicle.real_cost}}</p>
+    <hr>
+    <p>Avaliable: </p>
+{% endblock %}

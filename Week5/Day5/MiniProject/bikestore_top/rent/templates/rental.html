@@ -1,15 +1,23 @@
 {% extends 'layout.html'%}
 
 <!-- внутрь блока title из layout помещаю код -->
-{% block title %}Customers{% endblock %}
+{% block title %}Rental by ID{% endblock %}
 
 <!-- внутрь блока content из layout помещаю код -->
 {% block content %}
     <h1>{{page_title}}</h1>
-    {% for rent in rental %}
-        <p>{{rent.customer}}</p>
-        <p>{{rent.vehicle}}</p>
-        <p>Rental date: {{rent.rental_date}} | Return date: {{rent.return_date}}</p>
+        <p>Customer: <a href="{% url 'customer' rental.customer.id%}">{{ rental.customer }}</a></p>
+        <p>Vehicle: <a href="#">{{ rental.vehicle }}</a></p>
+        <p>Rental date: {{ rental.rental_date }}</p>
+        {% if rental.return_date %}
+            <p>Returned on: {{ rental.return_date }}</p>
+        {% endif %}
+        {% if not rental.return_date %}
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" name="undone">Return now</button>
+            </form>
     <hr>
-    {% endfor %}
+        {% endif %}
+   
 {% endblock %}
