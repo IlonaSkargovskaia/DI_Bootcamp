@@ -8,7 +8,7 @@
     <h1>{{page_title}}</h1>
     
     {% for veh in vehicles %}
-        <p><b>{{veh.vehicle_type}}</b></p>
+        <p><a href="{% url 'vehicle' veh.id%}">{{veh.vehicle_type}}</a></p>
         <p>{{veh.size}}</p>
         <p>{{veh.real_cost}}</p>
         <p>{{veh.date_created}}</p>

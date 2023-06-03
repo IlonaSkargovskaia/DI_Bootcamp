@@ -7,7 +7,7 @@
 {% block content %}
     <h1>{{page_title}}</h1>
     {% for cust in customers %}
-        <p>Customer: {{cust.first_name}} {{cust.last_name}}</p>
+        <p>Customer: <a href="{% url 'customer' cust.id%}">{{cust.first_name}} {{cust.last_name}}</a></p>
         <p>From: {{cust.city}}, {{cust.country}}</p>
         <p>Contacts: {{cust.email}} | {{cust.phone_number}}</p>
         <hr>

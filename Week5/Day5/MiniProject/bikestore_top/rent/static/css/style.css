@@ -1,6 +1,4 @@
-body{
-    
-}
+
 
 .container{
     max-width: 1200px;
@@ -10,4 +8,11 @@ body{
 
 p{
     margin-bottom: 0;
+}
+
+p input, p select{
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2px 6px;
 }
