@@ -9,8 +9,8 @@ urlpatterns = [
     path('customer/add', views.add_customer, name="add_customer"),
     path('vehicles/', views.all_vehicles, name="all_vehicles"),
     path('vehicle/<int:pk>', views.vehicle, name="vehicle"),
-    path('vehicles/add', views.add_vehicle, name="add_vehicle"),
+    path('vehicle/add', views.add_vehicle, name="add_vehicle"),
     path('rentals/', views.all_rentals, name="all_rentals"),
-    path('rentals/<int:pk>', views.rental, name="rental"),
-    path('rentals/add', views.add_rental, name="add_rental"),
+    path('rental/<int:pk>', views.rental, name="rental"),
+    path('rental/add', views.add_rental, name="add_rental"),
 ]

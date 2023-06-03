@@ -3,9 +3,10 @@ from .models import *
 from .forms import *
 import datetime
 
+#home_page
 def home(request):
     context = {
-        'page_title': "Bike & Scooter Rental | Homepage",
+        'page_title': "Bike and Scooter Rental",
     }
     return render(request, 'index.html', context)
 
@@ -21,7 +22,6 @@ def all_rentals(request):
 
 
 def rental(request, pk):
-
     given_rental = Rental.objects.get(id=pk)
 
     if request.method == "POST":
@@ -29,7 +29,7 @@ def rental(request, pk):
         given_rental.save()
 
     context = {
-        'page_title': f'Rental N{given_rental.id}',
+        'page_title': f'Rental №{given_rental.id}',
         'rental': given_rental,
     }
 
@@ -43,7 +43,6 @@ def add_rental(request):
         if filled_form.is_valid():
             filled_form.save()
 
-    #GET
     rental_form = NewRentalForm()
     context = {'page_title' : 'Add new rental', 'form' : rental_form}
 
@@ -61,7 +60,7 @@ def all_customers(request):
 def customer(request, pk):
     customer = Customer.objects.get(id = pk)
     context = {
-        'page_title' : "Customer",
+        'page_title' : f'Customer №{customer.id}',
         'customer' : customer
     }
 
@@ -74,14 +73,13 @@ def add_customer(request):
         if filled_form.is_valid():
             filled_form.save()
 
-    #GET
     customer_form = CustomerForm()
     context = {'page_title' : 'Add new customer', 'form' : customer_form}
 
     return render(request, 'add_customer.html', context)
 
-def all_vehicles(request):
 
+def all_vehicles(request):
     vehicles = Vehicle.objects.all().order_by('vehicle_type')
 
     context = {
@@ -94,10 +92,12 @@ def all_vehicles(request):
 
 def vehicle(request, pk):
     vehicle = Vehicle.objects.get(id = pk)
+    rental = Rental.objects.filter(vehicle=pk)
     
     context = {
         'page_title' : f"Vehicle '{vehicle.vehicle_type}'",
-        'vehicle' : vehicle
+        'vehicle' : vehicle,
+        'rental': rental
     }
 
     return render(request, 'vehicle.html', context)
@@ -109,8 +109,9 @@ def add_vehicle(request):
         filled_form = VehicleForm(data)
         if filled_form.is_valid():
             filled_form.save()
+        else:
+            print(filled_form.errors)
 
-    #GET
     vehicle_form = VehicleForm()
     context = {'page_title' : 'Add new vehicle', 'form' : vehicle_form}
 

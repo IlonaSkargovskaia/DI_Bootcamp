@@ -1,7 +1,5 @@
 from django import forms
 from .models import *
-from django.utils.translation import gettext_lazy as _
-
 class CustomerForm(forms.ModelForm):
     class Meta:
         model = Customer
@@ -12,8 +10,7 @@ class VehicleForm(forms.ModelForm):
     class Meta:
         model = Vehicle
         fields = '__all__'
-        
-# 'deadline_date' : forms.DateInput(attrs={'type' : 'date'}
+
 
 class NewRentalForm(forms.ModelForm):
     class Meta:
@@ -26,4 +23,3 @@ class NewRentalForm(forms.ModelForm):
             'return_date' : forms.DateInput(attrs={'type' : 'date'})
         }
 
-        

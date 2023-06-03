@@ -6,5 +6,7 @@
 <!-- внутрь блока content из layout помещаю код -->
 {% block content %}
     <h1>{{page_title}}</h1>
-    <p>{{customer.first_name}} {{customer.last_name}}</p>
+    <p>Name: {{customer.first_name}} {{customer.last_name}}</p>
+    <p>Contacts: {{customer.email}} | {{customer.phone_number}}</p>
+    <p>Address: {{customer.address}}, {{customer.city}}, {{customer.country}}</p>
 {% endblock %}
