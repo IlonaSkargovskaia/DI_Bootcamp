@@ -1,0 +1,15 @@
+{% extends 'partials/base.html' %}
+
+{% block header%} {% include "partials/navbar.html" %} {% endblock %}
+
+{% block content%}
+    <h1>Add film</h1>
+    <form method="POST">
+        <!--  защита -->
+        {%csrf_token%}
+        <!-- .as_p = разбить на параграфы -->
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary"> submit </button>
+    </form>
+    
+{% endblock %}
