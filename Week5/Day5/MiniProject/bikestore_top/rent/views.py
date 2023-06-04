@@ -83,6 +83,7 @@ def add_customer(request):
 
 def all_vehicles(request):
     vehicles = Vehicle.objects.all().order_by('vehicle_type')
+    
 
     context = {
         'page_title' : "All vehicles",

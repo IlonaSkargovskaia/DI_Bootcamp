@@ -5,13 +5,17 @@
 
 <!-- внутрь блока content из layout помещаю код -->
 {% block content %}
+{% regroup vehicles by vehicle_type as vehicles_list%}
     <h1>{{page_title}}</h1>
     
-    {% for veh in vehicles %}
-        <p>Type: <a href="{% url 'vehicle' veh.id%}">{{veh.vehicle_type}}</a></p>
-        <p>Size: {{veh.size}}</p>
-        <p>Cost (real): {{veh.real_cost}}</p>
-        <p>Date created: {{veh.date_created}}</p>
-        <hr>
+    {% for vehicle_group in vehicles_list%}
+        <h2>{{ vehicle_group.grouper }}</h2>
+            {% for veh in vehicle_group.list %}
+                <p>Type: <a href="{% url 'vehicle' veh.id%}">{{veh.vehicle_type}}</a></p>
+                <p>Size: {{veh.size}}</p>
+                <p>Cost (real): {{veh.real_cost}}</p>
+                <p>Date created: {{veh.date_created}}</p>
+                <hr>
+            {% endfor %}
     {% endfor %}
 {% endblock %}
