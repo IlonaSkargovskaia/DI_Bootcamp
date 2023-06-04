@@ -22,6 +22,9 @@
             <p><a href="{% url 'rental' rental.id %}"> #{{rental.id}} - {{ rental.vehicle.vehicle_type }}</a></p>
         {% endfor %}
     {% endif %}
+    {% if rentals.count == 0 %}
+        <p>Didn't order yet</p>
+    {% endif %}
 
     
 {% endblock %}
