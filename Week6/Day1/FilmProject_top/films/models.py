@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 # Many to many
 class Country(models.Model):
@@ -16,7 +17,7 @@ class Category(models.Model):
 class Film(models.Model):
     title = models.CharField(max_length=50)
 
-    release_date = models.DateTimeField(auto_now_add=True) 
+    release_date = models.DateField(default=datetime.date.today) 
     created_in_country = models.ForeignKey('Country', on_delete=models.CASCADE, related_name='created_country')
 
     available_in_countries = models.ManyToManyField('Country')
@@ -24,7 +25,7 @@ class Film(models.Model):
     director = models.ManyToManyField('Director')
 
     def __str__(self):
-        return f'{self.title} {self.release_date} {self.created_in_country} {self.available_in_countries} {self.category} {self.director}'
+        return f'{self.title}'
 
 class Director(models.Model):
     first_name = models.CharField(max_length=50)
