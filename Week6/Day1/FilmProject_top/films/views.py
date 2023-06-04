@@ -13,6 +13,7 @@ class HomePageView(ListView):
     #говорим что хотим чтобы ключ в context был 'post_list'
     context_object_name = 'films'
 
+
 #alternative generic view
 class AddFilm(CreateView):
     model = Film
@@ -30,3 +31,12 @@ class AddDirector(CreateView):
     template_name = 'add_director.html'
     #редирект на add_category (имя из urls)
     success_url = reverse_lazy('add_director')
+
+
+#alternative generic view
+class ReviewCreateView(CreateView):
+    model = Review
+    form_class = ReviewForm
+    template_name = 'add_review.html'
+    #редирект на add_category (имя из urls)
+    success_url = reverse_lazy('add_review')

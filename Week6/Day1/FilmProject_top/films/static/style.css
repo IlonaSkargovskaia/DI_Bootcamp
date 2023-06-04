@@ -1,0 +1,12 @@
+.inline{
+    display: flex;
+    gap: 35px;
+}
+
+.inline input{
+    margin: 0 auto;
+}
+
+.card_body .card-footer{
+    padding: 0.5em 0;
+}

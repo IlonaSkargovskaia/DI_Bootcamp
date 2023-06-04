@@ -29,14 +29,25 @@
                     </p>
               </p>
               {% for director in film.director.all %}
-                    Director: <a href="#" class="btn" style="background-color: #b8adcc;">{{director}}</a>
+                    Director: <a href="#" class="btn" style="background-color: #b8adcc; margin-bottom: 10px;">{{director}}</a>
               {% endfor %}
               
+              
+              <div class="card-footer bg-transparent">
+                {% for review in film.reviews.all %}
+                        {% if film.reviews.count > 0 %}
+                            <p style="color: grey"> <u> Review #{{review.id}}</u> {{review.review_text}}</p> 
+                            <hr>
+                        {% endif %}
+                {% endfor %}
+                
+              </div>
+              <p><a href="{% url 'add_review' %}" class="">Add a review</a></p>
             </div>
           </div>
         </div>
         {% endfor %}
-      </div>
+    </div>
 
     
 {% endblock %}
