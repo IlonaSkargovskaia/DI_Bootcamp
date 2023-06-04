@@ -1,0 +1,19 @@
+1. startproject
+2. startapp
+3. include app in INSTALLED_APPS (settings)
+4. specify database in settings
+5. migrate
+6. define models
+7. makemigrations -> migrate
+8. create views
+9. create templates -> htmls
+10. urls
+
+bonus
+1. create superuser
+2. register model in admin.py
+         * python manage.py createsuperuser
+         * in admin.py -> 
+                           ** import model
+                           ** admin.site.register(model)
+3. go to admin page and do stuff there

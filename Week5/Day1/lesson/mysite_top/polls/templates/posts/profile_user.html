@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content%}
+    {% if gendre == 'M'%}
+        Hello mr. {{name}}
+    {% else %}
+        Hello mrs. {{name}}
+    {% endif %}
+    
+    <p>Your age is {{ age }}</p>
+
+    <p>Your hobbies is:</p>
+    <ul>
+        {% for hobby in hobbies_list %}
+        <li>{{ hobby }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
