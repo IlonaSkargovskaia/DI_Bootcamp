@@ -3,5 +3,15 @@
 {% block header%} {% include "partials/navbar.html" %} {% endblock %}
 
 {% block content%}
-    welcome to homepage
+    <h1>All films</h1>
+    {% for film in films %}
+        <p>
+            {{film.title}}
+            {{film.release_date}}
+            {{film.created_in_country}}
+            {{film.available_in_countries}}
+            {{film.category}}
+            {{film.director}}
+        </p>
+    {% endfor %}
 {% endblock %}

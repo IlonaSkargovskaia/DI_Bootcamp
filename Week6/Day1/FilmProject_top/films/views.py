@@ -11,7 +11,7 @@ class HomePageView(ListView):
     model = Film
     template_name = 'homepage.html'
     #говорим что хотим чтобы ключ в context был 'post_list'
-    context_object_name = 'homepage'
+    context_object_name = 'films'
 
 #alternative generic view
 class AddFilm(CreateView):
