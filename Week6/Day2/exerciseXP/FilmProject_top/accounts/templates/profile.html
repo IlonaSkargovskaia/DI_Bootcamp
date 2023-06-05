@@ -1,11 +1,27 @@
 {% extends 'partials/base.html' %}
 
 {% block content%}
-    <h1>User profile</h1>
-    <form method="POST">
-        {%csrf_token%}
-        {{form.as_p}}
-        <button type="submit"> submit </button>
-    </form>
+    
+    <div class="container">
+        
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="/static/1-47.webp" class="img-fluid rounded-start" alt="avatar">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h4 class="card-title">Your personal profile</h4>
+                  <p class="card-text">
+                    <p>Username: {{ user.username }}</p>
+                    <p>First name: {{ user.first_name }}</p>
+                    <p>Last name: {{ user.last_name }}</p>
+                  </p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
     
 {% endblock %}
