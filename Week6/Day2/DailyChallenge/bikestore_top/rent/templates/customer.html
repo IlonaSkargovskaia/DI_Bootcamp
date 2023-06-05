@@ -1,0 +1,30 @@
+{% extends 'layout.html'%}
+
+<!-- внутрь блока title из layout помещаю код -->
+{% block title %}Customer by ID{% endblock %}
+
+<!-- внутрь блока content из layout помещаю код -->
+{% block content %}
+    <h1>{{page_title}}</h1>
+    <p>Name: {{customer.first_name}} {{customer.last_name}}</p>
+    <p>Contacts: {{customer.email}} | {{customer.phone_number}}</p>
+    <p>Address: {{customer.address}}, {{customer.city}}, {{customer.country}}</p>
+    <hr>
+
+    {% if rental.return_date != None%}
+        <b>Orders from this customer:</b>
+        {% for rental in rentals %}
+            <a href="{% url 'rental' rental.id %}"> #{{rental.id}} - {{ rental.vehicle.vehicle_type }}</a>
+        {% endfor %}
+    {% else %}
+        {% for rental in rentals %}
+            <b>Not yet returned: </b>
+            <p><a href="{% url 'rental' rental.id %}"> #{{rental.id}} - {{ rental.vehicle.vehicle_type }}</a></p>
+        {% endfor %}
+    {% endif %}
+    {% if rentals.count == 0 %}
+        <p>Didn't order yet</p>
+    {% endif %}
+
+    
+{% endblock %}
