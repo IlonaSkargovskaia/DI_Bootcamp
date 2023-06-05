@@ -10,15 +10,26 @@
     <title>Posts</title>
 </head>
 <body>
+
+    Current user: <b>{{user}}</b>
+
     <div id="navcontainer">
         <ul id="navlist">
-        <li id="active"><a href="#" id="current">Home</a></li>
+        
         <li><a href="#">Posts</a></li>
         <li><a href="#">Add category</a></li>
         <li><a href="#">Add post</a></li>
         <li><a href="#">Profile</a></li>
+
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
         </ul>
     </div>
+
+    
 
     {% block content%}
 

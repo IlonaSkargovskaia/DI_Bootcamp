@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content%}
+    <h1>Login</h1>
+    <form method="POST">
+        <!--  защита -->
+        {%csrf_token%}
+        <!-- .as_p = разбить на параграфы -->
+        {{form.as_p}}
+        <button type="submit"> submit </button>
+    </form>
+    
+{% endblock %}

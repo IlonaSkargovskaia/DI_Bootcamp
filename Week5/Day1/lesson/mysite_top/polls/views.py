@@ -11,7 +11,7 @@ from django.views.generic import ListView #альтернатива для posts
 from django.db.models import Q #дя поиска по всем полям
 
 #чтобы в форме сделать значение по умолчанию выводим его в глобальную
-current_user = Person.objects.get(first_name = 'Ben')
+#current_user = Person.objects.get(first_name = 'Ben')
 
 def add_post_view(request):
 
@@ -40,9 +40,14 @@ class AddPostView(CreateView):
 
     #утсанавливаем данные по умолчанию для полей
     def get_initial(self):
+        #получаем пользователя который сейчас на сайте
+        user = self.request.user
+        #получаем профиль пользователя
+        user_profile = user.user_profile
+
         return {'title' : 'post!',
                 'content' : 'whatever',
-                'author' : current_user
+                'author' : user_profile
                 }
 
     #контроль как форма будет submitted

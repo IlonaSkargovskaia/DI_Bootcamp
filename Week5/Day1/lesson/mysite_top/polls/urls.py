@@ -1,4 +1,4 @@
-from django.urls import path #path function
+from django.urls import path,include #path function
 from . import views # . is shorthand for the current directory
 
 # one urlpattern per line
@@ -13,7 +13,7 @@ urlpatterns = [
     path('add-category/', views.AddCategoryView.as_view(), name='add_category'),
     
     #path('add-post/', views.add_post_view, name='add_post'),
-    path('add-post/', views.AddPostView.as_view(), name='add_post'),
+    path('add-post/', views.AddPostView.as_view(), name='add_post')
 ]
 
 # '' : empty string and /

@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'polls',
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,3 +131,9 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#куда мы перейдем после регистрации и после выхода из регистрации
+LOGIN_REDIRECT_URL = 'posts'
+LOGOUT_REDIRECT_URL = 'login'
+#default (имя из urls)
+LOGIN_URL = 'login'

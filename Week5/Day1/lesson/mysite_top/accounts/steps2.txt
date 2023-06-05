@@ -1,0 +1,13 @@
+1. In accounts.models, Create model UserProfile with One to One connection to the User model (auth)
+(In accounts.forms, Create form ProfileForm with model = UserProfile)
+!!! 2. In polls.models, Update the 'author' field to connect to UserProfile (One to Many)
+(makemigrations -> migrate)
+3. In admin page, Add a profile for a User (jordan)
+
+4. In polls.views, update the 'AddPostView' 'get_initial' method and set:
+        user = self.request.user # the current user
+        user_profile = user.user_profile # the current user's profile
+
+        return {'title': 'post !!!',
+                'content': 'whatever',
+                'author': user_profile} # initial values inside the PostForm

@@ -1,4 +1,5 @@
 from django.db import models
+from accounts.models import UserProfile
 
 
 class Person(models.Model):
@@ -15,7 +16,7 @@ class Post(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField()
 
-    author = models.ForeignKey('Person', on_delete = models.CASCADE)
+    author = models.ForeignKey(UserProfile, on_delete = models.CASCADE, related_name='posts', null=True)
 
     date_created = models.DateTimeField(auto_now_add=True) 
     category = models.ManyToManyField('Category')
@@ -45,14 +46,3 @@ class Address(models.Model):
         return self.location
 
 
-
-
-# # Create a table, primary key - automaticaly. One to many
-# class Post(models.Model):
-#     #model = table
-#     title = models.CharField(max_length=50)
-#     content = models.TextField()
-#     author = models.CharField(max_length=50)
-#     date_created = models.DateTimeField(auto_now_add=True) 
-#     category = models.ForeignKey('Category', on_delete = models.SET_NULL, null=True)
-#     #auto_now_add - равно на момент создания дата
