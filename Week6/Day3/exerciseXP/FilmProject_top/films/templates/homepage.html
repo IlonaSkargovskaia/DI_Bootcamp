@@ -65,10 +65,16 @@
                             
                         {% endif %}
                 {% endfor %}
+
+                
               </div>
 
               
 
+            </div>
+
+            <div class="card-footer text-muted">
+              <a href="{% url 'film_detail' film.id%}" class="btn btn-light">Read more...</a>
             </div>
           </div>
         </div>

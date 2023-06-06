@@ -5,7 +5,7 @@ from .forms import *
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import UserPassesTestMixin
-from django.views.generic import ListView, View
+from django.views.generic import ListView, DetailView
 from django.urls import reverse_lazy 
 from accounts.models import UserProfile
 from django.contrib import messages
@@ -149,4 +149,10 @@ class AddPosterView(CreateView):
     model= Poster
     form_class = AddPosterForm
     template_name= 'image_form.html'
-    success_url= reverse_lazy('home')        
+    success_url= reverse_lazy('home') 
+
+
+
+class FilmDetailView(DetailView):
+    model = Film
+    template_name = 'film_detail.html'    
