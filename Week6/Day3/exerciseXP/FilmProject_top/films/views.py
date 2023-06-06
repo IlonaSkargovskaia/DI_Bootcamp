@@ -1,13 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from .models import *
 from .forms import *
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import UserPassesTestMixin
-from django.views.generic import ListView 
+from django.views.generic import ListView, View
 from django.urls import reverse_lazy 
-
-
+from accounts.models import UserProfile
+from django.contrib import messages
+from django.shortcuts import get_object_or_404
 
 #альтернатива для posts view
 class HomePageView(ListView):
@@ -56,16 +58,35 @@ class ReviewCreateView(CreateView):
     
 
 #alternative generic view
+# class FavouriteFilmView(View):
+#     def post(self,request, film_id): 
+        
+#         film = get_object_or_404(Film, id=film_id)
+#         user = self.request.user
+#         user_profile = user.user_profile
+
+#         if film in user_profile.favorite_film.all():
+#             user_profile.favorite_film.remove(film)
+#             messages.success(request, "Film removed from favorites.")
+#         else:
+#             user_profile.favorite_film.add(film)
+#             messages.success(request, "Film added to favorites.")
+            
+#         return redirect('home')
+    
+
+#alternative generic view
 class EditFilmView(UserPassesTestMixin, UpdateView):
     model = Film
-    template_name = 'add_film.html'
+    template_name = 'edit_film.html'
     fields = [
         "title",
         "release_date",
         "created_in_country",
         "available_in_countries",
         "category",
-        "director"
+        "director",
+        "poster"
     ]
 
     success_url = reverse_lazy('home')
@@ -86,7 +107,7 @@ class EditFilmView(UserPassesTestMixin, UpdateView):
 #alternative generic view
 class EditDirectorView(UserPassesTestMixin, UpdateView):
     model = Director
-    template_name = 'add_director.html'
+    template_name = 'edit_director.html'
     fields = [
         "first_name",
         "last_name"
@@ -122,3 +143,10 @@ class FilmDeleteView(SuccessMessageMixin, UserPassesTestMixin, DeleteView):
         else:
             return False #403 Forbidden
         
+
+
+class AddPosterView(CreateView):
+    model= Poster
+    form_class = AddPosterForm
+    template_name= 'image_form.html'
+    success_url= reverse_lazy('home')        

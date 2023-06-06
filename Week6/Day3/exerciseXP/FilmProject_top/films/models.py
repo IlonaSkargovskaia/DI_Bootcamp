@@ -24,8 +24,10 @@ class Film(models.Model):
     category = models.ManyToManyField('Category')
     director = models.ManyToManyField('Director')
 
+    poster = models.OneToOneField('Poster', null=True, blank=True, on_delete=models.CASCADE)
+
     def __str__(self):
-        return f'{self.title}'
+        return f'{self.title} | poster: {self.poster}'
 
 class Director(models.Model):
     first_name = models.CharField(max_length=50)
@@ -42,3 +44,11 @@ class Review(models.Model):
 
     def __str__(self):
         return f'{self.film} {self.review_text}'
+    
+
+class Poster(models.Model):
+    image = models.ImageField(upload_to='images', null=True, blank = True)
+    explanation_img = models.CharField(max_length=50)
+
+    def __str__(self):  
+        return self.explanation_img  

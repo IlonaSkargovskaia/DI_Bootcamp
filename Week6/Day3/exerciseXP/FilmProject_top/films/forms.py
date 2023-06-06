@@ -1,5 +1,6 @@
 from django import forms
 from .models import *
+from django.forms import fields 
 
 
 class FilmForm(forms.ModelForm):
@@ -21,4 +22,13 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         fields = '__all__'
-        
+
+
+class AddPosterForm(forms.ModelForm):
+    class Meta:
+        model = Poster
+        fields = '__all__'    
+
+    def __init__(self, *args, **kwargs):
+        super(AddPosterForm, self).__init__(*args, **kwargs)
+        self.fields['image'].required = False   
