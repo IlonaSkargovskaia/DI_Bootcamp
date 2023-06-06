@@ -10,9 +10,20 @@ from django.urls import reverse_lazy #
 from django.views.generic import ListView #альтернатива для posts
 from django.db.models import Q #дя поиска по всем полям
 
+
+#если используем обычную функцию то используем @login_required(
+from django.contrib.auth.decorators import login_required
+
+#арсширяем функциональность формы login если использ creatview
+#UserPassesTestMixin - тестируем является ли юзер staff
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin, PermissionRequiredMixin
+
 #чтобы в форме сделать значение по умолчанию выводим его в глобальную
 #current_user = Person.objects.get(first_name = 'Ben')
 
+
+
+@login_required(redirect_field_name = reverse_lazy('posts'), login_url=reverse_lazy('login'))
 def add_post_view(request):
 
     if request.method == 'POST':
@@ -30,13 +41,23 @@ def add_post_view(request):
     return render(request, 'posts/add_post.html', context)
 
 
+
+
+
+
 #alternative class add_post_view
-class AddPostView(CreateView):
+class AddPostView(LoginRequiredMixin, CreateView):
     model = Post
     form_class = PostForm
     template_name = 'posts/add_post.html'
     #редирект на add_post (имя из urls)
     success_url = reverse_lazy('add_post')
+
+    # используем LoginRequiredMixin
+    #какая будет страница если anonymus попробует добавить пост - возвращаем на login
+    login_url = reverse_lazy('login')
+    #куда мы попадем после того как зарегились - на страничку posts
+    redirect_field_name = reverse_lazy('posts')
 
     #утсанавливаем данные по умолчанию для полей
     def get_initial(self):
@@ -64,11 +85,6 @@ class AddPostView(CreateView):
 
 
 
-
-
-
-
-
 def add_category_view(request):
 
     if request.method == 'POST':
@@ -84,8 +100,26 @@ def add_category_view(request):
     return render(request, 'posts/add_category.html', context)
 
 
+
+
+
 #alternative generic view
-class AddCategoryView(CreateView):
+# class AddCategoryView(UserPassesTestMixin, CreateView):
+
+class AddCategoryView(PermissionRequiredMixin, UserPassesTestMixin, CreateView):
+
+    #функция будет проверять юзер is_authenticated или нет
+    def test_func(self):
+        if self.request.user.is_authenticated:
+            return True 
+        else:
+            return False #403 Forbidden
+        
+
+    #проверить какие разрешения есть вообще - можно в админке внизу
+    # любой пользователь может добавить категорию
+    permission_required = ('polls.add_category', )
+    
     model = Category
     #можно добавлять сразу fields из model
     # fields = ['name']
@@ -122,6 +156,9 @@ def posts(request):
     context = {'post_list': posts_all, 'search' : search_form}
     
     return render(request, 'posts/posts.html', context)
+
+
+
 
 
 #альтернатива для posts view
@@ -172,9 +209,6 @@ def profile(request):
 
     return render(request, 'posts/profile_user.html', context)
 
-
-# def about(request):
-#     return HttpResponse("<h1>Welcome Users</h1>")
 
 def profile_user(request):
 

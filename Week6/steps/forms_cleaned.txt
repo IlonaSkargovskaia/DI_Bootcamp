@@ -1,0 +1,25 @@
+# forms.py
+
+class SampleForm(forms.ModelForm):
+    class Meta:
+        model = SampleModel
+        fields = '__all__'
+    
+ 
+    def clean_field1(self): <----check that the data in a SINGLE field 'field1' is correct
+        if self.cleaned_data['field1'] == 'Not correct':
+            raise forms.ValidationError('Error') <----Not correct
+        else:
+            return self.cleaned_data['field1'] 
+
+
+    def clean(self): <----check that the data in MULTIPLE fields is correct
+        cleaned_data = super().clean() <---cleaned_data is a dictionary with field names and their values
+
+        field1 = cleaned_data.get('field1')
+        field2 = cleaned_data.get('field2')
+
+        if field1 == 'Not Correct data' and field2 == 'Not Correct data':
+            raise forms.ValidationError('Error') <----Not correct
+        else: 
+            return cleaned_data

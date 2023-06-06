@@ -16,9 +16,9 @@
     <div id="navcontainer">
         <ul id="navlist">
         
-        <li><a href="#">Posts</a></li>
-        <li><a href="#">Add category</a></li>
-        <li><a href="#">Add post</a></li>
+        <li><a href="{% url 'posts' %}">Posts</a></li>
+        <li><a href="{% url 'add_category' %}">Add category</a></li>
+        <li><a href="{% url 'add_post' %}">Add post</a></li>
         <li><a href="#">Profile</a></li>
 
         {% if user.is_authenticated %}

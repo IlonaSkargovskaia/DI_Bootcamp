@@ -39,6 +39,12 @@
                 {% endfor %}
                 
               </div>
+              {% if user.is_superuser %}
+              <p><a href="{% url 'edit_film' film.id%}" class="">Edit a film</a></p>
+              {% for director in film.director.all %}
+                <p><a href="{% url 'edit_director' director.id%}" class="">Edit a director</a></p>
+              {% endfor %}
+              {% endif %}
               <p><a href="{% url 'add_review' %}" class="">Add a review</a></p>
             </div>
           </div>

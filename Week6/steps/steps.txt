@@ -1,0 +1,99 @@
+Работа с виртуальной средой:
+
+1. pip3 install virtualenv
+2. python3 -m venv my_environment
+
+запуск вирт среды
+3. source my_environment/bin/activate
+
+деактивация ее
+4. deactivate 
+
+создание requirments:
+pip freeze > requirements.txt
+
+установка нужных версий из requirments:
+pip install -r requrments.txt
+
+
+Джанго (после активации сервера):
+1. pip3 install django
+
+Создание проекта:
+2. django-admin startproject mysite
+3. cd mysite
+
+Запуск сервера:
+python3 manage.py runserver
+
+Новое приложение:
+python3 manage.py startapp name_app
+
+
+
+ШПАРГАЛКА:
+
+
+Create a new project
+
+Create a virtual environment
+
+Activate the virtual environment
+
+Add requirements.txt with this command in your terminal touch requirements.txt
+Django==2.1.4
+
+Install requirements with pip:
+pip install -r requirements.txt
+
+Create Django project:
+django-admin startproject project_name (no hyphens)
+
+Create an app next to the project directory:
+python manage.py startapp app_name
+
+You’re done!
+
+
+Some More Help
+How to quickly open the current directory from the command prompt? open .
+
+A command to see the hidden files in the terminal is : ls -a
+
+A command to create a directory : mkdir name_of_a_directory
+
+A command to get to the previous directory is : cd ..
+
+
+
+FORMS
+1. create forms.py inside app
+2. create a CategoryForm(forms.ModelForm)
+3. in views.py, создаем add_category_view
+     - определить что происходит когда request.method == 'GET'
+   #GET
+    category_form = CategoryForm()
+    context = {'form' : category_form}
+    return render(request, 'posts/add_category.html', context)
+
+ * создаем пустую форму
+ * отправляет форму через context
+
+    - определить что происходит когда request.method == 'POST'
+    # POST
+        if request.method == 'POST':
+            data = request.POST
+            print(request.POST)
+            filled_form = CategoryForm(data)
+            # сохраняем в БД
+            filled_form.save()
+        * достаем данные из request.POST dictionary
+        * помещаем данные в filled_form(CategoryForm)
+        * сохраняем в БД 
+    - внутри add_category.html  добавляем метод post
+        <form method="POST">
+            <!--  защита -->
+            {%csrf_token%}
+            {{form}}
+            <button type="submit"> submit </button>
+        </form>
