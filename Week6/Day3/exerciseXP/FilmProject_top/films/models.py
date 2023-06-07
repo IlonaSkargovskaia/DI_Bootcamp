@@ -21,7 +21,7 @@ class Film(models.Model):
     created_in_country = models.ForeignKey('Country', on_delete=models.CASCADE, related_name='created_country')
 
     available_in_countries = models.ManyToManyField('Country')
-    category = models.ManyToManyField('Category')
+    category = models.ManyToManyField('Category', related_name="films")
     director = models.ManyToManyField('Director')
 
     poster = models.OneToOneField('Poster', null=True, blank=True, on_delete=models.CASCADE)
