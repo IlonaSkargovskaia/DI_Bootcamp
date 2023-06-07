@@ -1,0 +1,16 @@
+{% extends 'partials/base.html' %}
+
+{% block content%}
+
+    <h1>All films in category:</h1>
+
+        <!-- categories - key from context in CategoriesView -->
+    {% for i in films_cat %}
+        {{i.title}} <br>
+    {% endfor %}
+
+    
+
+
+
+{% endblock content%}

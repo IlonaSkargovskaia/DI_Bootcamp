@@ -1,0 +1,97 @@
+{% extends 'partials/base.html' %}
+
+{% block content%}
+<!-- if film was deleted -->
+{% if messages %}
+{% for message in messages %}
+<div class="text-center alert alert-{{ message.tags }}">
+    {{ message|safe }}
+</div>
+{% endfor %}
+{% endif %}
+
+
+<!-- only if registred -->
+{% if user.is_authenticated %}
+<h1>All movies</h1>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for film in films %}
+    <div class="col">
+        <div class="card h-100">
+
+            <div class="my_img">
+                <img class="card-img-top" src="{{ film.poster.image.url }}" alt="{{ film.poster.explanation_img }}">
+            </div>
+
+
+            <div class="card-body">
+                <h5 class="card-title">{{film.title}}</h5>
+
+                {% for category in film.category.all %}
+                <a href="#" class="btn btn-outline-warning">{{category}}</a>
+                {% endfor %}
+
+                <p class="card-text">
+                <p>
+                    Release date: {{film.release_date}} <br>
+                    Country: {{film.created_in_country}} <br>
+                    Avaliable in countries:
+                    {% for avail in film.available_in_countries.all %}
+                    {{avail}}
+                    {% endfor %}
+                </p>
+                </p>
+                {% for director in film.director.all %}
+                Director: <a href="#" class="btn"
+                    style="background-color: #b8adcc; margin-bottom: 10px;">{{director}}</a>
+                {% endfor %}
+                <hr>
+
+                
+                <div class="buttons mb-3 d-flex flex-md-wrap bd-highlight mybtn">
+                {% if user.is_superuser %}
+                    <a href="{% url 'film_delete' film.id%}" class="btn btn-danger">Delete film</a>
+                    <a href="{% url 'edit_film' film.id%}" class="btn btn-warning">Edit a film</a>
+                    {% for director in film.director.all %}
+                    <a href="{% url 'edit_director' director.id%}" class="btn btn-info">Edit a director</a>
+                    {% endfor %}
+                {% endif %}
+                {% if user.is_authenticated %}
+                    <a href="{% url 'add_review' %}" class="btn btn-success">Add a review</a>
+                {% endif %}
+                </div>
+
+
+                <div class="card-footer">
+                    <h4>Reviews: </h4>
+                    {% for review in film.reviews.all %}
+                    {% if film.reviews.count > 0 %}
+                        <p style="color: grey" class="over"> <u> Review #{{review.id}}</u> {{review.review_text}}</p>
+
+                    {% endif %}
+                    {% endfor %}
+
+                </div>
+
+ <!-- if film already in user_profile i have to change the button to Remove -->
+                <form method="POST" action="{% url 'favorite_film' film.id %}">
+                    {% csrf_token %}
+                    {% if film in user.user_profile.favorite_films.all %}
+                      <button type="submit" class="btn btn-info mybtn">Remove from favorites</button>
+                    {% else %}
+                      <button type="submit" class="btn btn-info mybtn">Add to favorites</button>
+                    {% endif %}
+                </form>
+ 
+            </div>
+
+            <div class="card-footer text-muted">
+                <a href="{% url 'film_detail' film.id%}" class="btn btn-light">Read more...</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,40 @@
+.inline{
+    display: flex;
+    gap: 35px;
+}
+
+.inline input{
+    margin: 0 auto;
+}
+
+.card_body .card-footer{
+    padding: 0.5em 0;
+}
+
+.over{
+    
+      display: -moz-box;
+      -moz-box-orient: vertical;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      line-clamp: 3;
+      box-orient: vertical;
+    text-overflow: ellipsis;
+    max-height: 110px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.my_img{
+    max-height: 600px;
+    overflow: hidden;
+}
+
+.mybtn {
+    margin-top: 20px;
+}
+
+.mybtn a{
+    font-size: 12px;
+}

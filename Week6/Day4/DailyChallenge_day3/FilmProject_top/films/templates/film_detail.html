@@ -1,0 +1,37 @@
+{% extends 'partials/base.html' %}
+
+
+{% block content%}
+    
+    <h1 style="margin-bottom: 35px">Details about {{ film.title }}</h1>
+
+      <div class="d-flex flex-row" style="gap: 4rem">
+        <img class="align-self-center mr-3" src="{{ film.poster.image.url }}" alt="{{ film.poster.explanation_img }}" style="width: 18rem;">
+        <div class="media-body">
+
+            {% for category in film.category.all %}
+                <a href="#" class="btn btn-outline-warning">{{ category.name }}</a>
+              
+            {% endfor %}
+
+          <p style="margin-top: 35px">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+          <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Release date: {{film.release_date|date:"F d, Y"}}</li>
+            
+            <li class="list-group-item">Created in: {{ film.created_in_country }}</li>
+
+            {% for director in film.director.all %}
+                <li class="list-group-item">Director: {{ director.first_name }} {{ director.last_name }}</li>
+            {% endfor %}
+          </ul>
+          <div class="card-body">
+            <a href="/" class="card-link">Back to home</a>
+            
+          </div>
+        </div>
+        
+      </div>
+    
+{% endblock %}
