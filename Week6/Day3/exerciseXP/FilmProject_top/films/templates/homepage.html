@@ -71,21 +71,18 @@
                     {% endif %}
                     {% endfor %}
 
-
                 </div>
 
+ <!-- if film already in user_profile i have to change the button to Remove -->
                 <form method="POST" action="{% url 'favorite_film' film.id %}">
                     {% csrf_token %}
-                    {% if film in user.userprofile.favorite_films.all %}
-                      <button type="submit">Remove from favorites</button>
+                    {% if film in user.user_profile.favorite_films.all %}
+                      <button type="submit" class="btn btn-info mybtn">Remove from favorites</button>
                     {% else %}
-                      <button type="submit">Add to favorites</button>
+                      <button type="submit" class="btn btn-info mybtn">Add to favorites</button>
                     {% endif %}
                 </form>
-                  
-
-
-
+ 
             </div>
 
             <div class="card-footer text-muted">

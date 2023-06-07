@@ -13,4 +13,5 @@ urlpatterns = [
     path('favorite-film/<int:film_id>', views.FavouriteFilmView.as_view(), name='favorite_film'),
     path('add-poster/', views.AddPosterView.as_view(), name='add_poster'),
     path('film-detail/<pk>', views.FilmDetailView.as_view(), name='film_detail'),
+    path('all-films/<int:cat_id>', views.all_films, name='all_films'),
 ]

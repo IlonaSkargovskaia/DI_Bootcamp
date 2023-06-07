@@ -19,6 +19,17 @@ class HomePageView(ListView):
     context_object_name = 'films'
 
 
+def all_films(request, cat_id):
+    cat = Film.objects.get(id=cat_id)
+
+    context = {
+        'page_title' : "All films from category",
+        'films' : cat
+    }
+
+    return render(request, 'all_films.html', context)
+
+
 
 class AddFilm(CreateView):
     model = Film
@@ -65,12 +76,13 @@ class FavouriteFilmView(View):
         print(user)
         userprofile = user.user_profile
 
+#если фильм уже есть в профиле пользователя - удалить
         if film in userprofile.favorite_films.all():
             userprofile.favorite_films.remove(film)
-            messages.success(request, "Film removed from Favorites.")
+            messages.success(request, "Film REMOVED from Favorites.")
         else:
             userprofile.favorite_films.add(film)
-            messages.success(request, "Film added to Favorites.")
+            messages.success(request, "Film ADDED to Favorites.")
             
         return redirect('home')
     

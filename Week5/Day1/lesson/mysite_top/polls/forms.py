@@ -50,4 +50,8 @@ class PostForm(forms.ModelForm):
 #extra = 0 - если мы не хотим добавлять еще одно такое же поле для добавления
 CategoryFormSet = forms.modelformset_factory(model=Category, form=CategoryForm)
 
-PostFormSet = forms.modelformset_factory(model=Post, form=PostForm)
+#PostFormSet = forms.modelformset_factory(model=Post, form=PostForm)
+
+#получить все формы категорий которые привязаны к определенному посту
+# CategoryRelatedFormSet = forms.inlineformset_factory(Post, Category, form=CategoryForm, extra=0)
+
