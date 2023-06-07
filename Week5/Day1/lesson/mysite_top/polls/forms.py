@@ -17,7 +17,7 @@ class PostForm(forms.ModelForm):
         # exclude = ('author', )
         #кастомизация формы
         widgets = {
-            'author' : forms.HiddenInput(), #не будет видно юзеру, но будет внутри формы
+            #'author' : forms.HiddenInput(), #не будет видно юзеру, но будет внутри формы
             'content' : forms.Textarea(attrs={'rows' : 3, 'class' : 'content_class'})
         }
 
@@ -43,3 +43,11 @@ class PostForm(forms.ModelForm):
             raise forms.ValidationError('Cannot be ilona and write about Django')
         else:
             return cleaned_data
+        
+
+
+        
+#extra = 0 - если мы не хотим добавлять еще одно такое же поле для добавления
+CategoryFormSet = forms.modelformset_factory(model=Category, form=CategoryForm)
+
+PostFormSet = forms.modelformset_factory(model=Post, form=PostForm)

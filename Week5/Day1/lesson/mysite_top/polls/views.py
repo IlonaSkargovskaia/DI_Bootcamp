@@ -4,7 +4,7 @@ from django.shortcuts import render # this line is added automatically
 # from django.http import HttpResponse # pass view information into the browser
 from datetime import date
 from .models import Post, Person, Email, Category
-from .forms import CategoryForm, PostForm, SearchForm
+from .forms import *
 from django.views.generic.edit import CreateView, UpdateView, DeleteView #шаблон для функций с формами
 from django.urls import reverse_lazy #
 from django.views.generic import ListView #альтернатива для posts
@@ -20,6 +20,34 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin, 
 
 #чтобы в форме сделать значение по умолчанию выводим его в глобальную
 #current_user = Person.objects.get(first_name = 'Ben')
+
+
+
+def manage_categories(request):
+    if request.method == 'POST':
+        formset = CategoryFormSet(request.POST, queryset=Category.objects.all())
+        if formset.is_valid():
+            formset.save()
+
+    #GET
+    formset = CategoryFormSet(queryset=Category.objects.all())
+    context = {'formset' : formset}
+    return render(request, 'posts/manage_categories.html', context)
+
+
+#Create manage posts
+def manage_posts(request):
+    if request.method == 'POST':
+        formset = PostFormSet(request.POST, queryset=Post.objects.all())
+        if formset.is_valid():
+            formset.save()
+
+    #GET
+    formset = PostFormSet(queryset=Post.objects.all())
+    context = {'formset' : formset}
+    return render(request, 'posts/manage_posts.html', context)
+
+
 
 
 

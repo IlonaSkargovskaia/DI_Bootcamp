@@ -74,6 +74,16 @@
 
                 </div>
 
+                <form method="POST" action="{% url 'favorite_film' film.id %}">
+                    {% csrf_token %}
+                    {% if film in user.userprofile.favorite_films.all %}
+                      <button type="submit">Remove from favorites</button>
+                    {% else %}
+                      <button type="submit">Add to favorites</button>
+                    {% endif %}
+                </form>
+                  
+
 
 
             </div>

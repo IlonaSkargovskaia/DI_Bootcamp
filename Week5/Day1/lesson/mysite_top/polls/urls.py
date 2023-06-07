@@ -13,7 +13,9 @@ urlpatterns = [
     path('add-category/', views.AddCategoryView.as_view(), name='add_category'),
     
     #path('add-post/', views.add_post_view, name='add_post'),
-    path('add-post/', views.AddPostView.as_view(), name='add_post')
+    path('add-post/', views.AddPostView.as_view(), name='add_post'),
+    path('manage-categories/', views.manage_categories, name='manage-categories'),
+    path('manage-posts/', views.manage_posts, name='manage-posts'),
 ]
 
 # '' : empty string and /

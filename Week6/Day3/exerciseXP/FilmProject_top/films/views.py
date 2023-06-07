@@ -5,7 +5,7 @@ from .forms import *
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import UserPassesTestMixin
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, View
 from django.urls import reverse_lazy 
 from accounts.models import UserProfile
 from django.contrib import messages
@@ -19,7 +19,7 @@ class HomePageView(ListView):
     context_object_name = 'films'
 
 
-#alternative generic view
+
 class AddFilm(CreateView):
     model = Film
     form_class = FilmForm
@@ -33,7 +33,6 @@ class AddFilm(CreateView):
 
 
 
-#alternative generic view
 class AddDirector(CreateView):
     model = Director
     form_class = DirectorForm
@@ -45,7 +44,7 @@ class AddDirector(CreateView):
         return super().form_valid(form) 
 
 
-#alternative generic view
+
 class ReviewCreateView(CreateView):
     model = Review
     form_class = ReviewForm
@@ -57,25 +56,26 @@ class ReviewCreateView(CreateView):
         return super().form_valid(form) 
     
 
-#alternative generic view
-# class FavouriteFilmView(View):
-#     def post(self,request, film_id): 
-        
-#         film = get_object_or_404(Film, id=film_id)
-#         user = self.request.user
-#         user_profile = user.user_profile
 
-#         if film in user_profile.favorite_film.all():
-#             user_profile.favorite_film.remove(film)
-#             messages.success(request, "Film removed from favorites.")
-#         else:
-#             user_profile.favorite_film.add(film)
-#             messages.success(request, "Film added to favorites.")
+class FavouriteFilmView(View):
+    def post(self,request, film_id): 
+        
+        film = get_object_or_404(Film, id=film_id)
+        user = self.request.user
+        print(user)
+        userprofile = user.user_profile
+
+        if film in userprofile.favorite_films.all():
+            userprofile.favorite_films.remove(film)
+            messages.success(request, "Film removed from Favorites.")
+        else:
+            userprofile.favorite_films.add(film)
+            messages.success(request, "Film added to Favorites.")
             
-#         return redirect('home')
+        return redirect('home')
     
 
-#alternative generic view
+
 class EditFilmView(UserPassesTestMixin, UpdateView):
     model = Film
     template_name = 'edit_film.html'
@@ -104,7 +104,7 @@ class EditFilmView(UserPassesTestMixin, UpdateView):
 
 
 
-#alternative generic view
+
 class EditDirectorView(UserPassesTestMixin, UpdateView):
     model = Director
     template_name = 'edit_director.html'
@@ -145,11 +145,21 @@ class FilmDeleteView(SuccessMessageMixin, UserPassesTestMixin, DeleteView):
         
 
 
-class AddPosterView(CreateView):
+class AddPosterView(UserPassesTestMixin, CreateView):
     model= Poster
     form_class = AddPosterForm
     template_name= 'image_form.html'
     success_url= reverse_lazy('home') 
+
+    def form_valid(self, form):
+        
+        return super().form_valid(form) 
+    
+    def test_func(self):
+        if self.request.user.is_superuser:
+            return True 
+        else:
+            return False #403 Forbidden
 
 
 

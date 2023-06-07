@@ -30,6 +30,10 @@ class Category(models.Model):
         return self.name
 
 
+
+
+
+
 class Email(models.Model):
     person = models.OneToOneField(Person, on_delete=models.CASCADE, primary_key = True)
     email = models.EmailField(unique=True)
