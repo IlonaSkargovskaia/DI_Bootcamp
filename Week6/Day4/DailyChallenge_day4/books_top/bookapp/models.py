@@ -9,4 +9,7 @@ class Book(models.Model):
     page_count = models.IntegerField()
     categories = models.CharField(max_length=50)
     thumbnail_url = models.URLField()
+
+    def __str__(self):
+        return f'{self.title} | in: {self.categories}'
     
