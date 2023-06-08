@@ -16,6 +16,7 @@ class FilmForm(forms.ModelForm):
         release_date = self.cleaned_data.get('release_date')
         if release_date > today:
             raise forms.ValidationError('Release date cannot be in the future')
+        return release_date
 
 
 class DirectorForm(forms.ModelForm):
