@@ -7,6 +7,15 @@ class FilmForm(forms.ModelForm):
     class Meta:
         model = Film
         fields = '__all__'
+        widgets = {
+            'release_date' : forms.DateInput(attrs={'type' : 'date'}) 
+        }
+    #проверяем что дата не может быть в будущем
+    def clean_release_date(self):
+        today = timezone.now().date()
+        release_date = self.cleaned_data.get('release_date')
+        if release_date > today:
+            raise forms.ValidationError('Release date cannot be in the future')
 
 
 class DirectorForm(forms.ModelForm):

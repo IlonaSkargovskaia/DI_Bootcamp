@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 import datetime
 
 class Book(models.Model):
@@ -13,3 +14,12 @@ class Book(models.Model):
     def __str__(self):
         return f'{self.title} | in: {self.categories}'
     
+
+class BookReview(models.Model):
+    book = models.ForeignKey('Book', related_name='reviews', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='users_reviews')
+    rating = models.IntegerField()
+    review_text = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.book} | from: {self.user}'

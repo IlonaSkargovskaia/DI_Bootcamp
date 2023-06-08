@@ -31,11 +31,11 @@ class ManageProducers(View):
 
         formset = ProducerFormSet(self.request.POST, queryset=Producer.objects.all())
         if formset.is_valid():
-            return self.formset_valid(formset)
+            formset.save()
         else:
             print(formset.errors)
 
-
+        return redirect('manage_produsers')
 
 
 
