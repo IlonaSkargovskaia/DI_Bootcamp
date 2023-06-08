@@ -19,19 +19,23 @@ class HomePageView(ListView):
     context_object_name = 'films'
 
 
-def films_cat(request):
-    # cat = Category.objects.filter(id = cat_id)
-    # films_cat = cat.films.all()
-    # print(films_cat)
+class ManageProducers(View):
 
-    context = {
-        'films_cat' : Film.objects.filter(category__name='Mystery')
-    }
+    def get(self, request, *args, **kwargs):
 
-    return render(request, 'all_categories.html', context)
+        formset = ProducerFormSet(queryset=Producer.objects.all())
+        context = {'formset': formset}
+        return render(self.request, 'manage_categories.html', context)
+    
+    def post(self, request, *args, **kwargs):
+
+        formset = ProducerFormSet(self.request.POST, queryset=Producer.objects.all())
+        if formset.is_valid():
+            return self.formset_valid(formset)
+        else:
+            print(formset.errors)
 
 
-        
 
 
 
@@ -39,7 +43,7 @@ class AddFilm(CreateView):
     model = Film
     form_class = FilmForm
     template_name = 'add_film.html'
-    #редирект на add_category (имя из urls)
+    #редирект на home (имя из urls)
     success_url = reverse_lazy('home')
 
     
