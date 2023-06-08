@@ -19,19 +19,47 @@ class HomePageView(ListView):
     context_object_name = 'films'
 
 
-def films_cat(request):
-    # cat = Category.objects.filter(id = cat_id)
-    # films_cat = cat.films.all()
-    # print(films_cat)
+class CategoryView(ListView):
+    model = Film
+    template_name = 'all_categories.html'
+    #говорим что хотим чтобы ключ в context был 'films' и его потом for-loop в template home
+    context_object_name = 'films'
 
-    context = {
-        'films_cat' : Film.objects.filter(category__name='Mystery')
-    }
+    def get_queryset(self):
+        cat = Category.objects.get(id = self.kwargs["cat_id"])
+        return cat.films.all()
 
-    return render(request, 'all_categories.html', context)
+
+
+# def films_cat(request, cat_id):
+#     cat = Category.objects.get(id = cat_id)
+#     films_cat = cat.films.all()
+#     print(films_cat)
+
+#     # Film.objects.filter(category__id=cat_id)
+
+#     context = {
+#         'films_cat' : films_cat
+#     }
+
+#     return render(request, 'all_categories.html', context)
 
 
         
+
+
+def film_reviews(request, film_id):
+    film = Film.objects.get(id = film_id)
+    reviews = film.reviews.all()
+
+    context = {
+        'reviews' : reviews
+    }
+
+    return render(request, 'reviews.html', context)
+
+
+
 
 
 

@@ -28,7 +28,7 @@
                 <h5 class="card-title">{{film.title}}</h5>
 
                 {% for category in film.category.all %}
-                <a href="#" class="btn btn-outline-warning">{{category}}</a>
+                <a href="{% url 'categories' category.id %}" class="btn btn-outline-warning">{{category}}</a>
                 {% endfor %}
 
                 <p class="card-text">
