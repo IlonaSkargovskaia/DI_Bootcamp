@@ -1,6 +1,7 @@
-from django.urls import path, include
+from django.urls import path
+from .views import *
 
 urlpatterns = [
-    
-    #path('', include('bookapp.urls')),
+    path("search/", SearchResultsView.as_view(), name="search_results"),
+    path("", HomePageView.as_view(), name="home"),
 ]
