@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Home | Books{% endblock %}
+{% block title %}{{title}}{% endblock %}
 
 
 {% block content%}
@@ -28,7 +28,7 @@
               <p class="fw-lighter">Published: {{book.published_date}}</p>
               <p class="card-text">
                 {{book.description|truncatechars:255 }} <br><br>
-                <a href="{% url 'book_detail' book.id%}"> Read more...</a>
+                <a href="{% url 'book' book.id%}"> Read more...</a>
               </p>
             </div>
             <div class="card-footer">
