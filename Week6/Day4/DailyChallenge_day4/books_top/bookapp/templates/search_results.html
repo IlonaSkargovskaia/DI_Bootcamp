@@ -1,15 +1,42 @@
 {% extends 'base.html' %}
 
 {% block content%}
-<h1>Home</h1>
+<h1>Search results</h1>
 
-<ul>
+
+<div class="row row-cols-1 row-cols-md-5 g-4">
     {% for book in object_list %}
-      <li>
-        {{ book.title }}, {{ book.author }}
-      </li>
+    <div class="col" >
+      <div class="card h-100">
+          <div class="card_img">
+              <img src="{{book.thumbnail_url}}" class="card-img-top" >
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{book.title}}</h5>
+            <table class="table table-bordered">
+              <tr class="table-warning">
+                  <td>
+                      Author: {{book.author}}
+                  </td>
+                  
+              </tr>
+              
+            </table>
+            <p></p>
+            <p class="fw-lighter">Published: {{book.published_date}}</p>
+            <p class="card-text">
+              {{book.description|truncatechars:100 }} <br><br>
+              <a href="#"> Read more...</a>
+            </p>
+          </div>
+          <div class="card-footer">
+              <small class="text-muted">Category: {{book.categories}} | Pages:  {{book.page_count}} </small>
+          </div>
+          
+      </div>
+  </div>
     {% endfor %}
-</ul>
+</div>
 
 {% endblock %}
 

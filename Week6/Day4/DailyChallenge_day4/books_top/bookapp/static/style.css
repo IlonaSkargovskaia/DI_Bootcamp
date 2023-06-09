@@ -1,0 +1,14 @@
+.inline{
+    display: flex;
+    gap: 1rem;
+}
+
+.card .card_img{
+    max-height: 350px;
+    overflow: hidden;
+
+}
+
+.form-inline{
+    display: inline-flex;
+}
