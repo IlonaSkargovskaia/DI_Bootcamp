@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'users',
     'staff',
     'bootstrap5',
+    'phonenumber_field',
     'django_bootstrap_icons',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -132,3 +133,10 @@ STATIC_ROOT = os.path.join(PROJECT_PATH, 'static')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#куда мы перейдем после регистрации и после выхода из регистрации
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
+#default (имя из urls)
+LOGIN_URL = 'login'
