@@ -19,15 +19,14 @@
 
             </ul>
             <div class="d-flex align-items-center">
+                {%if request.user.is_authenticated %}
+                <div style="color: #fff;">Hello, <b>{{user}}</b></div>
+                <a class="btn btn-outline-light ms-2" href="{% url 'logout' %}">Logout</a>
+                {% else %}
 
-                <div>Hello, <b>{{user}}</b></div>
-                <a class="btn btn-outline-light ms-2" href="#">Profile</a>
-                <a class="btn btn-outline-light ms-2" href="#">Logout</a>
-
-
-                <a class="btn btn-outline-light ms-2" href="#">Login</a>
-                <a class="btn btn-outline-light ms-2" href="#">Sign up</a>
-
+                <a class="btn btn-outline-light ms-2" href="{% url 'login' %}">Login</a>
+                <a class="btn btn-outline-light ms-2" href="{% url 'register' %}">Sign up</a>
+                {% endif %}
             </div>
         </div>
     </div>
