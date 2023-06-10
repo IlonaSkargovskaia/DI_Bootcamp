@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} iHOTEL {% endblock %}
+{% block title %} {{title}} {% endblock %}
 
 {% block header %}
 <header>
@@ -18,17 +18,17 @@
                     <div class="booking__persons">
                         Persons
                     </div>
-                    <button type="submit" class="btn btn-info">Search</button>
+                    <button type="submit" class="btn btn-warning">Search</button>
                 </div>
             </div>
             <div class="slider__bonus">
                 <div class="bonus__text">
                     <div class="bonus__top">
-                        <h2>iHOTEL BONUSES</h2>
+                        <h2>TORQUAY BONUSES</h2>
                         <p>Get 20% off when you book by Sunday</p>
                     </div>
                     <div class="bonus__button">
-                        <button type="submit" class="btn btn-outline-light">BOOK NOW</button>
+                        <button type="submit" class="btn btn-outline-warning">BOOK NOW</button>
                     </div>
                 </div>
             </div>
@@ -39,6 +39,86 @@
 
 {% block content%}
 
-<h1>Hello, hotel</h1>
+<section class="about">
+    <div class="container">
+        <div class="subtitle">WELCOME TO TOWERS AND TORQUAY</div>
+        <h1>EXPLORE TORQUAY</h1>
+        <p>
+        Welcome to Torquay, a traditional yet thriving seaside town set on Devon's English Riviera coast and the top trending UK holiday destination in 2021. If you haven't visited for a while, then banish those thoughts of a resort that has seen its hey day.... the best is yet to come. With its iconic palm trees, busy harbour, international marina, sandy beach and wonderful array of continental style cafes, restaurants and cocktail bars, the scene is set for the perfect Devon seaside holiday or short break.
+        </p>
+        <p>
+        This quintessential bucket and spade resort appeared in The Guardian, being described as one of "Britain's most booming seaside towns, undergoing a style revival with Michelin starred restaurants and swanky yachts"!  You only have to drive along the seafront or take a stroll along the promenade to know that this is true.
+        </p>
+    </div>
+</section>
+
+<section class="things">
+    <div class="container">
+        <h2>THINGS TO DO IN TORQUAY</h2>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="../static/img/things/relax.jpeg" class="img-fluid rounded-start" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">English Riviera Attractions</h5>
+                        <p class="card-text">There's a huge choice of attractions in the Bay including renowned caverns, a model village, a steam train, a zoo, a huge waterpark, Agatha Christie’s famous riverside home and more.</p>
+                        
+                        </div>
+                        <div class="card-footer">Read more...</div>
+                </div>   
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                        <img src="../static/img/things/family.jpeg" class="img-fluid rounded-start" alt="...">
+                    
+                        <div class="card-body">
+                        <h5 class="card-title">Family Days out</h5>
+                        <p class="card-text">As well as the stunning coastline and beautiful beaches, the English Riviera has endless options for family fun including underground caverns, a magnificent model village, a steam train, a world-class zoo, an historic funicular railway, an 800 year old Abbey, a huge waterpark, a historic pier, Agatha Christie’s famous riverside residence and much more.</p>
+                        
+                        </div>
+                        <div class="card-footer">Read more...</div>
+                </div>   
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                        <img src="../static/img/things/coast.jpeg" class="img-fluid rounded-start" alt="...">
+                    
+                        <div class="card-body">
+                        <h5 class="card-title">Explore The Coast</h5>
+                        <p class="card-text">The South Devon coastline offers an ever-changing feast of sandy beaches, secluded coves, historic viaducts and wooded areas.</p>
+                        
+                        </div>
+                        <div class="card-footer">Read more...</div>
+                </div>   
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                        <img src="../static/img/things/download.jpeg" class="img-fluid rounded-start" alt="...">
+                   
+                        <div class="card-body">
+                        <h5 class="card-title">EXCURSIONS, DAY TRIPS & TOURS</h5>
+                        <p class="card-text">The English Riviera is a designated UNESCO Global Geopark in South Devon. It is one of only eight in the UK and 140 in the world. A geopark is an area of globally recognised unique geological interest with fascinating landscape, coastlines and places.</p>
+                        
+                        </div>
+                        <div class="card-footer">Read more...</div>
+                </div>   
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="member">
+    <div class="container">
+        <div class="member__block">
+            <h2>Become a member</h2>
+            <p>Exclusive rates, earn points towards free nights and more. Sign up today for free</p>
+            <div class="memder__buttons">
+                <a class="btn btn-outline-light ms-2" href="#">Join Now</a>
+                <a class="btn btn-outline-light ms-2" href="#">Sign in</a>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 {% endblock %}

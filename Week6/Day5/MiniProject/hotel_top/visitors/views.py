@@ -13,7 +13,7 @@ from django.shortcuts import get_object_or_404
 def homepage(request):
 
     context = {
-        'title' : 'Homepage HOTEL Booking'
+        'title' : 'HOME | TORQUAY'
     }
 
     return render(request, 'home.html', context)
