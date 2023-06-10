@@ -22,6 +22,7 @@
                 {%if request.user.is_authenticated %}
                 <div style="color: #fff;">Hello, <b>{{user}}</b></div>
                 <a class="btn btn-outline-light ms-2" href="{% url 'logout' %}">Logout</a>
+                <a class="btn btn-outline-light ms-2" href="{% url 'profile' %}">Profile</a>
                 {% else %}
 
                 <a class="btn btn-outline-light ms-2" href="{% url 'login' %}">Login</a>

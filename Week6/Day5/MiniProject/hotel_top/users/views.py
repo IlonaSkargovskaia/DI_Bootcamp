@@ -1,6 +1,9 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
-from .forms import LoginForm, RegisterForm
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
+from .forms import LoginForm, RegisterForm, ProfileForm
+from .models import UserProfile
 from django.contrib.auth import login, authenticate, logout
 
 def log_in(request):
@@ -50,3 +53,13 @@ def sign_up(request):
             return redirect('home')
         else:
             return render(request, 'users/register.html', {'form': form})
+        
+
+class UserProfileView(CreateView):
+    model = UserProfile
+    form_class = ProfileForm
+    template_name = 'profile.html'
+    #после авторизации переходим на просмотр своих данных профиля
+    success_url = reverse_lazy('profile') 
+        
+
