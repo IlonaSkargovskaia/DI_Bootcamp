@@ -58,7 +58,7 @@ def sign_up(request):
 class UserProfileView(CreateView):
     model = UserProfile
     form_class = ProfileForm
-    template_name = 'profile.html'
+    template_name = 'users/profile.html'
     #после авторизации переходим на просмотр своих данных профиля
     success_url = reverse_lazy('profile') 
         
