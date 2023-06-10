@@ -10,15 +10,22 @@
             <div class="slider__row ">
 
                 <div class="slider__form">
-                    <div class="form__booking row row-cols-1 row-cols-lg-4 g-4">
+                    <div class="form__booking row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 align-items-end">
                         <div class="booking__entry col">
-                            Entry date
+                            <label for="">Entry date<br>
+                                <input type="text">
+                            </label>
                         </div>
                         <div class="booking__departure col">
-                            Departure date
+                            <label for="">Departure date<br>
+                                <input type="text">
+                            </label>
+                            
                         </div>
                         <div class="booking__persons col">
-                            Persons
+                            <label for="">Persons<br>
+                                <input type="text">
+                            </label>
                         </div>
                         <div class="booking__btn col">
                             <button type="submit" class="btn btn-warning">Search</button>
@@ -175,17 +182,16 @@
             <h2>Become a member</h2>
             <p>Exclusive rates, earn points towards free nights and more. Sign up today for free</p>
             <div class="memder__buttons">
-                <a class="btn btn-outline-light ms-2" href="#">Join Now</a>
-                <a class="btn btn-outline-light ms-2" href="#">Sign in</a>
+                <a class="btn btn-outline-light ms-2" href="{% url 'login' %}">Join Now</a>
+                <a class="btn btn-outline-light ms-2" href="{% url 'register' %}">Sign in</a>
             </div>
         </div>
     </div>
 </section>
 
-
 <section class="location">
     <div class="container">
-        <div class="location__row row row-cols-1 row-cols-lg-2 g-4">
+        <div class="location__row row row-cols-1 row-cols-lg-2 g-4 align-items-center">
             <div class="location__description col">
                 <h2>About Torquay</h2>
                 <div class="descriotion__about">
@@ -208,6 +214,8 @@
                         <td>enquiries@haytorhotel.com</td>
                     </tr>
                 </table>
+                <br>
+                <button type="button" class="btn btn-dark btn-lg">Write to us if you need more information</button>
            </div>
         </div> 
     </div>
