@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} iHOTEL {% endblock %}
+
+{% block header %}
+<header>
+    <div class="slider">
+        <div class="container">
+            <div class="slider__form">
+                <div class="form__booking">
+                    <div class="booking__entry">
+                        Entry date
+                    </div>
+                    <div class="booking__departure">
+                        Departure date
+                    </div>
+                    <div class="booking__persons">
+                        Persons
+                    </div>
+                    <button type="submit" class="btn btn-info">Search</button>
+                </div>
+            </div>
+            <div class="slider__bonus">
+                <div class="bonus__text">
+                    <div class="bonus__top">
+                        <h2>iHOTEL BONUSES</h2>
+                        <p>Get 20% off when you book by Sunday</p>
+                    </div>
+                    <div class="bonus__button">
+                        <button type="submit" class="btn btn-outline-light">BOOK NOW</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+{% block content%}
+
+<h1>Hello, hotel</h1>
+
+{% endblock %}
