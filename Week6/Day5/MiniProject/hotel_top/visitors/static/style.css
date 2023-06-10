@@ -36,6 +36,10 @@
     padding: 70px 0;
 }
 
+.about .subtitle{
+    color: #949494;
+}
+
 .things{
     background: black;
     padding: 70px 0;
@@ -52,6 +56,19 @@
     font-size: 12px;
 }
 
+.rooms{
+    padding: 50px 0;
+}
+
+.rooms__rating{
+    margin: 40px 0;
+}
+
+.rooms .my_img{
+    width: auto;
+    height: 100%;
+}
+
 .member{
     background: url(../static/img/login_bg.jpeg) no-repeat center center;
     min-height: 40rem;
@@ -64,4 +81,15 @@
     text-align: center;
     padding-top: 5rem;
     color: #fff;
+}
+
+.location{
+    padding: 100px 0;
+}
+
+footer{
+    background: #353535;
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
 }

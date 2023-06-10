@@ -10,11 +10,13 @@
     <title>{% block title %}{% endblock %}</title>
     {% load bootstrap5 %}
     {% bootstrap_css %}
+    {% load bootstrap_icons %}
     {% bootstrap_javascript %}
 </head>
 <body>
 
-     {% include "navbar.html" %} 
+    {% include "navbar.html" %} 
+
      {% block header%} {% endblock %}
     
     
@@ -25,7 +27,7 @@
         
         {% endblock %}
    
-        
+    {% include "footer.html" %}  
       
 </body>
 </html>

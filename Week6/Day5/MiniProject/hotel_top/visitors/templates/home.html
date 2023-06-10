@@ -7,28 +7,33 @@
 <header>
     <div class="slider">
         <div class="container">
-            <div class="slider__form">
-                <div class="form__booking">
-                    <div class="booking__entry">
-                        Entry date
+            <div class="slider__row ">
+
+                <div class="slider__form">
+                    <div class="form__booking row row-cols-1 row-cols-lg-4 g-4">
+                        <div class="booking__entry col">
+                            Entry date
+                        </div>
+                        <div class="booking__departure col">
+                            Departure date
+                        </div>
+                        <div class="booking__persons col">
+                            Persons
+                        </div>
+                        <div class="booking__btn col">
+                            <button type="submit" class="btn btn-warning">Search</button>
+                        </div>
                     </div>
-                    <div class="booking__departure">
-                        Departure date
-                    </div>
-                    <div class="booking__persons">
-                        Persons
-                    </div>
-                    <button type="submit" class="btn btn-warning">Search</button>
                 </div>
-            </div>
-            <div class="slider__bonus">
-                <div class="bonus__text">
-                    <div class="bonus__top">
-                        <h2>TORQUAY BONUSES</h2>
-                        <p>Get 20% off when you book by Sunday</p>
-                    </div>
-                    <div class="bonus__button">
-                        <button type="submit" class="btn btn-outline-warning">BOOK NOW</button>
+                <div class="slider__bonus">
+                    <div class="bonus__text">
+                        <div class="bonus__top">
+                            <h2>TORQUAY BONUSES</h2>
+                            <p>Get 20% off when you book by Sunday</p>
+                        </div>
+                        <div class="bonus__button">
+                            <button type="submit" class="btn btn-outline-warning">BOOK NOW</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -55,7 +60,7 @@
 <section class="things">
     <div class="container">
         <h2>THINGS TO DO IN TORQUAY</h2>
-        <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="row row-cols-1 row-cols-lg-4 g-4 ">
             <div class="col">
                 <div class="card h-100">
                     <img src="../static/img/things/relax.jpeg" class="img-fluid rounded-start" alt="...">
@@ -107,6 +112,63 @@
     </div>
 </section>
 
+<section class="rooms">
+    <div class="container">
+        <div class="rooms__row row row-cols-1 row-cols-lg-2 g-4">
+            <div class="rooms__description col">
+                <h3>Our rooms</h3>
+                <p>Grade ii listed Victorian property set in 3/4 acres of South Facing garden. Access to a private pathway 'Croft Meadow Walk' that takes you too within 100 metres of Torquay's main beach and promenade. Note, we are not Star Rated. We came out of the Star rating system many years ago. We believe a true reflection of what a hotel offers can be found via review sites such as TripAdvisor. Guests can leave their own personal viewpoints, be it good or bad and also identify other points of interest that can be found either inside the hotel, such as the humour and fun factor that we hope to provide for our guests and external factors such as a guests comments regarding areas of interest that they may have visited whilst on holiday. These points can be very helpful for other viewers looking for somewhere to stay.</p>
+
+                <div class="rooms__rating">
+                    Rating: 
+                </div>
+
+                <button type="button" class="btn btn-warning btn-lg">Vacancies</button>
+                <button type="button" class="btn btn-success btn-lg">Write review</button>
+                <button type="button" class="btn btn-dark btn-lg">More info</button>
+            </div>
+            <div class="rooms__gallery col">
+                <div class="row row-cols-1 row-cols-lg-3 g-4 ">
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="../static/img/rooms/1.jpg" class="img-fluid my_img rounded-start" alt="...">
+                        </div>   
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="../static/img/rooms/2.jpg" class="img-fluid my_img rounded-start" alt="...">
+                        </div>   
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="../static/img/rooms/3.jpg" class="img-fluid my_img rounded-start" alt="...">
+                        </div>   
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="../static/img/rooms/4.jpg" class="img-fluid my_img rounded-start" alt="...">
+                        </div>   
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="../static/img/rooms/5.jpg" class="img-fluid my_img rounded-start" alt="...">
+                        </div>   
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="../static/img/rooms/6.jpg" class="img-fluid my_img rounded-start" alt="...">
+                        </div>   
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+</section>
+
 <section class="member">
     <div class="container">
         <div class="member__block">
@@ -121,4 +183,35 @@
 </section>
 
 
+<section class="location">
+    <div class="container">
+        <div class="location__row row row-cols-1 row-cols-lg-2 g-4">
+            <div class="location__description col">
+                <h2>About Torquay</h2>
+                <div class="descriotion__about">
+                    Mild ocean breezes, sandy beaches and swaying Torbay Palms give the small English town of Torquay a distinctively Mediterranean feel. More than just a beach spot, Torquay boasts an enormous coastal aviary and the famous Kents Cavern Prehistoric Caves. Agatha Christie spent most of her life here, and the city is now home to multiple film companies. With such a rich literary history, Torquay may be the perfect place to finish writing that novel or screenplay, or just to relax with a good mystery.
+                </div>
+        
+            </div>
+           <div class="location__map col">
+                <table class="table-responsive table table-sm">
+                    <tr>
+                        <td>Location: </td>
+                        <td>Meadfoot Road, Torquay TQ1 2JP England</td>
+                    </tr>
+                    <tr>
+                        <td>Phone: </td>
+                        <td>+44 1803 294708</td>
+                    </tr>
+                    <tr>
+                        <td>Email: </td>
+                        <td>enquiries@haytorhotel.com</td>
+                    </tr>
+                </table>
+           </div>
+        </div> 
+    </div>
+</section>
+
 {% endblock %}
+

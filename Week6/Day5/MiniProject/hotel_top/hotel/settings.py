@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'visitors',
     'bootstrap5',
+    'django_bootstrap_icons',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
