@@ -1,5 +1,5 @@
 from django.db import models
-from phonenumber_field.modelfields import PhoneNumberField
+
 
 class Room(models.Model):
     image = models.URLField(null = True, blank = True)
@@ -12,16 +12,6 @@ class Room(models.Model):
 
     def __str__(self):
         return f'{self.room_num} | size: {self.room_size} | type: {self.room_type}'
-    
-class Client(models.Model):
-    first_name = models.CharField(max_length=40)
-    last_name = models.CharField(max_length=50, blank=True, null=True)
-    email = models.EmailField(unique=True, blank=True, null=True)
-    phone_number = PhoneNumberField(region='IL')
-    
-    
-    def __str__(self):
-        return f'{self.first_name} | {self.room_num}'
     
 
 class RoomSize(models.Model):
@@ -51,5 +41,5 @@ class Review(models.Model):
 class Reservation(models.Model):
     check_in = models.DateTimeField(auto_now_add=True)
     check_out = models.DateTimeField()
-    client = models.OneToOneField('Client', on_delete=models.CASCADE)
+    client = models.OneToOneField(User, on_delete=models.CASCADE)
     room_num = models.ForeignKey('Room', on_delete=models.CASCADE, related_name="rooms")
