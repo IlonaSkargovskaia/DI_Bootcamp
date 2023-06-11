@@ -39,7 +39,9 @@
                             <p>Get 20% off when you book by Sunday</p>
                         </div>
                         <div class="bonus__button">
+                            <a href="{% url 'vacancies' %}">
                             <button type="submit" class="btn btn-outline-warning">BOOK NOW</button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -130,8 +132,10 @@
                     Rating: 
                 </div>
 
-                <button type="button" class="btn btn-warning btn-lg">Vacancies</button>
+                <a href="{% url 'vacancies' %}"><button type="button" class="btn btn-warning btn-lg">Vacancies</button></a>
+                <a href="{% url 'add_review' %}">
                 <button type="button" class="btn btn-success btn-lg">Write review</button>
+                </a>
                 <button type="button" class="btn btn-dark btn-lg">More info</button>
             </div>
             <div class="rooms__gallery col">

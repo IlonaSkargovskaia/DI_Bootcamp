@@ -2,6 +2,11 @@ html, body{
     height: 100%;
 }
 
+.inline{
+    display: flex;
+    gap: 2rem
+}
+
 .alert {
     text-align: center;
 }
@@ -91,6 +96,20 @@ main{
     height: 100%;
 }
 
+
+.card__book{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card__price{
+    font-weight: 700;
+}
+
+
+
 .member{
     background: url(../static/img/login_bg.jpeg) no-repeat center center;
     min-height: 40rem;
@@ -115,3 +134,5 @@ footer{
     padding: 50px 0;
     text-align: center;
 }
+
+

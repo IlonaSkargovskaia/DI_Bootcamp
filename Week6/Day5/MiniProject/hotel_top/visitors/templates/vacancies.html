@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<!-- only if registred -->
+<div class="container">
+<h1>Avaliable rooms</h1>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for room in rooms %}
+    {% if room.avaliable %}
+    <div class="col">
+        <div class="card h-100">
+
+            <div class="my_img">
+                <img class="card-img-top" src="{{ room.image }}">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Room N: {{room.room_num}}</h5>
+
+                <p class="card-text">
+                
+                    Room size: {{room.room_size}} <br>
+                    Room type: {{room.room_type}} <br>
+                    Avaliable: {{room.avaliable}} <br>
+                
+                </p>
+                <hr>
+                <div class="card__book">
+                    <div class="card__price">Price per day: {{room.price}}$</div>
+                    <div class="card__button">
+                        <button type="submit" class="btn btn-outline-warning">BOOK NOW</button>
+                    </div>
+                </div>
+                
+                <div class="card-footer">
+                    
+                    {% for review in room.reviews.all %}
+                        {% if room.reviews.count > 0 %}
+                        <h4>Reviews: </h4>
+                        <p style="color: grey" class="over"> <u> Review #{{review.id}}</u> {{review.review_text}}</p>
+
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+</div>
+{% endblock %}

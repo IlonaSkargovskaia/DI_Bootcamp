@@ -17,7 +17,7 @@
                 </li>
                 {%if request.user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ADD REVIEW</a>
+                    <a class="nav-link" href="{% url 'add_review'%}">ADD REVIEW</a>
                 </li>
                 {% endif %}
             </ul>
