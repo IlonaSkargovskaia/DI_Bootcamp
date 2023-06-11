@@ -7,19 +7,26 @@ from rest_framework.status import HTTP_200_OK, HTTP_201_CREATED, HTTP_400_BAD_RE
 from .serializers import StudentSerializer
 
 
-class StudentView(APIView):
+class StudentListView(APIView):
 
     def get(self, request, *args, **kwargs):
-        #kwargs = key value arguments ({'pk':1})
-        if 'pk' in kwargs:
-            student = get_object_or_404(Student, id=kwargs['pk'])
-            serializer = StudentSerializer(student)
-            return Response(serializer.data)
-        else:
-            queryset = Student.objects.all()
-            serializer = StudentSerializer(queryset, many = True)
-            return Response(serializer.data)
-        
+        queryset = Student.objects.all()
+        serializer = StudentSerializer(queryset, many = True)
+        return Response(serializer.data)
+    
+    # DailyChallenge
+    def get_queryset(self):
+        queryset = Student.objects.all()
+        date_joined = self.request.query_params.get("date_joined")
+        if date_joined is not None:
+            queryset = queryset.filter(date_joined = date_joined)
+            if len(queryset) == 0:
+                return Response(status=HTTP_204_NO_CONTENT)
+            else:
+                serializer = StudentSerializer(queryset, many = True)
+                return Response(serializer.data, status=HTTP_201_CREATED)
+    
+
     def post(self, request, *args, **kwargs):
         serializer = StudentSerializer(data = request.data)
 
@@ -28,6 +35,17 @@ class StudentView(APIView):
             return Response(serializer.data,  status=HTTP_201_CREATED)
         return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
     
+    
+
+
+class StudentDetailView(APIView):
+
+    def get(self, request, pk, *args, **kwargs):
+        student = get_object_or_404(Student, id=pk)
+        serializer = StudentSerializer(student)
+        return Response(serializer.data, status=HTTP_200_OK)
+          
+
     def put(self, request, pk, *args, **kwargs):
         student = Student.objects.get(id=pk)
         serializer = StudentSerializer(student, data=request.data)
