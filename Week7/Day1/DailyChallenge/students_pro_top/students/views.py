@@ -10,21 +10,15 @@ from .serializers import StudentSerializer
 class StudentListView(APIView):
 
     def get(self, request, *args, **kwargs):
-        queryset = Student.objects.all()
+        last_name = self.request.query_params.get('last_name', None)
+        
+        if last_name is not None:
+            queryset = Student.objects.filter(last_name= last_name)
+        else: 
+            queryset = Student.objects.all()
+            
         serializer = StudentSerializer(queryset, many = True)
-        return Response(serializer.data)
-    
-    # DailyChallenge
-    def get_queryset(self):
-        queryset = Student.objects.all()
-        date_joined = self.request.query_params.get("date_joined")
-        if date_joined is not None:
-            queryset = queryset.filter(date_joined = date_joined)
-            if len(queryset) == 0:
-                return Response(status=HTTP_204_NO_CONTENT)
-            else:
-                serializer = StudentSerializer(queryset, many = True)
-                return Response(serializer.data, status=HTTP_201_CREATED)
+        return Response(serializer.data, status=HTTP_201_CREATED)    
     
 
     def post(self, request, *args, **kwargs):
