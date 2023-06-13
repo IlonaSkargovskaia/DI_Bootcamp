@@ -10,10 +10,10 @@ from .serializers import StudentSerializer
 class StudentListView(APIView):
 
     def get(self, request, *args, **kwargs):
-        last_name = self.request.query_params.get('last_name', None)
+        date_joined = self.request.query_params.get('date_joined', None)
         
-        if last_name is not None:
-            queryset = Student.objects.filter(last_name= last_name)
+        if date_joined is not None:
+            queryset = Student.objects.filter(date_joined= date_joined)
         else: 
             queryset = Student.objects.all()
             

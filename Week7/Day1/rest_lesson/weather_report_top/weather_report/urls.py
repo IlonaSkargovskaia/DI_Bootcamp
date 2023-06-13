@@ -1,5 +1,5 @@
 """
-URL configuration for drf_course project.
+URL configuration for weather_report project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,16 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from posts.views import *
+
+from weatherapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    # path('api/posts/', PostView.as_view(), name = 'posts'),
-    # path('api/posts/<int:pk>', PostView.as_view(), name = 'post-detail'), #на конкретный пост
-    path('api/posts/', PostListView.as_view(), name = 'posts'),
-    path('api/posts/<int:pk>', PostDetailView.as_view(), name = 'posts'),
-    path('api/posts/<int:pk>/delete', PostDeleteView.as_view(), name = 'post-delete'),
-    path('api/user/<int:pk>', UserDetailView.as_view(), name = 'user-detail'),
+    #path('api/weatherapp/', ReportView.as_view(), name='reports'),
+    # path('api/weatherapp/', ReportMixinView.as_view(), name='reports'),
+    #path('api/weatherapp/<int:pk>', ReportView.as_view(), name='report-detail')
     
+    path('api/weatherapp/', ReportListView.as_view(), name='reports'),
+    path('api/weatherapp/<int:pk>', ReportDetailView.as_view(), name='report-detail'),
+    path('api/weatherapp/<int:pk>/delete', ReportDeleteView.as_view(), name='report-delete'),
 ]

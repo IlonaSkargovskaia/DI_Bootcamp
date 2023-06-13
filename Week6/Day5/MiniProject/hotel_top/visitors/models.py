@@ -41,5 +41,5 @@ class Review(models.Model):
 class Reservation(models.Model):
     check_in = models.DateTimeField(auto_now_add=True)
     check_out = models.DateTimeField()
-    client = models.OneToOneField(User, on_delete=models.CASCADE)
+    #client = models.OneToOneField('Client', on_delete=models.CASCADE)
     room_num = models.ForeignKey('Room', on_delete=models.CASCADE, related_name="rooms")
