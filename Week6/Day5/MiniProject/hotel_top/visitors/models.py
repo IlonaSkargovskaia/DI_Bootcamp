@@ -1,45 +1,33 @@
 from django.db import models
+from datetime import datetime
 
+
+class Hotel(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.CharField(max_length=200)
+    description = models.TextField()
+    amenities = models.TextField()
+    rating = models.DecimalField(max_digits=3, decimal_places=2)
+
+    def __str__(self) :
+        return self.name
 
 class Room(models.Model):
-    image = models.URLField(null = True, blank = True)
-    room_num = models.IntegerField()
-    avaliable = models.BooleanField(default = True)
-    room_size = models.ForeignKey('RoomSize', on_delete=models.CASCADE, related_name="sizes")
-    room_type = models.ForeignKey('RoomType', on_delete=models.CASCADE, related_name="types")
-    price = models.IntegerField()
-    date_created = models.DateField(auto_now_add=True)
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
+    room_number = models.CharField(max_length=10)
+    room_type = models.CharField(max_length=50)
+    price = models.DecimalField(max_digits=8, decimal_places=2)
+    availability = models.BooleanField(default=True)
 
-    def __str__(self):
-        return f'{self.room_num} | size: {self.room_size} | type: {self.room_type}'
-    
-
-class RoomSize(models.Model):
-    name = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.name
-    
-class RoomType(models.Model):
-    name = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.name
-
-class Review(models.Model):
-    room = models.ForeignKey('Room', on_delete=models.CASCADE, related_name='reviews')
-    review_text = models.TextField()
-    rating = models.IntegerField()
-    review_date = models.DateTimeField(auto_now_add=True)
-
-    
-
-    def __str__(self):
-        return f'{self.room} {self.review_text}'
-    
+    def __str__(self) :
+        return f'{self.hotel} | room num: {self.room_number} | price: {self.price}'
 
 class Reservation(models.Model):
-    check_in = models.DateTimeField(auto_now_add=True)
-    check_out = models.DateTimeField()
-    #client = models.OneToOneField('Client', on_delete=models.CASCADE)
-    room_num = models.ForeignKey('Room', on_delete=models.CASCADE, related_name="rooms")
+    room = models.ForeignKey(Room, on_delete=models.CASCADE)
+    guest_name = models.CharField(max_length=100)
+    guest_email = models.EmailField()
+    check_in_date = models.DateField()
+    check_out_date = models.DateField()
+
+    def __str__(self) :
+        return f'{self.room} | check in: {self.check_in_date} | check out: {self.check_out_date}'

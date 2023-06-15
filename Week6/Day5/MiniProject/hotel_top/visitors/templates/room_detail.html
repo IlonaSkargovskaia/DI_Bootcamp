@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<!-- only if registred -->
+<div class="container">
+
+<h1>Room {{ room.room_number }}</h1>
+    <p>Type: {{ room.room_type }}</p>
+    <p>Price: {{ room.price }}</p>
+    {% if room.availability %}
+        <a href="{% url 'reservation_create' room.id %}">Reserve</a>
+    {% else %}
+        <p>Not available</p>
+    {% endif %}
+</div>
+{% endblock %}

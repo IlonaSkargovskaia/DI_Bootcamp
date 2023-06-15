@@ -9,27 +9,17 @@
         <div class="container">
             <div class="slider__row ">
 
-                <div class="slider__form">
+                <div class="slider__form"> 
                     <div class="form__booking row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 align-items-end">
-                        <div class="booking__entry col">
-                            <label for="">Entry date<br>
-                                <input type="text">
-                            </label>
-                        </div>
-                        <div class="booking__departure col">
-                            <label for="">Departure date<br>
-                                <input type="text">
-                            </label>
-                            
-                        </div>
-                        <div class="booking__persons col">
-                            <label for="">Persons<br>
-                                <input type="text">
-                            </label>
-                        </div>
-                        <div class="booking__btn col">
-                            <button type="submit" class="btn btn-warning">Search</button>
-                        </div>
+                        <!-- <form action="" method="POST" class="reservation_form">
+                            {%csrf_token%}
+                            {{form.as_div}}
+                            <div class="booking__btn col">
+                                <button type="submit" class="btn btn-warning">Search</button>
+                            </div>
+                        </form> -->
+                        
+                        
                     </div>
                 </div>
                 <div class="slider__bonus">
@@ -39,7 +29,7 @@
                             <p>Get 20% off when you book by Sunday</p>
                         </div>
                         <div class="bonus__button">
-                            <a href="{% url 'vacancies' %}">
+                            <a href="#">
                             <button type="submit" class="btn btn-outline-warning">BOOK NOW</button>
                             </a>
                         </div>
@@ -125,18 +115,30 @@
     <div class="container">
         <div class="rooms__row row row-cols-1 row-cols-lg-2 g-4">
             <div class="rooms__description col">
-                <h3>Our rooms</h3>
+                <h3>About us</h3>
+                <div class="rooms__hotel-about">
+                
+                </div>
                 <p>Grade ii listed Victorian property set in 3/4 acres of South Facing garden. Access to a private pathway 'Croft Meadow Walk' that takes you too within 100 metres of Torquay's main beach and promenade. Note, we are not Star Rated. We came out of the Star rating system many years ago. We believe a true reflection of what a hotel offers can be found via review sites such as TripAdvisor. Guests can leave their own personal viewpoints, be it good or bad and also identify other points of interest that can be found either inside the hotel, such as the humour and fun factor that we hope to provide for our guests and external factors such as a guests comments regarding areas of interest that they may have visited whilst on holiday. These points can be very helpful for other viewers looking for somewhere to stay.</p>
 
-                <div class="rooms__rating">
-                    Rating: 
-                </div>
-
-                <a href="{% url 'vacancies' %}"><button type="button" class="btn btn-warning btn-lg">Vacancies</button></a>
-                <a href="{% url 'add_review' %}">
-                <button type="button" class="btn btn-success btn-lg">Write review</button>
-                </a>
-                <button type="button" class="btn btn-dark btn-lg">More info</button>
+                <ul>
+                    {% for hotel in hotels %}
+                    <li>
+                        <!-- <h2>{{ hotel.name }}</h2> -->
+                        <p>Location: {{ hotel.address }}</p>
+                        <p>Rating: {{ hotel.rating }}</p>
+                        <a href="{% url 'hotel_detail' hotel.id %}" class="btn btn-dark btn-lg">View Details</a>
+                        <a href="{% url 'room_list'%}"><button type="button" class="btn btn-warning btn-lg">Vacancies</button></a>
+                        <a href="#">
+                        <button type="button" class="btn btn-success btn-lg">Write review</button>
+                        </a>
+                    </li>
+                    {% empty %}
+                    <li>No hotels available.</li>
+                    {% endfor %}
+                </ul>
+                
+                
             </div>
             <div class="rooms__gallery col">
                 <div class="row row-cols-1 row-cols-lg-3 g-4 ">

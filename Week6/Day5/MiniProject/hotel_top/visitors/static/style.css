@@ -135,4 +135,11 @@ footer{
     text-align: center;
 }
 
+.reservation_form{
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+}
+
+
 
