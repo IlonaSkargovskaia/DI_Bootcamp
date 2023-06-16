@@ -8,18 +8,18 @@ from django.urls import reverse_lazy
 
 class Home(ListView):
     model = Hotel
+    form_class = ReservationForm
     template_name = 'home.html'
     success_url = reverse_lazy('home')
 
     def get(self, request):
         hotels = Hotel.objects.all()
-        return render(request, 'home.html', {'hotels': hotels})
+        form = ReservationForm()
+        return render(request, 'home.html', {'hotels': hotels, 'form': form})
+    
+    # def post(self.request):
 
 
-# class HotelListView(View):
-#     def get(self, request):
-#         hotels = Hotel.objects.all()
-#         return render(request, 'hotel_list.html', {'hotels': hotels})
     
 class HotelDetailView(View):
     def get(self, request, hotel_id):
@@ -69,23 +69,14 @@ class ReservationCreateView(View):
         return render(request, 'reservation_create.html', {'room': room, 'form': form})
 
 
+class ReviewCreateView(CreateView):
+    model = Review
+    form_class = ReviewForm
+    template_name = 'add_review.html'
+    success_url = reverse_lazy('add_review')
 
-
-# class RoomsView(ListView):
-#     model = Room
-#     template_name = 'vacancies.html'
-#     #говорим что хотим чтобы ключ в context был 'films' и его потом for-loop в template home
-#     context_object_name = 'rooms'
-
-# class ReviewCreateView(CreateView):
-#     model = Review
-#     form_class = ReviewForm
-#     template_name = 'add_review.html'
-#     #редирект на add_category (имя из urls)
-#     success_url = reverse_lazy('add_review')
-
-#     def form_valid(self, form):
-#         return super().form_valid(form) 
+    def form_valid(self, form):
+        return super().form_valid(form) 
 
 
 

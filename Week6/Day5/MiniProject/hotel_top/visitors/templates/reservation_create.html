@@ -5,7 +5,7 @@
 <!-- only if registred -->
 <div class="container">
     <h1>Create Reservation</h1>
-    <form method="post">
+    <form method="post" class="form create_reservation">
         {% csrf_token %}
         <input type="hidden" name="room_id" value="{{ room.id }}">
         <label for="guest_name">Guest Name:</label>
@@ -16,6 +16,6 @@
         <input type="date" id="check_in_date" name="check_in_date" required><br>
         <label for="check_out_date">Check-out Date:</label>
         <input type="date" id="check_out_date" name="check_out_date" required><br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Book now" class="btn btn-outline-warning">
     </form>
 {% endblock %}

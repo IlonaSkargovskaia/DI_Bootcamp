@@ -4,6 +4,7 @@
 <div class="container">
 <form method="POST" novalidate>
 	{% csrf_token %}
+	
 	<h2>Sign Up</h2>
 		
 	{% for field in form %}
@@ -19,7 +20,7 @@
 	</p>
 	{% endfor %}
 	<input type="submit" value="Register" />
-	<p>Already has an account? <a href="{%url 'login' %}">Login</a></p>
+	<p><br>Already has an account? <a href="{%url 'login' %}">Login</a></p>
 </form>
 </div>
 {% endblock content%}

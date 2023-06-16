@@ -3,14 +3,17 @@
 {% block content%}
 <div class="container">
 <h1>Reservation Confirmation</h1>
-    <p>Thank you for your reservation!</p>
+    <div class="alert-success">Thank you for your reservation!</div>
+    <div class="alert-dark">
     <h2>Reservation Details:</h2>
     <p>Guest Name: {{ reservation.guest_name }}</p>
     <p>Guest Email: {{ reservation.guest_email }}</p>
     <p>Check-in Date: {{ reservation.check_in_date }}</p>
     <p>Check-out Date: {{ reservation.check_out_date }}</p>
     <p>Room: {{ reservation.room }}</p>
-    <!-- Add more reservation details as needed -->
+    </div>
     <p>Please keep this confirmation for your reference.</p>
+    <a href="{% url 'room_list' %}">Back to vacancies</a>
 </div>      
 {% endblock %}
+

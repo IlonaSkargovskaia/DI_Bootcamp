@@ -11,14 +11,13 @@
 
                 <div class="slider__form"> 
                     <div class="form__booking row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 align-items-end">
-                        <!-- <form action="" method="POST" class="reservation_form">
+                        <form action="" method="POST" class="reservation_form">
                             {%csrf_token%}
                             {{form.as_div}}
                             <div class="booking__btn col">
                                 <button type="submit" class="btn btn-warning">Search</button>
                             </div>
-                        </form> -->
-                        
+                        </form>
                         
                     </div>
                 </div>
@@ -129,8 +128,8 @@
                         <p>Rating: {{ hotel.rating }}</p>
                         <a href="{% url 'hotel_detail' hotel.id %}" class="btn btn-dark btn-lg">View Details</a>
                         <a href="{% url 'room_list'%}"><button type="button" class="btn btn-warning btn-lg">Vacancies</button></a>
-                        <a href="#">
-                        <button type="button" class="btn btn-success btn-lg">Write review</button>
+                        <a href="{% url 'add_review' %}">
+                            <button type="button" class="btn btn-success btn-lg">Write review</button>
                         </a>
                     </li>
                     {% empty %}
