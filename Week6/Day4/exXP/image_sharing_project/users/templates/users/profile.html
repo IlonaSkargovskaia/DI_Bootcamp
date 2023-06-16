@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content%}
+    
+    <div class="container">
+        
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h4 class="card-title">Your personal profile</h4>
+                  <p class="card-text">
+                    <p>Username: {{ user.username }}</p>
+                    <p>Email: {{ user.email }}</p>
+                   
+                  </p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    
+{% endblock %}

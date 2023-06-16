@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <div class="container">
+        <a class="navbar-brand" href="/">Image Shares</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">VACANCIES</a>
+                </li>
+
+                {%if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ADD REVIEW</a>
+                </li>
+                {% endif %}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">CONTACT US</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center">
+                {%if request.user.is_authenticated %}
+                <div>Hello, <b>{{user}}</b></div>
+                <a class="btn btn-outline-dark ms-2" href="{% url 'logout' %}">Logout</a>
+                <a class="btn btn-outline-dark ms-2" href="{% url 'profile' %}">Profile</a>
+                {% else %}
+
+                <a class="btn btn-outline-dark ms-2" href="{% url 'login' %}">Login</a>
+                <a class="btn btn-outline-dark ms-2" href="{% url 'register' %}">Sign up</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>
