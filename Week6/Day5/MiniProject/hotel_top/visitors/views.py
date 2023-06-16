@@ -1,23 +1,44 @@
 from django.shortcuts import render, redirect
 from .models import *
 from .forms import *
-from django.views.generic import View, CreateView, ListView
+from django.views.generic import View, CreateView, ListView, FormView, TemplateView
 from django.urls import reverse_lazy
 
 
 
 class Home(ListView):
     model = Hotel
-    form_class = ReservationForm
+    # form_class = ReservationForm
     template_name = 'home.html'
     success_url = reverse_lazy('home')
 
     def get(self, request):
         hotels = Hotel.objects.all()
-        form = ReservationForm()
+        form = SearchForm()
         return render(request, 'home.html', {'hotels': hotels, 'form': form})
     
-    # def post(self.request):
+    
+    
+    def post(self, request):
+        if self.request.method == 'POST':
+            form = SearchForm(self.request.POST)
+            if form.is_valid():
+                check_in_date = form.cleaned_data['check_in_date']
+                check_out_date = form.cleaned_data['check_out_date']
+                
+                # Query available rooms based on check-in and check-out dates
+                available_rooms = Room.objects.filter(reservation__check_in_date__gte=check_in_date, reservation__check_out_date__lte=check_out_date)
+                
+                context = {
+                    'form': form,
+                    'available_rooms': available_rooms,
+                }
+                
+                return render(self.request, 'search_results.html', context)
+            else:
+                form = SearchForm()
+            
+        return render(self.request, 'search_results.html', {'form': form})
 
 
     
@@ -77,6 +98,25 @@ class ReviewCreateView(CreateView):
 
     def form_valid(self, form):
         return super().form_valid(form) 
+
+
+class ContactView(FormView):
+    template_name = 'contact.html'
+    form_class = ContactForm
+    success_url = reverse_lazy('contact_success')
+
+    def form_valid(self, form):
+        # Process the form data
+        name = form.cleaned_data['name']
+        email = form.cleaned_data['email']
+        message = form.cleaned_data['message']
+        # Perform further actions (e.g., sending an email, saving to database)
+        
+        # Render a success message or redirect to the success URL
+        return super().form_valid(form)
+
+class ContactSuccessView(TemplateView):
+    template_name = 'contact_success.html'
 
 
 

@@ -5,30 +5,53 @@
 <!-- only if registred -->
 <div class="container">
 
-<h1>Room {{ room.room_number }}</h1>
-    <p>Type: {{ room.room_type }}</p>
-    <p>Price: {{ room.price }}</p>
-    {% if room.availability %}
-        <a href="{% url 'reservation_create' room.id %}">Reserve</a> <br>
-    {% else %}
-        <p>Not available</p>
-    {% endif %}
-    <br>
-    <div class="card-footer">
-        
-        <h4>Reviews: </h4>
-        {% for review in room.reviews.all %}
-        {% if room.reviews.count > 0 %}
-            <p style="color: grey" class="over"> 
-                <u> Review #{{review.id}}</u>
-                {{review.review_text}}</p>
-                Rating: {{review.rating}}<br>
-                Date: {{review.review_date}}
+    <h1>Room #{{ room.room_number }}</h1>
 
-        {% endif %}
-        {% endfor %}
+    <div class="card">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img class="card-img-top" src="{{room.thumbnail_url}}" alt="Card image cap">
+            </div>
+            <div class="col-md-8 room_right">
+                <div class="card-body">
+                    <h5 class="card-title">Room #{{room.room_number}} | {{ room.room_type }}</h5>
+                    <p><b> Description: </b></p>
+                    <p>{{room.description}}</p>
+                    <div class="card-footer__btns">
+                        <small class="text-muted">Price/day: {{ room.price }}$ </small>
+                        <div class="buttons">
 
+                            {% if room.availability %}
+                            <a href="{% url 'reservation_create' room.id %}" class="btn btn-outline-warning">Book
+                                now</a>
+                            {% else %}
+                            <p>Not available</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                {% for review in room.reviews.all %}
+                {% if room.reviews.count > 0 %}
+                <div class="card-footer">
+
+                    <h4>Reviews: </h4>
+
+                    <p style="color: grey" class="over">
+                        <u> Review #{{review.id}}</u>
+                        {{review.review_text}}
+                    </p>
+                    Rating: {{review.rating}}<br>
+                    Date: {{review.review_date}}
+
+                </div>
+                {% endif %}
+                {% endfor %}
+                <br>
+                <a href="{% url 'room_list' %}" class="btn btn-dark">Go back to "Avaliable rooms"</a>
+            </div>
+        </div>
     </div>
-    <a href="{% url 'room_list' %}">Go back</a>
+
 </div>
 {% endblock %}

@@ -19,5 +19,15 @@ class ReservationForm(forms.Form):
     guest_email = forms.EmailField()
     check_in_date = forms.DateField()
     check_out_date = forms.DateField()
-    widgets = {'check_in_date': DateInput(attrs={'type': 'date'}),
-               'check_out_date': DateInput(attrs={'type': 'date'}),}
+    
+    
+class SearchForm(forms.Form):
+    check_in_date = forms.DateField(widget=forms.DateInput(attrs={ 'type': 'date', 'class' : 'check'}))
+    check_out_date = forms.DateField(widget=forms.DateInput(attrs={ 'type': 'date', 'class' : 'check'}))
+
+
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100, label='Your Name')
+    email = forms.EmailField(max_length=100, label='Your Email')
+    message = forms.CharField(widget=forms.Textarea, label='Message')
+    

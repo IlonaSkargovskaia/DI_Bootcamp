@@ -19,6 +19,7 @@ class Room(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     availability = models.BooleanField(default=True)
     thumbnail_url = models.URLField()
+    description = models.TextField(null=True, blank=True)
 
     def __str__(self) :
         return f'{self.room_number} | price: {self.price}$'

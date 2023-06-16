@@ -10,16 +10,23 @@
             <div class="slider__row ">
 
                 <div class="slider__form"> 
-                    <div class="form__booking row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 align-items-end">
-                        <form action="" method="POST" class="reservation_form">
-                            {%csrf_token%}
-                            {{form.as_div}}
-                            <div class="booking__btn col">
-                                <button type="submit" class="btn btn-warning">Search</button>
-                            </div>
+                        <h3>Search rooms:</h3>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="submit" value="Search" class="btn btn-warning">
                         </form>
                         
-                    </div>
+                        {% if available_rooms %}
+                            <h2>Available Rooms</h2>
+                            <ul>
+                                {% for room in available_rooms %}
+                                    <li>{{ room.room_number }} - {{ room.room_type }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        
+                    
                 </div>
                 <div class="slider__bonus">
                     <div class="bonus__text">
@@ -129,7 +136,7 @@
                         <a href="{% url 'hotel_detail' hotel.id %}" class="btn btn-dark btn-lg">View Details</a>
                         <a href="{% url 'room_list'%}"><button type="button" class="btn btn-warning btn-lg">Vacancies</button></a>
                         <a href="{% url 'add_review' %}">
-                            <button type="button" class="btn btn-success btn-lg">Write review</button>
+                        <button type="button" class="btn btn-success btn-lg">Write review</button>
                         </a>
                     </li>
                     {% empty %}

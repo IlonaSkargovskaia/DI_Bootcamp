@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<!-- only if registred -->
+<div class="container">
+<h1>Search Results</h1>
+{% if available_rooms %}
+        <table class="table table-bordered">
+            <tr>
+                <th>Number</th>
+                <th>Type</th>
+                <th>Details</th>
+            </tr>
+            {% for room in available_rooms %}
+                <tr>
+                    <td>{{ room.room_number }}</td>
+                    <td>{{ room.room_type }}</td>
+                    <td><a href="{% url 'room_detail' room.id %}" class="btn btn-outline-success">View detail</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No available rooms for the selected dates.</p>
+    {% endif %}
+</div>
+{% endblock %}
