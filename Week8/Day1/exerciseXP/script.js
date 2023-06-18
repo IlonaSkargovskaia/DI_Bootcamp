@@ -32,3 +32,43 @@ console.log(index2);
 let last = people[people.length - 1]
 console.log(last)
 // the array index numbering starts with 0. i.e. 1st element's index would 0. Therefore the last element's index would be array length-1.
+
+
+// Using a loop, iterate through the people array and console.log each person.
+
+for (let i of people) {
+    console.log(i)
+}
+
+// Using a loop, iterate through the people array and exit the loop after you console.log “Devon” 
+for (let i of people) {
+    console.log(i);
+    if (i === "Devon"){
+        break;
+    }
+}
+
+
+// Create an array called colors where the value is a list of your five favorite colors.
+const colors = ["white", "black", "pink", "yellow", "blue"]
+let sfx = ['st', 'nd', 'rd', 'th']
+
+// Loop through the array and as you loop console.log a string like so: “My #1 choice is blue”, “My #2 choice is red” ect… .
+for (let i = 0; i < colors.length; i++) {
+    console.log(`My ${i+1} choice is ${colors[i]}`)
+}
+
+// Bonus: Change it to console.log “My 1st choice”, “My 2nd choice”, “My 3rd choice”, picking the correct suffix for each number.
+// Hint : create an array of suffixes to do the Bonus
+for (let i = 0; i < colors.length; i++) {
+    if (i == 0) {
+        console.log(`My ${i+1}${sfx[0]} choice is ${colors[i]}`)
+    } else if (i == 1) {
+        console.log(`My ${i+1}${sfx[1]} choice is ${colors[i]}`)
+    } else if (i == 2) {
+        console.log(`My ${i+1}${sfx[2]} choice is ${colors[i]}`)
+    } else {
+        console.log(`My ${i+1}${sfx[sfx.length - 1]} choice is ${colors[i]}`)
+    }
+    
+}
