@@ -21,3 +21,36 @@ if ((wordBad !== -1) && (wordNot !== -1) && (wordBad > wordNot)){
     console.log(sentence);
 }
     
+
+
+
+// Ex #2
+// *  
+// * *  
+// * * *  
+// * * * *  
+// * * * * *
+// * * * * * *
+
+
+let newString = '';
+
+for (let i = 0; i < 6; i++ ){
+    newString += '*' + ' ';
+    console.log(newString);
+}
+
+// two loops
+let newString2 = '';
+
+for (let i = 0; i < 6; i++) {
+    newString2 = '';
+    for (let j = 0; j <= i; j++) {
+        newString2 += "*" + ' ';
+    }
+    console.log(newString2);
+}
+
+
+
+
