@@ -77,18 +77,18 @@ for (let i = 0; i < colors.length; i++) {
 // Prompt the user for a number.
 // Hint : Check the data type you receive from the prompt (ie. Use the typeof method)
 
-// let answer = prompt("Write the number: ")
-// console.log(typeof answer)
+let answer = prompt("Write the number: ")
+console.log(typeof answer)
 
 // While the number is smaller than 10 continue asking the user for a new number.
 // Tip : Which while loop is more relevant for this situation?
 
 
-// do {
-//     answerLoop = prompt("Write the number: ")
-//     console.log(answerLoop)
-// }
-// while (parseInt(answerLoop) < 10);
+do {
+    answerLoop = prompt("Write the number: ")
+    console.log(answerLoop)
+}
+while (parseInt(answerLoop) < 10);
 
 
 // Ex4. Building Management
