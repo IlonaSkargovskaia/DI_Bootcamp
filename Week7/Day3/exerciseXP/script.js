@@ -77,18 +77,18 @@ for (let i = 0; i < colors.length; i++) {
 // Prompt the user for a number.
 // Hint : Check the data type you receive from the prompt (ie. Use the typeof method)
 
-let answer = prompt("Write the number: ")
-console.log(typeof answer)
+// let answer = prompt("Write the number: ")
+// console.log(typeof answer)
 
 // While the number is smaller than 10 continue asking the user for a new number.
 // Tip : Which while loop is more relevant for this situation?
 
 
-do {
-    answerLoop = prompt("Write the number: ")
-    console.log(answerLoop)
-}
-while (parseInt(answerLoop) < 10);
+// do {
+//     answerLoop = prompt("Write the number: ")
+//     console.log(answerLoop)
+// }
+// while (parseInt(answerLoop) < 10);
 
 
 // Ex4. Building Management
@@ -189,3 +189,62 @@ for(let i in sortNames){
 console.log(finalSocietyStr);
 
 
+// XP Gold
+
+let numbers = [123, 8409, 100053, 333333333, 7];
+
+for (let i in numbers) {
+    if (i % 3 == 0){
+        console.log("True");
+    } else {
+        console.log("False");
+    }
+}
+
+
+// 2
+
+let guestList = {
+    randy: "Germany",
+    karla: "France",
+    wendy: "Japan",
+    norman: "England",
+    sam: "Argentina"
+}
+
+let userName = prompt("Write you name: ");
+
+// check if key exist
+const checkIfKeyExist = (objectName, keyName) => {
+    let keyExist = Object.keys(objectName).some(key => key === keyName);
+    if (keyExist == true) {
+        console.log(`Hi! I'm ${keyName}, and I'm from ${objectName[keyName]}`);
+    } else {
+        console.log(`Hi! I'm guest`);
+    }
+};
+  
+console.log(checkIfKeyExist(guestList, userName));
+
+
+
+// 3
+
+let age = [20,5,12,43,98,55];
+let sumArr = 0;
+
+for (let i = 0; i < age.length; i++) {
+    sumArr += age[i]; 
+}
+
+console.log(sumArr);
+
+
+let max = age[0];
+for(let i = 0; i < age.length; i++){
+    
+    if(age[i] > max){
+        max = age[i];
+    }
+}
+console.log(max);
