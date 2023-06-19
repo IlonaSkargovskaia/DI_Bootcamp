@@ -26,12 +26,17 @@ class Home(ListView):
                 check_in_date = form.cleaned_data['check_in_date']
                 check_out_date = form.cleaned_data['check_out_date']
                 
-                # Query available rooms based on check-in and check-out dates
-                available_rooms = Room.objects.filter(reservation__check_in_date__gte=check_in_date, reservation__check_out_date__lte=check_out_date)
+                # Query unavailable rooms based on check-in and check-out dates
+                unavailable_rooms = Room.objects.filter(reservation__check_in_date__lte=check_out_date, reservation__check_out_date__gte=check_in_date)
+                
+                # Query available rooms excluding the unavailable ones
+                available_rooms = Room.objects.exclude(id__in=unavailable_rooms.values('id'))
                 
                 context = {
                     'form': form,
                     'available_rooms': available_rooms,
+                    'check_in_date': check_in_date, 
+                    'check_out_date': check_out_date
                 }
                 
                 return render(self.request, 'search_results.html', context)
