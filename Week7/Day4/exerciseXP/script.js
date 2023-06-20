@@ -56,4 +56,99 @@ myBill();
 console.log(prices);
 
 
+// 3 Create a function named changeEnough(itemPrice, amountOfChange) that receives two arguments :
+// an item price
+// and an array representing the amount of change in your pocket.
 
+function changeEnough(itemPrice, amountOfChange){
+
+    quarters = amountOfChange[0] * 0.25;
+    dimes = amountOfChange[1] * 0.10;
+    nickels = amountOfChange[2] * 0.05;
+    pennies = amountOfChange[3] * 0.01;
+    totalChange = quarters + dimes + nickels + pennies;
+
+    console.log(totalChange);
+
+    if (totalChange >= itemPrice){
+        console.log(true);
+    } else {
+        console.log(false);
+    }
+    
+}
+
+changeEnough(4.25, [25, 20, 5, 0]);
+
+
+// Vacations Costs
+
+function hotelCost(){
+    
+    let totalPrice = 0;
+    let userAnswer = +(prompt("Write a number of days what you would like to stay in hotel?"));
+
+    while (isNaN(userAnswer)) {
+        userAnswer = prompt('Wrong answer, try again: ');
+    } 
+    
+    if (!isNaN(userAnswer)) {
+        totalPrice = userAnswer * 140;
+    }
+
+    return totalPrice;
+}
+
+
+
+
+function planeRideCost() {
+    let destination = prompt('Where you would like to go?');
+    let prices = {
+        'London' : 183,
+        'Paris' : 220,
+        'others' : 300,
+    }
+
+    while ((destination === null) || (destination === '') || (typeof destination !== 'string')) {
+        destination = prompt('Wrong answer, try again: ');
+    }
+    
+    if (destination === 'London') {
+        return prices['London'];
+    } else if (destination === 'Paris') {
+        return prices['Paris'];
+    } else {
+        return prices['others'];
+    }
+}
+
+
+
+
+function rentalCarCost(){
+    let totalPriceCar = 0;
+    let userAnswerDaysCar = +(prompt("Write a number of days what you would like to rent a car?"));
+
+    while (isNaN(userAnswerDaysCar)) {
+        userAnswerDaysCar = prompt('Wrong answer, try again: ');
+    } 
+    
+    if (!isNaN(userAnswerDaysCar) && (userAnswerDaysCar > 10)) {
+        totalPriceCar = userAnswerDaysCar * 40 * 0.05;
+    } else {
+        totalPriceCar = userAnswerDaysCar * 40;  
+    }
+    return totalPriceCar;
+}
+
+
+function totalVacationCost(){
+    const carCost = rentalCarCost();
+    const hotCost = hotelCost();
+    const planeRide = planeRideCost();
+
+    console.log(`The car cost: ${carCost}, the hotel cost: ${hotCost}, the plane tickets cost: ${planeRide}`);
+}
+
+totalVacationCost();
