@@ -6,13 +6,16 @@
 
 function displayNumbersDivisible(divisor){
     let sum = 0;
+    let outer = '';
+    
     for (let i = 0; i < 501; i++){
-        if (i % divisor == 0) {
-            console.log(i);
+        if (i % divisor === 0) {
+            outer += i + ' ';
             sum += i;
         }
     }
 
+    console.log('Outer: ', outer.trim());
     console.log("Sum: ", sum);
 }
 
