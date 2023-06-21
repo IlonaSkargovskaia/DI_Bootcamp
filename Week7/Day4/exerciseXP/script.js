@@ -154,4 +154,27 @@ function totalVacationCost(){
     console.log(`The car cost: ${carCost}, the hotel cost: ${hotCost}, the plane tickets cost: ${planeRide}`);
 }
 
-totalVacationCost();
+// totalVacationCost();
+
+
+
+// 5 users
+
+// Using Javascript:
+// Retrieve the div and console.log it
+const container = document.getElementById("container");
+// Change the name “Pete” to “Richard”.
+const list = container.nextElementSibling;
+let listName = list.lastElementChild;
+listName.textContent = 'Richard';
+// Delete the <li> that contains the text node “Sarah”. (It’s the second <li> of the second <ul>)
+const secList = document.body.children[3];
+let secListLi = secList.children[1].remove();
+// Change each first name of the two <ul>'s to your name. (Hint : use a loop)
+const twoLists = document.querySelectorAll('.list');
+for (let item of twoLists) {
+    let firstLi = item.children[0];
+    firstLi.textContent = 'Ilona';
+}
+
+
