@@ -103,8 +103,6 @@ function hotelCost(){
 }
 
 
-
-
 function planeRideCost() {
     let destination = prompt('Where you would like to go?');
     let prices = {
@@ -163,18 +161,44 @@ function totalVacationCost(){
 // Using Javascript:
 // Retrieve the div and console.log it
 const container = document.getElementById("container");
+
 // Change the name “Pete” to “Richard”.
 const list = container.nextElementSibling;
 let listName = list.lastElementChild;
 listName.textContent = 'Richard';
+
 // Delete the <li> that contains the text node “Sarah”. (It’s the second <li> of the second <ul>)
 const secList = document.body.children[3];
 let secListLi = secList.children[1].remove();
+
 // Change each first name of the two <ul>'s to your name. (Hint : use a loop)
 const twoLists = document.querySelectorAll('.list');
-for (let item of twoLists) {
-    let firstLi = item.children[0];
+for (let list of twoLists) {
+    let firstLi = list.children[0];
     firstLi.textContent = 'Ilona';
 }
 
 
+// Add a class called student_list to both of the <ul>'s.
+for (let list of twoLists) {
+    list.classList.add('student_list');
+}
+
+// Add the classes university and attendance to the first <ul>.
+let firstUl = container.nextElementSibling;
+firstUl.classList.add('university', 'attendance');
+
+
+// Add a “light blue” background color and some padding to the <div>.
+container.style.cssText += 'background-color: lightblue; padding: 10px';
+
+// Do not display the <li> that contains the text node “Dan”. (the last <li> of the first <ul>)
+let lastUl = firstUl.nextElementSibling;
+let lastUlLi = lastUl.children[1];
+lastUlLi.style.cssText += 'display: none';
+
+// Add a border to the <li> that contains the text node “Richard”. (the second <li> of the <ul>)
+firstUl.children[1].style.border = '1px solid #000';
+
+// Change the font size of the whole body.
+document.body.style.fontSize = '20px';
