@@ -16,3 +16,7 @@ function playTheGame(){
         }
     }
 }
+
+function compareNumbers(userNumber, computerNumber){
+    
+}

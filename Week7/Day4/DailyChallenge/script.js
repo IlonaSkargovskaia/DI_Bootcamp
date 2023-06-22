@@ -11,7 +11,6 @@ const planets = ['earth', 'mars', 'uranus', 'jupiter', 'mercury', 'neptune', 'sa
 const bgColors = ['green', 'red', 'yellow', 'orange', 'brown', 'lightblue', 'lightyellow', 'violet'];
 
 const section = document.querySelector('section');
-// const moons = document.querySelector('.listMoons');
 
 for (let item = 0; item < planets.length && item < bgColors.length; item++) {
     const div = document.createElement('div');
@@ -21,3 +20,47 @@ for (let item = 0; item < planets.length && item < bgColors.length; item++) {
 
     section.appendChild(div);
 }
+
+
+// #Bonus
+
+const allPlanets = [
+    {
+        namePlanet : "Earth",
+        color : "lightblue",
+        moons : 1
+    },
+    {
+        namePlanet : "Venus",
+        color : "pink",
+        moons : 3
+    },
+    {
+        namePlanet : "Jupiter",
+        color : "orange",
+        moons : 6
+    },
+    {
+        namePlanet : "Uranus",
+        color : "grey",
+        moons : 2
+    }
+]
+
+function addPlanet () {
+    const section = document.querySelector(".listPlanets");
+
+    for (let planet of allPlanets){
+        const divPlanet = document.createElement("div");
+        divPlanet.classList.add("planet");
+        
+        const text = document.createTextNode(planet["namePlanet"]);
+        divPlanet.appendChild(text)
+
+        divPlanet.style.backgroundColor = planet["color"];
+
+        section.appendChild(divPlanet);
+    }
+}
+
+addPlanet()
