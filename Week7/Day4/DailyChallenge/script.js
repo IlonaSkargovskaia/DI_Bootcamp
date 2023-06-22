@@ -11,15 +11,13 @@ const planets = ['earth', 'mars', 'uranus', 'jupiter', 'mercury', 'neptune', 'sa
 const bgColors = ['green', 'red', 'yellow', 'orange', 'brown', 'lightblue', 'lightyellow', 'violet'];
 
 const section = document.querySelector('section');
+// const moons = document.querySelector('.listMoons');
 
 for (let item = 0; item < planets.length && item < bgColors.length; item++) {
     const div = document.createElement('div');
     div.classList.add('planet', bgColors[item]);
 
     div.textContent = `${planets[item]}`;
-
-    
-
 
     section.appendChild(div);
 }
