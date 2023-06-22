@@ -58,9 +58,29 @@ function addPlanet () {
         divPlanet.appendChild(text)
 
         divPlanet.style.backgroundColor = planet["color"];
-
         section.appendChild(divPlanet);
+
+        addMoon(planet, section);
+    }
+
+   
+}
+
+
+addPlanet()
+
+function addMoon(planet, section){
+    let counter = 10;
+
+    for (let i = 0; i < planet['moons']; i++) {
+        const divMoon = document.createElement("div");
+        divMoon.classList.add("moon");
+        divMoon.style.left = `${counter}rem`;
+        counter += 5;
+        section.appendChild(divMoon);
     }
 }
 
-addPlanet()
+
+
+
