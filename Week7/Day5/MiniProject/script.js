@@ -4,19 +4,39 @@ function playTheGame(){
     if (askPlayGame === false) {
         alert('No problem, Goodbye!');
     } else {
-        const userNum = +(prompt("Write a number in range 0 - 10: "));
+        let userNum = +(prompt("Write a number in range 0 - 10: "));
 
-        if (isNaN(userNum)){
-            alert('Sorry, Not a number, Goodbye');
-        } else if (userNum > 10 || userNum < 0){
-            alert('Sorry its not a good number, Goodbye');
-        } else {
-            const computerNumber = Math.floor(Math.random() * 11);
-            console.log(computerNumber);
-        }
+        while (isValidNumber(userNum) === false) {
+            alert('Sorry, that is not a valid number. Please try again.');
+            userNum = +(prompt("Write a number in the range of 0 - 10: "));
+          }
+      
+        const computerNumber = Math.floor(Math.random() * 11);
+        compareNumbers(userNum, computerNumber);
+        
     }
 }
 
-function compareNumbers(userNumber, computerNumber){
+function isValidNumber(num) {
+    return !isNaN(num) && num >= 0 && num <= 10;
+}
+
+function compareNumbers(userNum, computerNumber){
+    
+    for (let i = 0; i < 3; i++) {
+        if (i === 2 && userNum !== computerNumber) {
+            alert("You lose!");
+            break;
+        } else if (userNum === computerNumber) {
+            alert('WINNER!');
+            break;
+        } else if (userNum > computerNumber){
+            alert('Your number is bigger then the computers, guess again');
+            userNum = +(prompt("Write a number in range 0 - 10: "));
+        } else if (userNum < computerNumber){
+            alert('Your number is smaller then the computers, guess again');
+            userNum = +(prompt("Write a number in range 0 - 10: "));
+        } 
+    }   
     
 }
