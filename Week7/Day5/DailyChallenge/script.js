@@ -26,27 +26,37 @@
 // For more than one bottle, you pass “them” around.
 
 
-const userNum = +(prompt('Write a begin number of bottles: '));
 
-function bottles(num){
 
-    // for (let i = num; i >= 0; i--) {
-    // let bottleText = i === 1 ? 'bottle' : 'bottles';
-    // let nextBottleText = i - 1 === 1 ? 'bottle' : 'bottles';
-    // let nextBottleCount = i - 1 === 0 ? 'no more' : i - 1;
+function singSong() {
 
-    // console.log(`${i} ${bottleText} of beer on the wall`);
-    // console.log(`${i} ${bottleText} of beer`);
-    // console.log(`Take ${i === 0 ? 'it' : i} down, pass ${i === 0 ? 'it' : 'them'} around`);
+    const bottles = +(prompt("Enter a number bottles: "));
+    let counter = 0;
+    let word;
+    
 
-    // if (i - 1 === 0) {
-    //   console.log(`${nextBottleCount} bottle of beer on the wall`);
-    // } else if (i === 0) {
-    //   console.log(`No more bottles of beer on the wall`);
-    // } else {
-    //   console.log(`${nextBottleCount} ${nextBottleText} of beer on the wall`);
-    // }
-  // }
-}
+    for (let i = bottles; i >= 0; i -= counter) {
+        
+        counter++;
 
-bottles(userNum);
+        if (i === 1) {
+            console.log(`${i} bottle of beer on the wall`);
+        } else if (i === 0) {
+            console.log(`No bottle of beer on the wall`);
+        } else if (counter > i) {
+            console.log(`${i} bottles of beer on the wall`);
+            console.log(`${i} bottles of beer`);
+            console.log(`Take ${counter} down, pass ${counter === 1 ? 'it' : 'them'} around`);
+            console.log(`No bottle of beer on the wall`);
+        }
+         else {
+            console.log(`${i} bottles of beer on the wall`);
+            console.log(`${i} bottles of beer`);
+            console.log(`Take ${counter} down, pass ${counter === 1 ? 'it' : 'them'} around`);
+        }
+    }
+  }
+  
+  
+
+singSong();
