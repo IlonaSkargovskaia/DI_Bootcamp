@@ -1,0 +1,27 @@
+
+
+.p{
+    animation: fadeOut 8s;
+    -webkit-animation: fadeOut 8s;
+    -moz-animation: fadeOut 8s;
+    -o-animation: fadeOut 8s;
+    -ms-animation: fadeOut 8s;
+}
+
+@keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
