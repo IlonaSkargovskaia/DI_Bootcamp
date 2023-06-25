@@ -50,3 +50,71 @@ secondParagraph[1].addEventListener('mouseover', fadeOut);
 function fadeOut(){
     secondParagraph[1].classList.add('p', 'fadeOut');
 }
+
+
+
+//Exercise 2 : Work With Forms
+// Retrieve the form and console.log it.
+const form = document.forms[0];
+console.log(form);
+
+// Retrieve the inputs by their id and console.log them.
+const fName = form.elements['fname'];
+console.log(fName);
+const lName = form.elements['lname'];
+console.log(lName);
+
+// Retrieve the inputs by their name attribute and console.log them.
+const fName2 = form.elements.fname;
+console.log(fName2);
+const lName2 = form.elements.lname;
+console.log(lName2);
+
+// When the user submits the form (ie. submit event listener)
+// use event.preventDefault(), why ?
+// get the values of the input tags,
+// make sure that they are not empty,
+// create an li per input value,
+// then append them to a the <ul class="usersAnswer"></ul>, below the form.
+// The output should be :
+{/* <ul class="usersAnswer">
+    <li>first name of the user</li>
+    <li>last name of the user</li>
+</ul> */}
+
+
+// preventDefault stop behavior from the object "by default"
+
+const buttonSubmit = form.elements['submit'];
+const usersAnswer = document.querySelector('.usersAnswer');
+console.log(usersAnswer);
+
+buttonSubmit.addEventListener('click', btnSubmit);
+
+function btnSubmit(e){
+    e.preventDefault();
+
+    let firstNameInput = form.elements['fname']; 
+    let lastNameInput = form.elements['lname']; 
+
+    if (firstNameInput.value !== '' && lastNameInput.value !== ''){
+        let fLi = document.createElement('li');
+        let fLiText = document.createTextNode(firstNameInput.value);
+        let lLi = document.createElement('li');
+        let lLiText = document.createTextNode(lastNameInput.value);
+
+        fLi.appendChild(fLiText);
+        lLi.appendChild(lLiText);
+        usersAnswer.appendChild(fLi);
+        usersAnswer.appendChild(lLi);
+        
+
+        console.log(firstNameInput.value);
+        console.log(lastNameInput.value);
+    }
+    
+    
+
+        
+}
+
