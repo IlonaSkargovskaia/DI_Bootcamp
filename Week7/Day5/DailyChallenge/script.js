@@ -46,13 +46,13 @@ function singSong() {
         } else if (counter > i) {
             console.log(`${i} bottles of beer on the wall`);
             console.log(`${i} bottles of beer`);
-            console.log(`Take ${counter} down, pass ${counter === 1 ? 'it' : 'them'} around`);
+            console.log(`Take ${i} down, pass ${counter === 1 ? 'it' : 'them'} around`);
             console.log(`No bottle of beer on the wall`);
         }
          else {
             console.log(`${i} bottles of beer on the wall`);
             console.log(`${i} bottles of beer`);
-            console.log(`Take ${counter} down, pass ${counter === 1 ? 'it' : 'them'} around`);
+            console.log(`Take ${i} down, pass ${counter === 1 ? 'it' : 'them'} around`);
         }
     }
   }
