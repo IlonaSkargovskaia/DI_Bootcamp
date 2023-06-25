@@ -32,7 +32,6 @@ function singSong() {
 
     const bottles = +(prompt("Enter a number bottles: "));
     let counter = 0;
-    let word;
     
 
     for (let i = bottles; i >= 0; i -= counter) {
@@ -56,7 +55,6 @@ function singSong() {
         }
     }
   }
-  
-  
 
 singSong();
+

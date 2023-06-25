@@ -133,10 +133,10 @@ let allBoldItems;
 function getBoldItems(){
     let p = usersAnswer.nextElementSibling;
     allBoldItems = p.querySelectorAll('strong');
+
+    p.addEventListener('mouseover', highlight);
+    p.addEventListener('mouseout', returnItemsToDefault);
 }
-
-getBoldItems()
-
 
 
 function highlight(){
@@ -145,7 +145,11 @@ function highlight(){
     }
 }
 
-highlight()
 
-
-
+function returnItemsToDefault(){
+    for (let item of allBoldItems) {
+        item.style.color = 'black';
+    }
+}
+ 
+getBoldItems()
