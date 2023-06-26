@@ -12,16 +12,15 @@ let box = document.querySelector('#animate');
 btn.addEventListener("click", myMove)
 
 function myMove() {
-      let start = Date.now(); // start date
+      let start = 0
 
       let timer = setInterval(function() {
-            let timePassed = Date.now() - start;
-            console.log(timePassed);
+            start ++
+            box.style.marginLeft = start + 'px';
 
-            box.style.marginLeft = timePassed / 5 + 'px';
             
-            if (timePassed > 1740) {
+            if (start == 350) {
                 clearInterval(timer);
             }
-      }, 20);
+      }, 1);
     }
