@@ -1,0 +1,16 @@
+.toBlue {
+    background-color: blue;
+}
+
+.toYellow {
+    background-color: yellow;
+}
+
+:root {
+    --main-bg-color: blue;
+    --padding: 2rem
+}
+
+/* button, p, h1 {
+    background-color: var(--main-bg-color);
+} */
