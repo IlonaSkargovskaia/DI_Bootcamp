@@ -6,102 +6,47 @@
 
 
 
-// const form = document.forms[0];
 
-// const inputNoun = form.elements.noun;
-// const inputAdj = form.elements.adjective;
-// const inputPerson = form.elements.person;
-// const inputVerb = form.elements.verb;
-// const inputPlace = form.elements.place;
+const myform = document.forms.libform
+myform.addEventListener("submit", getValues);
 
-// //values
-// const textNoun = inputNoun.value;
-// const textAdj = inputAdj.value;
-// const textPerson = inputPerson.value;
-// const textVerb = inputVerb.value;
-// const textPlace = inputPlace.value;
+const shuffleBtn = document.querySelector("#shuffle-button")
+shuffleBtn.addEventListener("click", showStory)
 
+let objInfo = {};
+let randomNum = 0
+let othernum = 0;
 
-// const story = document.querySelector('#story');
-// const btnLib = document.querySelector('#lib-button');
-// const btnShuffle = document.querySelector('#shuffle');
-
-// btnLib.addEventListener('click', createStory);
-// // btnShuffle.addEventListener('click', shuffle);
-
-
-// function createStory(event) {
-//     event.preventDefault();
-
-//     if (inputNoun !== '' ){
-        
-//         story.textContent += `This ${textNoun} ${textAdj} found out that ${textPerson} ${textVerb} around the ${textPlace}!`;
-//     } else {
-//         alert('Fill all fileds in form to create your story');
-//     }
-
-    
-    
-    
-// }
-
-// function shuffle() {
-
-//     if (inputNoun !== '' && inputAdj !== '' && inputPerson !== '' && inputVerb !== '' && inputPlace !== ''){
-
-//         let textArray = [
-//             `This ${inputAdj} ${inputNoun} found out that ${inputPerson} ${inputVerb} around the ${inputPlace}!`, 
-//             `Second ${inputAdj} ${inputNoun} found out that ${inputPerson} ${inputVerb} around the ${inputPlace}!`,
-//             `Third ${inputAdj} ${inputNoun} found out that ${inputPerson} ${inputVerb} around the ${inputPlace}!`
-//         ];
-
-//         for (let text of textArray) {
-//             story.textContent += Math.floor(Math.random() * 3);
-//         }
-
-        
-//     } else {
-//         alert('Fill all fileds in form to create your story');
-//     }
-
-// }
-
-
-
-
-
-const form = document.forms[0];
-form.addEventListener('submit', getValues);
-
-function getValues(event){
+function getValues(event) {
     event.preventDefault();
-    // const arrValues = [];
-    const objValues = {};
-    const allInputs = event.target.querySelectorAll('input');
-    
-    for (let input of allInputs){
-        //аналог если все инпут пустые 
-        if(input.value === ''){
-            alert('Fill the form');
-            //чтобы остановить функцию
+    isFormSubmitted = true;
+    const allInputs = event.target.querySelectorAll("input");
+    for (let inp of allInputs) {
+        if (inp.value === "") {
+            alert(`fill the form - missing element in ${inp.id}`)
+            objInfo = {}
             return;
         }
-        objValues[input.id] = input.value;
+        objInfo[inp.id] = inp.value;
     }
-
-    //чтобы использовать все переменные в другой функции
-    createStory(objValues)
-
+    showStory()
 }
 
 
-function createStory(objValues) {
+function showStory () {
+    const valuesObj = Object.values(objInfo); //array of values
+    const allStories = [`first story ${valuesObj[0]}  ${valuesObj[1]}`,
+    `second story ${valuesObj[1]}  ${valuesObj[2]}`,  `third story ${valuesObj[1]}  ${valuesObj[0]}`]
 
+    do {
+        othernum = Math.floor(Math.random() * allStories.length);
+    } while(randomNum === othernum)
+    
+    randomNum = othernum
 
-    const story = document.querySelector('#story');
-
-    story.textContent += `This ${objValues['adjective']} ${objValues['verb']} found out that ${objValues['person']} ${objValues['verb']} around the ${objValues['place']}!`;
-    
-    
-    
+    const spanElement = document.getElementById("story");
+    spanElement.textContent = "";
+    const text = allStories[randomNum]
+    const textNode = document.createTextNode(text)
+    spanElement.appendChild(textNode)
 }

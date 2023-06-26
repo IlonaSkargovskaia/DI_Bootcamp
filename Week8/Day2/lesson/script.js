@@ -1,43 +1,71 @@
-function getUserInfo(username){
-    return username;
-}
+// function getUserInfo(username){
+//     return username;
+// }
 
-getUserInfo('Ilona');
+// getUserInfo('Ilona');
 
-//expression
-const getUser = function(username) {
-    return username;
-}
+// //expression
+// const getUser = function(username) {
+//     return username;
+// }
 
-getUser('Ilona');
+// getUser('Ilona');
 
-//arrow
-const getUserInfo = (username) => username;
+// //arrow
+// const getUserInfo = (username) => username;
 
-getUserInfo('Ilona');
+// getUserInfo('Ilona');
 
 
 
-//2
+// //2
 
-function checkAge(age){
-    if (age > 18) {
-        return 'You can drive';
-    } else {
-        return 'You cannot drive'
+// function checkAge(age){
+//     if (age > 18) {
+//         return 'You can drive';
+//     } else {
+//         return 'You cannot drive'
+//     }
+// }
+
+// //expression
+
+// const chkAgeUser = function(age) {
+//     if (age > 18) {
+//         return 'You can drive';
+//     } else {
+//         return 'You cannot drive'
+//     }
+// }
+
+// //arrow
+
+// const checkUserAge = age => age > 18 ? 'You can drive' : 'You cannot drive';
+
+
+
+
+function starWars(spaceship) {
+    const characters = [];
+    let info = '';
+
+    function createCharacter(firstName, lastName = 'Smith') {
+        info = `${firstName} ${lastName}`;
+        characters.push(info);
     }
-}
 
-//expression
+    createCharacter('Ilona');
+    createCharacter('Dima');
+    console.log(characters);
 
-const chkAgeUser = function(age) {
-    if (age > 18) {
-        return 'You can drive';
-    } else {
-        return 'You cannot drive'
+    function displayCharacter(){
+        for (let character of characters) {
+            document.body.innerHTML += `${character} are in ${spaceship} <br />`;
+        }
+        
     }
+    displayCharacter()
 }
 
-//arrow
-
-const checkUserAge = age => age > 18 ? 'You can drive' : 'You cannot drive';
+starWars('The Devastator');
+starWars('Republic Attack Cruiser');
