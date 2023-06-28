@@ -11,7 +11,7 @@ const robots = [
       name: 'Ervin Howell',
       username: 'Antonette',
       email: 'Shanna@melissa.tv',
-      image: 'img/robots/2.png'
+      image: 'https://robohash.org/2?200x200'
     },
     {
       id: 3,
@@ -72,51 +72,125 @@ const robots = [
 ];
 
 
-class Robots {
-    constructor ({name, username, email, image}) {
-        this.name = name;
-        this.username = username;
-        this.email = email;
-        this.image = image;
-    }
+// class Robots {
+//     constructor ({name, username, email, image}) {
+//         this.name = name;
+//         this.username = username;
+//         this.email = email;
+//         this.image = image;
+//     }
 
-    displayRobots() {
-        const row = document.querySelector('.row__content');
+//     displayRobots() {
+//         const row = document.querySelector('.row__content');
+// //card__outer
+//         const robotCard = document.createElement('div');
+//         robotCard.classList.add('card__item');
+// //card__inner
+//         const cardContent = document.createElement('div');
+//         cardContent.classList.add('card__content');
+// //card__image
+//         const robotImageDiv = document.createElement('div');
+//         robotImageDiv.classList.add('card__img');
+//         const robotImage = document.createElement('img');
+//         robotImage.src = this.image;
+// //card__title
+//         const robotTitle = document.createElement('h3');
+//         robotTitle.classList.add('card__title');
+//         const title = document.createTextNode(this.name);
+// //email
+//         const robotEmail = document.createElement('p');
+//         robotEmail.classList.add('card__email');
+//         const emailText = document.createTextNode(this.email);
+
+// //img
+//         robotImageDiv.appendChild(robotImage);
+//         cardContent.appendChild(robotImageDiv);
+// //title
+//         robotTitle.appendChild(title);
+//         cardContent.appendChild(robotTitle);
+// //email
+//         robotEmail.appendChild(emailText);
+//         cardContent.appendChild(robotEmail);
+
+// //display card in DOM
+//         robotCard.appendChild(cardContent);
+//         row.appendChild(robotCard);
+//     }
+
+
+
+// }
+
+// robots.forEach(element => {
+//     const robot = new Robots(element);
+//     robot.displayRobots();
+// })
+
+
+const row = document.querySelector('.row__content');
+
+function displayRobots(element) {   
 //card__outer
-        const robotCard = document.createElement('div');
-        robotCard.classList.add('card__item');
+    const robotCard = document.createElement('div');
+    robotCard.classList.add('card__item');
 //card__inner
-        const cardContent = document.createElement('div');
-        cardContent.classList.add('card__content');
+    const cardContent = document.createElement('div');
+    cardContent.classList.add('card__content');
 //card__image
-        const robotImage = document.createElement('img');
-        robotImage.classList.add('card__img');
-        robotImage.src = this.image;
+    const robotImageDiv = document.createElement('div');
+    robotImageDiv.classList.add('card__img');
+    const robotImage = document.createElement('img');
+    robotImage.src = element.image;
 //card__title
-        const robotTitle = document.createElement('h3');
-        robotTitle.classList.add('card__title');
-        const title = document.createTextNode(this.name);
+    const robotTitle = document.createElement('h3');
+    robotTitle.classList.add('card__title');
+    const title = document.createTextNode(element.name);
 //email
-        const robotEmail = document.createElement('p');
-        robotEmail.classList.add('card__email');
-        const emailText = document.createTextNode(this.email);
+    const robotEmail = document.createElement('p');
+    robotEmail.classList.add('card__email');
+    const emailText = document.createTextNode(element.email);
 
 //img
-        cardContent.appendChild(robotImage);
+    robotImageDiv.appendChild(robotImage);
+    cardContent.appendChild(robotImageDiv);
 //title
-        robotTitle.appendChild(title);
-        cardContent.appendChild(robotTitle);
+    robotTitle.appendChild(title);
+    cardContent.appendChild(robotTitle);
 //email
-        robotEmail.appendChild(emailText);
-        cardContent.appendChild(robotEmail);
+    robotEmail.appendChild(emailText);
+    cardContent.appendChild(robotEmail);
 
-//display card
-        robotCard.appendChild(cardContent);
-        row.appendChild(robotCard);
-    }
+//display card in DOM
+    robotCard.appendChild(cardContent);
+    row.appendChild(robotCard);
 }
 
+
+
 robots.forEach(element => {
-    const robot = new Robots(element);
-    robot.displayRobots();
+    displayRobots(element);
 })
+
+
+
+function search() {
+
+    const input = document.querySelector('#header-Search');
+    input.addEventListener('input', () => {
+
+        let results = robots.filter(element => element['name'].toLowerCase().includes(input.value));
+
+        row.innerHTML = '';
+
+        results.forEach(element => {
+            displayRobots(element);
+        })
+    })
+}
+
+search();
+
+
+
+
+
