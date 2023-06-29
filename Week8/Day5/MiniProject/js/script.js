@@ -124,10 +124,21 @@ const robots = [
 // robots.forEach(element => {
 //     const robot = new Robots(element);
 //     robot.displayRobots();
+        
+        // const allRobotosObj = [];
+        // allRobotosObj.push(robot)
 // })
 
 
+
+
 const row = document.querySelector('.row__content');
+
+
+robots.forEach(element => {
+    displayRobots(element);
+})
+
 
 function displayRobots(element) {   
 //card__outer
@@ -166,20 +177,13 @@ function displayRobots(element) {
 }
 
 
-
-robots.forEach(element => {
-    displayRobots(element);
-})
-
-
-
 function search() {
 
     const input = document.querySelector('#header-Search');
     input.addEventListener('input', () => {
 
         let results = robots.filter(element => element['name'].toLowerCase().includes(input.value));
-
+//clear main
         row.innerHTML = '';
 
         results.forEach(element => {
