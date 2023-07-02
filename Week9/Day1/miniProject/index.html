@@ -10,14 +10,17 @@
     <div class="wrapper">
         <h1>My quotes generator</h1>
         <section id="main"></section>
+
         <button id="generate">Generate new Quote</button> 
         <button id="likes" style="display: none">Like this quote</button>
         <br>
+
         <button id="numCharacters" style="display: none">Count of characters</button>
         <button id="numChWithoutSpaces" style="display: none">characters without spaces</button>
         <button id="numWords" style="display: none">Count of words</button>
         
         <div class="display_counts"></div>
+        
         <hr>
 
         <form action="#" method="POST" id="newQuotes">
@@ -25,6 +28,14 @@
             <input type="text" name="author" id="newAuthor" placeholder="Author...">
             <button id="addNewQuote">Add new quote</button>
         </form>
+
+        <hr>
+
+        <form action="#" method="GET" id="searchForm">
+            <input type="text" name="search" id="search" placeholder="Search quotes by name of author...">
+        </form>
+        <ul class="results"></ul>
+
     </div>
     <script src="script.js"></script>
 </body>

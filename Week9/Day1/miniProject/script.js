@@ -174,3 +174,38 @@ likes.addEventListener('click', () => {
     
 })
 
+
+// part 3 - search
+
+const searchForm = document.querySelector('#searchForm');
+const searchInput = searchForm.querySelector('#search');
+
+
+searchForm.addEventListener('change', (e) => {
+    e.preventDefault();
+
+    section.textContent = '';
+    const searchQuery = searchInput.value.toLowerCase().trim();
+
+    const filteredQuotes = quotes.filter((quote) => {
+        const author = quote['author'].toLowerCase();
+
+        // Check if the search query matches the author
+        return author.includes(searchQuery);
+    });
+
+    console.log(filteredQuotes);
+    
+    filteredQuotes.forEach(element => {
+        console.log(element);
+        const newLi = document.createElement('li');
+        const filteredText = document.createTextNode(`${element['quote']} - (${element['author']})`);
+
+        newLi.appendChild(filteredText)
+        section.appendChild(newLi);
+    })
+    
+    
+
+})
+

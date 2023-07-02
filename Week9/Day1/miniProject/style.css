@@ -59,6 +59,14 @@ section#main p{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
     text-align: left;
+    line-height: 1.5;
+}
+
+section#main li{
+    font-size: 13px;
+    margin: 10px 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
 }
 
 .author{
@@ -105,4 +113,9 @@ p.err{
     background-color: rgb(233, 126, 123);
     padding: 10px;
     border-radius: 15px;
+}
+
+input#search{
+    min-width: 75%;
+    background: antiquewhite;
 }
