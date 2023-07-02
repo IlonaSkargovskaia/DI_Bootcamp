@@ -94,3 +94,15 @@ button#numWords:hover{
 .display_counts div{
     padding: 10px;
 }
+
+p.success{
+    background-color: rgb(127, 200, 127);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+p.err{
+    background-color: rgb(233, 126, 123);
+    padding: 10px;
+    border-radius: 15px;
+}

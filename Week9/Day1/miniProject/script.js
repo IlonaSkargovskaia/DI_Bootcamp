@@ -85,7 +85,7 @@ const form = document.querySelector('#newQuotes');
 const inputeQuote = form.querySelector('#newQuote');
 const inputeAuthor = form.querySelector('#newAuthor');
 const addBtn = form.querySelector('#addNewQuote');
-addBtn.addEventListener(('click'), (event) => {
+form.addEventListener(('submit'), (event) => {
     event.preventDefault();
 
     const newObj = {};
@@ -95,8 +95,27 @@ addBtn.addEventListener(('click'), (event) => {
     newObj['quote'] = inputeQuote.value;
     newObj['likes'] = 0;
 
-    quotes.push(newObj);
-    console.log(quotes);
+    // quotes.push(newObj);
+    // console.log(quotes);
+
+        // Perform form validation
+    if (inputeAuthor.value.trim() !== '' && inputeQuote.value.trim() !== '') {
+        // Form is valid
+        quotes.push(newObj);
+        console.log(quotes);
+
+        // Add a success message
+        const successMessage = document.createElement('p');
+        successMessage.classList.add('success');
+        successMessage.textContent = 'Form submitted successfully!';
+        form.appendChild(successMessage);
+    } else {
+        // Form is not valid
+        const errorMessage = document.createElement('p');
+        errorMessage.classList.add('err');
+        errorMessage.textContent = 'Form is not valid!';
+        form.appendChild(errorMessage);
+    }
 });
 
 
@@ -108,10 +127,6 @@ const numWords = document.querySelector('#numWords');
 const likes = document.querySelector('#likes');
 const display = document.querySelector('.display_counts');
 
-function display_counts(){
-    
-
-}
 
 numCharacters.addEventListener(('click'), () => {
     
