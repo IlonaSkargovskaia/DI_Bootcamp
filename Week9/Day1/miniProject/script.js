@@ -29,7 +29,7 @@ btn.addEventListener(('click'), generate);
 let initialQuote;
 
 function generate (){
-
+    section.textContent = '';
     //call function checker
     const quoteIndex = checkQuotes();
     //retrieve the quote object at that particular index.
@@ -42,9 +42,9 @@ function generate (){
     section.appendChild(quoteElement);
 
     // Store the initially generated quote object in the initialQuote variable
-    if (!initialQuote) {
+    
         initialQuote = quote;
-    }
+    
 }
 
 
