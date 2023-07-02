@@ -13,16 +13,17 @@
 // Trim whitespace prior to comparison.
 
 
-function anagram(arr, arr2) {
+function anagram(str, str2) {
 
-    const arrOne = arr.toLowerCase().replace(/\s/g, '').split('').sort().join('');
-    const arrTwo = arr2.toLowerCase().replace(/\s/g, '').split('').sort().join('');
+    const strOne = str.toLowerCase().replaceAll(' ', '').split('').sort().join('');
+    const strTwo = str2.toLowerCase().replace(/\s/g, '').split('').sort().join('');
 
     
-    return arrOne === arrTwo;
+    return strOne === strTwo;
 }
 
 console.log(anagram('Astronomer', 'Moon starer'));
 console.log(anagram('School master', 'The classroom'));
 console.log(anagram('The Morse Code', 'Here come dots'));
+console.log(anagram('sefrngekjrorse Code', 'Here come dots'));
 
