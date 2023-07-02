@@ -3,23 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Generate Quote</title>
 </head>
 <body>
+    <div class="wrapper">
+        <h1>My quotes generator</h1>
+        <section id="main"></section>
+        <button id="generate">Generate new Quote</button> 
+        <button id="likes" style="display: none">Like this quote</button>
+        <br>
+        <button id="numCharacters" style="display: none">Count of characters</button>
+        <button id="numChWithoutSpaces" style="display: none">characters without spaces</button>
+        <button id="numWords" style="display: none">Count of words</button>
+        
+        <div class="display_counts"></div>
+        <hr>
 
-    <section id="main"></section>
-    <button id="generate">Generate Quote</button>
-    <button id="numCharacters">Count of characters</button>
-    <button id="numChWithoutSpaces">Count of characters without spaces</button>
-    <button id="numWords">Count of words</button>
-    <button id="likes">Like this quote</button>
-
-    <form action="#" method="POST" id="newQuotes">
-        <input type="text" name="quote" id="newQuote" placeholder="Write quote...">
-        <input type="text" name="author" id="newAuthor" placeholder="Author...">
-        <button id="addNewQuote">Add new quote</button>
-    </form>
-
+        <form action="#" method="POST" id="newQuotes">
+            <input type="text" name="quote" id="newQuote" placeholder="Write quote...">
+            <input type="text" name="author" id="newAuthor" placeholder="Author...">
+            <button id="addNewQuote">Add new quote</button>
+        </form>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

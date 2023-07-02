@@ -25,6 +25,8 @@ const section = document.querySelector('section');
 const btn = document.querySelector('#generate');
 btn.addEventListener(('click'), generate);
 
+
+
 // Declare a variable to store the initially generated quote object
 let initialQuote;
 
@@ -36,14 +38,25 @@ function generate (){
     const quote = quotes[quoteIndex];
 
     const quoteElement = document.createElement('p');
-    const quoteText = document.createTextNode(quote['quote']);
+    const quoteText = document.createTextNode(`" ${quote['quote']} "`);
+    const authorElement = document.createElement('span');
+    const authorText = document.createTextNode(`${quote['author']}`);
+    authorElement.classList.add('author');
 
+    
     quoteElement.appendChild(quoteText);
+    authorElement.appendChild(authorText);
+
     section.appendChild(quoteElement);
+    section.appendChild(authorElement);
 
     // Store the initially generated quote object in the initialQuote variable
-    
-        initialQuote = quote;
+    initialQuote = quote;
+
+    numCharacters.style.display = 'inline-block';
+    numChWithoutSpaces.style.display = 'inline-block';
+    numWords.style.display = 'inline-block';
+    likes.style.display = 'inline-block';
     
 }
 
@@ -93,30 +106,56 @@ const numCharacters = document.querySelector('#numCharacters');
 const numChWithoutSpaces = document.querySelector('#numChWithoutSpaces');
 const numWords = document.querySelector('#numWords');
 const likes = document.querySelector('#likes');
+const display = document.querySelector('.display_counts');
+
+function display_counts(){
+    
+
+}
 
 numCharacters.addEventListener(('click'), () => {
     
     const textString = initialQuote['quote'];
-    console.log(`number of characters in quote: `, textString.length);
+
+    const div = document.createElement('div');
+    const divText = document.createTextNode(`number of characters in quote: ${textString.length}`);
+
+    div.appendChild(divText);
+    display.appendChild(div);
     
 })
 
 numChWithoutSpaces.addEventListener(('click'), () => {
     
     const textString = initialQuote['quote'];
-    console.log(`number of characters in quote without spaces: `, textString.replace(/\s/g, '').length);
+    const str = textString.replace(/\s/g, '').length;
+
+    const div = document.createElement('div');
+    const divText = document.createTextNode(`number of characters in quote without spaces: ${str}`);
+
+    div.appendChild(divText);
+    display.appendChild(div);
 })
 
 numWords.addEventListener('click', () => {
     
     const countWords = initialQuote['quote'];
-    console.log(`count of words: `, countWords.split(' ').length);
+    const countArr = countWords.split(' ').length;
+
+    const div = document.createElement('div');
+    const divText = document.createTextNode(`count of words: ${countArr}`);
+
+    div.appendChild(divText);
+    display.appendChild(div);
 })
 
 likes.addEventListener('click', () => {
     
-    initialQuote.likes++;
-    console.log('Current likes: ', initialQuote.likes);
+    const countLikes = initialQuote['quote'];
+    initialQuote['likes']++;
+    //console.log('Current likes: ', initialQuote.likes);
+
+    likes.textContent = `Likes: ${initialQuote.likes}`;
     
 })
 
