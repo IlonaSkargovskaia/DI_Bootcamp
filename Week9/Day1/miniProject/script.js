@@ -20,9 +20,15 @@ const section = document.querySelector('section');
 const btn = document.querySelector('#generate');
 btn.addEventListener(('click'), (event) => {
     event.preventDefault();
+    
     //random get 1 object
-    const quote = quotes[Math.floor(Math.random() * quotes.length)];
-    console.log(quote);
+    // const quote = quotes[Math.floor(Math.random() * quotes.length)];
+    // console.log(quote);
+
+    //call function checker
+    const quoteIndex = checkQuotes();
+    //retrieve the quote object at that particular index.
+    const quote = quotes[quoteIndex];
 
     const quoteElement = document.createElement('p');
     const quoteText = document.createTextNode(quote['quote']);
@@ -30,3 +36,21 @@ btn.addEventListener(('click'), (event) => {
     quoteElement.appendChild(quoteText);
     section.appendChild(quoteElement);
 })
+
+
+let previousQuoteIndex = null;
+
+function checkQuotes(){
+    //random index by length of array (now it 0-2)
+    const quoteIndex = Math.floor(Math.random() * quotes.length);
+
+    //by default quoteIndex = null and we comparing: if current = previous - start function again
+    if (quoteIndex === previousQuoteIndex) {
+        // Recursively call the function to get a new index
+        return checkQuotes(); 
+    } else {
+        previousQuoteIndex = quoteIndex;
+    }
+    
+    return quoteIndex;
+}
