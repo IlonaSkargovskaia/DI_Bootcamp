@@ -9,6 +9,6 @@ btn.addEventListener('click', (event) => {
     info.forEach(item => {
         newObj[item.name] = item.value;
     })
-    console.log(JSON.stringify(newObj));
+    document.body.textContent = JSON.stringify(newObj);
 });
 
