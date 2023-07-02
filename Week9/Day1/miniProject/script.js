@@ -16,7 +16,9 @@ const quotes = [
     },
 ]
 
+//1 part
 const section = document.querySelector('section');
+
 const btn = document.querySelector('#generate');
 btn.addEventListener(('click'), (event) => {
     event.preventDefault();
@@ -54,3 +56,23 @@ function checkQuotes(){
     
     return quoteIndex;
 }
+
+//2 part
+
+const form = document.querySelector('#newQuotes');
+const inputeQuote = form.querySelector('#newQuote');
+const inputeAuthor = form.querySelector('#newAuthor');
+const addBtn = form.querySelector('#addNewQuote');
+addBtn.addEventListener(('click'), (event) => {
+    event.preventDefault();
+
+    const newObj = {};
+
+    newObj['id'] = quotes.length; 
+    newObj['author'] = inputeAuthor.value;
+    newObj['quote'] = inputeQuote.value;
+
+    quotes.push(newObj);
+    console.log(quotes);
+});
+
