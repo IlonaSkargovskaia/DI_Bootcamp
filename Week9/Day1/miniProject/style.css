@@ -16,7 +16,7 @@ html, body {
     background-position: 0 0,10px 10px;
 }
 
-h1{
+h1, h3{
     color: #fdfdfe;
     text-shadow: 0px 0px 5px #c3073f, 0px 0px 5px #c3073f, 0px 0px 5px #c3073f,
     0px 0px 20px #c3073f;
@@ -95,7 +95,7 @@ button#numWords:hover{
 .display_counts {
     max-width: 460px;
     margin: auto;
-    background: #fff;
+    background: antiquewhite;
     border-radius: 15px;
 }
 

@@ -27,14 +27,14 @@ btn.addEventListener(('click'), generate);
 
 
 
-// Declare a variable to store the initially generated quote object
+// store the initially generated quote object
 let initialQuote;
 
 function generate (){
     section.textContent = '';
     //call function checker
     const quoteIndex = checkQuotes();
-    //retrieve the quote object at that particular index.
+    //retrieve the quote object at that index.
     const quote = quotes[quoteIndex];
 
     const quoteElement = document.createElement('p');
@@ -50,7 +50,7 @@ function generate (){
     section.appendChild(quoteElement);
     section.appendChild(authorElement);
 
-    // Store the initially generated quote object in the initialQuote variable
+    // Store the initially generated quote object 
     initialQuote = quote;
 
     numCharacters.style.display = 'inline-block';
@@ -59,7 +59,6 @@ function generate (){
     likes.style.display = 'inline-block';
     
 }
-
 
 //check
 let previousQuoteIndex = null;
@@ -95,10 +94,8 @@ form.addEventListener(('submit'), (event) => {
     newObj['quote'] = inputeQuote.value;
     newObj['likes'] = 0;
 
-    // quotes.push(newObj);
-    // console.log(quotes);
 
-        // Perform form validation
+        // form validation
     if (inputeAuthor.value.trim() !== '' && inputeQuote.value.trim() !== '') {
         // Form is valid
         quotes.push(newObj);
