@@ -29,15 +29,18 @@
 //     console.log(error);
 // })
 
-let a = 10;
+// let a = 10;
 
-const newPromise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve(a = 99)
-    }, 5000)
-})
+// const newPromise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve(a = 99)
+//     }, 5000)
+// })
 
-newPromise
-.then((message) => {
-    console.log('a now = ', a);
-})
+// newPromise
+// .then((message) => {
+//     console.log('a now = ', a);
+// })
+
+
+
