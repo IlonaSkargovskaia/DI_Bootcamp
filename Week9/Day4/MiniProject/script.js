@@ -28,9 +28,21 @@ async function getCharacters() {
         
         if (response.ok) {
             const getData = await response.json();
-            const getDataCharacter = getData['result'];
+            const getDataCharacter = getData['result']['properties'];
             console.log(getDataCharacter);
-            displayCharacter(getDataCharacter);
+            
+            const homeWorldResponse = await fetch(getDataCharacter['homeworld']);
+
+            if (homeWorldResponse.ok) {
+                const getPlanet = await homeWorldResponse.json();
+                const getDataPlanet = getPlanet['result']['properties']['name'];
+                console.log(getDataPlanet);
+                displayCharacter(getDataCharacter, getDataPlanet);
+            } else {
+                throw new Error('Something wrong with fetch in Planet');
+            }
+                
+            
         } else {
             throw new Error('Something wrong with fetch');
         }
@@ -41,63 +53,29 @@ async function getCharacters() {
     }
 }
 
-// async function getCountry() {
-    
-//     try{
-//         const response = await fetch(`https://www.swapi.tech/api/planets/`);
-        
-//         if (response.ok) {
-//             const getData = await response.json();
-//             const getDataPlanet = getData;
-//             console.log(getDataPlanet);
-//         } else {
-//             throw new Error('Something wrong with fetch');
-//         }
+function displayPlanet(planetName) {
+    return planetName;
+}
 
-//     } catch(err) {
-        
-//         console.log('Error in catch', err);
-//     }
-// }
-
-
-
-async function displayCharacter(obj) {
+function displayCharacter(obj, planetName) {
     content.textContent = '';
 
     const div = document.createElement('div');
 
     const h3 = document.createElement('h3');
-    const h3Text = document.createTextNode(`Hi, I am ${obj['properties']['name']}`);
+    const h3Text = document.createTextNode(`Hi, I am ${obj['name']}`);
 
     const height = document.createElement('p');
-    const heightText = document.createTextNode(`Height: ${obj['properties']['height']}`);
+    const heightText = document.createTextNode(`Height: ${obj['height']}`);
 
     const gender = document.createElement('p');
-    const genderText = document.createTextNode(`Gender: ${obj['properties']['gender']}`);
+    const genderText = document.createTextNode(`Gender: ${obj['gender']}`);
 
     const birth = document.createElement('p');
-    const birthText = document.createTextNode(`Birth year: ${obj['properties']['birth_year']}`);
+    const birthText = document.createTextNode(`Birth year: ${obj['birth_year']}`);
 
-    try{
-        const response = await fetch(`https://www.swapi.tech/api/planets/${obj['id']}`);
-        
-        if (response.ok) {
-            const getData = await response.json();
-            const getDataPlanet = getData;
-            console.log(getDataPlanet);
-        } else {
-            throw new Error('Something wrong with fetch');
-        }
-
-    } catch(err) {
-        
-        console.log('Error in catch', err);
-    }
-
-
-    // const planet = document.createElement('p');
-    // const planetText = document.createTextNode(`Birth year: ${obj['homeworld']}`);
+    const planetParagraph = document.createElement('p');
+    const planetText = document.createTextNode(`Home world: ${planetName}`);
 
     h3.appendChild(h3Text);
     div.appendChild(h3);
@@ -107,8 +85,8 @@ async function displayCharacter(obj) {
     div.appendChild(gender);
     birth.appendChild(birthText);
     div.appendChild(birth);
-    // planet.appendChild(planetText);
-    // div.appendChild(planet);
+    planetParagraph.appendChild(planetText);
+    div.appendChild(planetParagraph);
 
     content.appendChild(div);
 }
