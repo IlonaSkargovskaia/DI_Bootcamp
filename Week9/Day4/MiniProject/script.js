@@ -53,9 +53,7 @@ async function getCharacters() {
     }
 }
 
-function displayPlanet(planetName) {
-    return planetName;
-}
+
 
 function displayCharacter(obj, planetName) {
     content.textContent = '';
