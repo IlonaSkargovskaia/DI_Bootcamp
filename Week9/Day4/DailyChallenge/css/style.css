@@ -5,8 +5,8 @@ body{
 }
 
 .container{
-    max-width: 600px;
-    background: rgba(0,0,0,0.2);
+    max-width: 500px;
+    background: rgba(0,0,0,0.1);
     padding: 20px;
     margin: 0 auto;
     margin-top: 220px;
@@ -14,8 +14,14 @@ body{
     color: #fff;
 }
 
+h1{
+    color: #fadb78;
+    -webkit-text-stroke: 2px #886256;
+    text-stroke: 2px #886256;
+}
+
 form#myCurrency{
-    max-width: 50%;
+    
     margin: auto;
     
 }
@@ -23,11 +29,14 @@ form#myCurrency{
 form#myCurrency label{
     display: inline-block;
     min-width: 85px;
-    text-align: right;
 }
 
 form#myCurrency select{
-    min-width: 147px;
+    min-width: 280px;
+}
+
+form#myCurrency input{
+    min-width: 273px;
 }
 
 form button#convert{
