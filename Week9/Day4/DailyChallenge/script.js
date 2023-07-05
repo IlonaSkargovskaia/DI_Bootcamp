@@ -1,46 +1,59 @@
 const form = document.querySelector('#myCurrency');
-const amount = form.querySelector('#amount');
+const amountInput = form.querySelector('#amount');
 const baseCurrencySelect = form.querySelector('#baseCurrency');
 const endCurrencySelect = form.querySelector('#endCurrency');
 const btn = form.querySelector('#convert');
 const result = document.querySelector('#result');
+let currencies;
 
-// btn.addEventListener('click', getResult);
+btn.addEventListener('click', (e) => convert(e.preventDefault()));
 
 async function getCurrency() {
-    
-    try{
+    try {
         const response = await fetch('https://v6.exchangerate-api.com/v6/f57ea78c94b70acbda46b702/codes');
-        
+
         if (response.ok) {
-            const getData = await response.json();
-            const getDataArr = getData['supported_codes'];
-            const getDataObj = Object.fromEntries(getDataArr); // [[]] -> {}
-                console.log(getDataObj);
+            const data = await response.json();
+            currencies = data['supported_codes'];
 
-            for (let i = 0; i < Object.keys(getDataObj).length; i++ ) {
-                
-                for (let key in getDataObj) {  
-                    const option = document.createElement("option");  
-                    option.text = getDataObj[key];
-                    baseCurrencySelect.add(option);
-                }
-
-                for (let key in getDataObj) {  
-                    const option = document.createElement("option");  
-                    option.text = getDataObj[key];
-                    endCurrencySelect.add(option);
-                }
-                
+            for (let current of currencies) {
+                const option = document.createElement('option');
+                option.value = current;
+                option.textContent = current;
+                baseCurrencySelect.appendChild(option);
+                endCurrencySelect.appendChild(option.cloneNode(true));
             }
-            
-        } else {
-            throw new Error('Something wrong with fetch');
-        }
 
-    } catch(err) {
+            convert();
+        } else {
+            throw new Error('Something went wrong with the fetch');
+        }
+    } catch (err) {
         console.log('Error in Get currency', err);
     }
 }
 
-getCurrency()
+
+async function convert() {
+    const fromCurr = (baseCurrencySelect.value).split(',')[0];
+    const toCurr = (endCurrencySelect.value).split(',')[0];
+    const amount = amountInput.value;
+
+    try {
+        const response = await fetch(`https://v6.exchangerate-api.com/v6/f57ea78c94b70acbda46b702/pair/${fromCurr}/${toCurr}/${amount}`);
+        
+        if (response.ok) {
+            const data = await response.json();
+            const res = data['conversion_result'];
+            result.textContent = res; 
+        } else {
+            throw new Error('Something went wrong with the fetch');
+        }
+    } catch (err) {
+        console.log('Error in Convert currency', err);
+    }
+}
+
+getCurrency();
+
+
