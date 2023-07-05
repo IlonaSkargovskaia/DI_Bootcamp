@@ -18,6 +18,7 @@ async function getCurrency() {
         if (response.ok) {
             const data = await response.json();
             const currencies = data['supported_codes'];
+            console.log(currencies)
             
 
             for (let current of currencies) {
@@ -27,6 +28,12 @@ async function getCurrency() {
                 baseCurrencySelect.appendChild(option);
                 endCurrencySelect.appendChild(option.cloneNode(true));
             }
+
+            // Set default options
+            baseCurrencySelect.value = currencies[146];
+            endCurrencySelect.value = currencies[61];
+
+            convert();
 
         } else {
             throw new Error('Something went wrong with the fetch');
