@@ -4,9 +4,12 @@ const baseCurrencySelect = form.querySelector('#baseCurrency');
 const endCurrencySelect = form.querySelector('#endCurrency');
 const btn = form.querySelector('#convert');
 const result = document.querySelector('#result');
-let currencies;
 
-btn.addEventListener('click', (e) => convert(e.preventDefault()));
+
+btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    convert();
+});
 
 async function getCurrency() {
     try {
@@ -14,17 +17,17 @@ async function getCurrency() {
 
         if (response.ok) {
             const data = await response.json();
-            currencies = data['supported_codes'];
+            const currencies = data['supported_codes'];
+            
 
             for (let current of currencies) {
                 const option = document.createElement('option');
                 option.value = current;
-                option.textContent = current;
+                option.textContent = current[1]; //add to select only second part
                 baseCurrencySelect.appendChild(option);
                 endCurrencySelect.appendChild(option.cloneNode(true));
             }
 
-            convert();
         } else {
             throw new Error('Something went wrong with the fetch');
         }
@@ -44,7 +47,7 @@ async function convert() {
         
         if (response.ok) {
             const data = await response.json();
-            const res = data['conversion_result'];
+            const res = data['conversion_result']; //result conversion
             result.textContent = res; 
         } else {
             throw new Error('Something went wrong with the fetch');
