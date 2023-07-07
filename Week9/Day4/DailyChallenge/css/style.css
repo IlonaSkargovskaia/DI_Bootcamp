@@ -39,7 +39,7 @@ form#myCurrency input{
     min-width: 273px;
 }
 
-form button#convert{
+form button{
     margin: 30px 0;
     background: #fadb77;
     border: 1px solid #fadb77;
@@ -47,7 +47,7 @@ form button#convert{
     transition: .3s ease-in-out;
 }
 
-form button#convert:hover{
+form button:hover{
     cursor: pointer;
     background: #86654e;
     border: 1px solid #86654e;

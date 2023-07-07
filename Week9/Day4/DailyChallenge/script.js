@@ -18,7 +18,7 @@ async function getCurrency() {
         if (response.ok) {
             const data = await response.json();
             const currencies = data['supported_codes'];
-            console.log(currencies)
+            //console.log(currencies)
             
 
             for (let current of currencies) {
@@ -33,7 +33,7 @@ async function getCurrency() {
             baseCurrencySelect.value = currencies[146];
             endCurrencySelect.value = currencies[61];
 
-            convert();
+            //convert();
 
         } else {
             throw new Error('Something went wrong with the fetch');
@@ -54,7 +54,7 @@ async function convert() {
         
         if (response.ok) {
             const data = await response.json();
-            const res = data['conversion_result']; //result conversion
+            const res = data['conversion_result']; 
             result.textContent = res; 
         } else {
             throw new Error('Something went wrong with the fetch');
@@ -63,6 +63,8 @@ async function convert() {
         console.log('Error in Convert currency', err);
     }
 }
+
+
 
 getCurrency();
 
