@@ -28,7 +28,7 @@ const http = require('http');
 
 const server2 = http.createServer((request, response) => {
     response.setHeader('Content-Type', 'text/html');
-    response.end(`<html><body><p>The date and time are currently: ${currDate()}</body></html>`);
+    response.end(`<html><body><p>The date and time are currently: ${currDate()}</p></body></html>`);
 })
 
 server2.listen(8080, () => {
