@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const bodyParser = require("body-parser")
+//const bodyParser = require("body-parser");
 
 app.use('/', express.static(__dirname + '/public'));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/aboutMe/:hobby', (req, res) => {
     if (typeof req.params !== 'string'){

@@ -25,16 +25,17 @@
     Update info inside file info.json
 */
 
-fs.readFile('info.json', 'utf-8', (err, data) => {
-    if (err) return console.log(err);
+// fs.readFile('info.json', 'utf-8', (err, data) => {
+//     if (err) return console.log(err);
 
-    const product = JSON.parse(data);
-    const index = product.findIndex(item => item.id == 3);
+//     const product = JSON.parse(data);
+//     const index = product.findIndex(item => item.id == 3);
 
-    product[index] = {
-        ...product[index],
-        price: 760
-    }
+//     product[index] = {
+//         ...product[index],
+//         price: 760
+//     };
+// }
 
 //     fs.writeFile('info.json', JSON.stringify(product), 'utf-8', (err) => {
 //        if(err) return console.log(err);
