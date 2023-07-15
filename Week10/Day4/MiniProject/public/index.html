@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register page | Node.js</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+        
+        form input, label{
+            display: block; 
+        }
+
+        form input{
+            padding: 5px 10px;
+            min-width: 275px;
+            margin-bottom: 15px;
+        }
+
+        form button{
+            padding: 5px 10px;
+            min-width: 300px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <form action="#" method="post" id="loginForm">
+            <h3>Login Form</h3>
+
+            <label for="userNameLogin">Username:</label>
+            <input type="text" name="username" id="userNameLogin">
+
+            <label for="passwordLogin">Password:</label>
+            <input type="password" name="pass" id="passwordLogin">
+
+            <button id="btnLogin" disabled="disabled">Login</button>
+        </form>
+        
+        <form action="#" method="post" id="registerForm">
+            <h3>Register Form</h3>
+              <!--  for by id -->
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstname" id="firstName">
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="lastname" id="lastName">
+
+            <label for="emailInput">Email:</label>
+            <input type="email" name="email" id="emailInput">
+
+            <label for="userName">Username:</label>
+            <input type="text" name="username" id="userName">
+
+            <label for="password">Password:</label>
+            <input type="password" name="pass" id="password">
+
+            <button id="btnRegister" disabled="disabled">Register</button>
+        </form>
+
+        
+        
+    </div>
+</body>
+</html>

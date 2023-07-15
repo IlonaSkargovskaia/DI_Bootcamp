@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Home</h1>
+    Hi <%= locals.user.firstName %> <%= locals.user.lastName %>
+
+    <!-- if statement -->
+    <% if(login) { %>
+        <h2>Welcome user</h2>
+    <% } else { %>
+        <h2>Welcome admin</h2>       
+    <% } %>  
+
+
+    <!-- loop -->
+    <% for (const key in students) { %>
+      <h2><%= key %> - <%= students[key]%></h2>                              
+    <% } %>
+
+    <% arr.forEach(item => { %>
+        <h3><%= item.price %></h3>
+        <h3><%= item.name %></h3>
+    <% }) %>
+
+    <%
+        let html = ''
+        for (const item in students) {
+            html += '<h2>' + students[item] + '</h2>'
+        }
+    %>
+    <%-  html%>
+
+</body>
+</html>
