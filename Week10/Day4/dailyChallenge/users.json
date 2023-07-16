@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Ilona",
+    "lastName": "Skargovskaya",
+    "email": "ilona.skars@gmail.com",
+    "username": "ilona",
+    "password": "123"
+  },
+  {
+    "name": "Ilona",
+    "lastName": "Skargovskaya",
+    "email": "ilona.skars@gmail.com",
+    "username": "ilona.skars",
+    "password": "1234"
+  },
+  {
+    "name": "Ilona",
+    "lastName": "Skargovskaya",
+    "email": "ilona.skars@gmail.com",
+    "username": "ilona2",
+    "password": "12345"
+  },
+  {
+    "name": "Ilona",
+    "lastName": "Skargovskaya",
+    "email": "ilona.skars@gmail.com",
+    "username": "jordan2",
+    "password": "1231"
+  }
+]

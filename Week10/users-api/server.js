@@ -7,7 +7,7 @@ import { log } from 'console';
 const app = express();
 app.use(cors());
 
-//body_parser
+//= body_parser
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 //for .env
