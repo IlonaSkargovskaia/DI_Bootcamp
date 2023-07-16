@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Register</title>
     <style>
         form input, label{
@@ -12,7 +13,7 @@
 </head>
 <body>
     <h1>Register</h1>
-    <form action="/formData" method="post" id="registerForm">
+    <form action="" method="post" id="registerForm">
         <label for="fname">First name: </label>
         <input type="text" name="firstname" id="fname" required>
 
@@ -25,10 +26,10 @@
         <label for="username">User name: </label>
         <input type="text" name="username" id="username" required>
 
-        <label for="psw">Password: </label>
-        <input type="password" name="password" id="psw" required>
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password" required>
 
-        <button type="submit" id="registerButton">Register</button>
+        <button id="registerButton" >Register</button>
     </form>
 
     <p id="registerMessage"></p>

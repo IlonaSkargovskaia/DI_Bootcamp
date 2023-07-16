@@ -1,68 +1,55 @@
-const express = require('express');
+import express from 'express';
+import path from 'path';
+import {promises as fsPromises} from "fs" ;
 const app = express();
-const fs = require('fs');
-const path = require('path');
+const __dirname = path.resolve(); //create dirname
+
+//needed for put and post methods
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// we need this line to make the files in public folder available
+app.use(express.static(__dirname + "/public"));
+
+app.get("/register", (req, res) => {
+    res.sendFile(__dirname + "/public/register.html")
+})
+
+app.post("/register", async (req, res) => {
+    console.log("in register");
+    const dataBody = req.body;
+    const readFileResponse = await readuser(dataBody);
+    res.json(readFileResponse);
+})
 
 
-//public dir
-app.use('/', express.static(__dirname + '/public'));
+async function readuser (currentUser) {
+    console.log("in readuser");
+    
+    const data = await fsPromises.readFile(__dirname + "/public/data.json")
+    .catch((err) => console.error('Failed to read file', err));
+    
+    const datausers = JSON.parse(data); //array of objects
 
-//access to parse req.body
-app.use(express.urlencoded({ extended: true })); //form data
-app.use(express.json()); //json data
+    console.log("datausers", datausers);
+    
+    const findUser = datausers.findIndex((element) => 
+            element.username === currentUser.username)
 
-app.get('/register', (req, res) => {
-    const registerPath = path.join(__dirname, 'public/register.html');
-    res.sendFile(registerPath);
-});
+    console.log("findUser", findUser);
 
-app.get('/register', (req, res) => {
-    const loginPath = path.join(__dirname, 'public/login.html');
-    res.sendFile(loginPath);
-});
-
-app.post('/register', (req, res) => {
-    const { name, lastName, email, username, password } = req.body;
-    console.log(req.body);
-
-    // Check if the username or password already exist
-    const usersData = fs.readFileSync('users.json');
-    const users = JSON.parse(usersData); //json to object
-    const userExists = users.find(user => user.username === username || user.password === password);
-    if (userExists) {
-        res.send('error1'); // Username or password already exists
+    if (findUser >= 0) {
+        console.log("User already exists");
+        return "User already exists";
+    } else {
+        datausers.push(currentUser);
+        console.log("User added successfully", datausers);
+        //VERY IMPORTANT TO STRINGIFY THE DATA SENT TO WRITE FILES
+        await fsPromises.writeFile(__dirname + "/public/data.json", JSON.stringify(datausers));
+        return "User added successfully";
     }
+}
 
-    // Save the user to the JSON file
-    const newUser = {
-        name,
-        lastName,
-        email,
-        username,
-        password
-    };
-    users.push(newUser);
-
-    fs.writeFileSync('users.json', JSON.stringify(users));
-
-    res.send('register');
-});
-
-app.post('/login', (req, res) => {
-    const { username, password } = req.body;
-
-    // Check if the user exists
-    const usersData = fs.readFileSync('users.json');
-    const users = JSON.parse(usersData);
-    const user = users.find(user => user.username === username && user.password === password);
-    if (!user) {
-        res.send('error2'); // User not found
-    }
-
-    res.send('login');
-});
-
-
-app.listen(3000, () => {
-    console.log('listen 3000');
-});
+app.listen("3000", () => {
+    console.log("SERVER LISTENING");
+})
