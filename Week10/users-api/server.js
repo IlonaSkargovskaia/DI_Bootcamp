@@ -1,7 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import { log } from 'console';
 
 
 const app = express();
@@ -12,8 +11,6 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 //for .env
 dotenv.config();
-
-
 
 
 
