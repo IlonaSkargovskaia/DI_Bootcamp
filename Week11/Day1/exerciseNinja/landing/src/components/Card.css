@@ -1,0 +1,8 @@
+.myCard{
+    padding: 2rem;
+    text-align: left;
+}
+
+.myCard:nth-child(2) {
+    background-color: #ececec;
+}

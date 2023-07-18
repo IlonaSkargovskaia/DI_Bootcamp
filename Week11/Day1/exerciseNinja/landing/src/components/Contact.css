@@ -1,0 +1,19 @@
+
+
+.contactBlock{
+    background-color: #ececec;
+    padding: 2rem;
+    align-items: center;
+}
+
+.contactBlock {
+    text-align: left;
+}
+
+.contactBlock h2{
+    text-align: center;
+}
+
+.contactBlock form input{
+    margin: 1rem 0;
+}

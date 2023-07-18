@@ -1,0 +1,9 @@
+h1{
+    margin: 0;
+}
+
+.header{
+    background-color: orangered;
+    padding: 2rem 0;
+    color: #fff;
+}
