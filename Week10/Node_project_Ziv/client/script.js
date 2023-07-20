@@ -1,28 +1,5 @@
 const registerBtn = document.getElementById('registerBtn');
 const messRegister = document.querySelector('.messRegister');
-const registerForm = document.getElementById('registerForm');
-
-const loginForm = document.getElementById('loginForm');
-const loginBtn = document.getElementById('loginBtn');
-const messLogin = document.querySelector('.messLogin');
-
-
-// Function to check form validity and enable or disable the button
-function toggleButton(form, button) {
-    if (form.reportValidity()) {
-        button.disabled = false; // Enable the button if the form is valid
-    } else {
-        button.disabled = true; // Disable the button if the form is invalid
-    }
-}
-
-// Add event listeners to the forms to toggle the buttons
-registerForm.addEventListener('input', () => toggleButton(registerForm, registerBtn));
-loginForm.addEventListener('input', () => toggleButton(loginForm, loginBtn));
-
-// Initially, disable both buttons
-registerBtn.disabled = true;
-loginBtn.disabled = true;
 
 registerBtn.addEventListener('click', getUserInfo);
 
@@ -68,6 +45,8 @@ async function getUserInfo(e) {
 
 }
 
+const loginBtn = document.getElementById('loginBtn');
+const messLogin = document.querySelector('.messLogin');
 
 
 loginBtn.addEventListener('click', loginF);
@@ -75,13 +54,13 @@ loginBtn.addEventListener('click', loginF);
 async function loginF(event) {
     
     event.preventDefault();
+    console.log('loginBtn');
 
     const userNameLogin = document.getElementById('username').value;
     const userNamePass = document.getElementById('password').value;
 
     const loginData = {userNameLogin, userNamePass};
     console.log(loginData);
-
 
     try {
         const res = await fetch('http://localhost:3001/login', {
@@ -93,17 +72,9 @@ async function loginF(event) {
         })
 
         const data = await res.json();
-        console.log(data); //
-
-        if (res.status === 404) {
-            messLogin.textContent = data.err;
-        } else if (res.status === 200) {
-            messLogin.textContent = data;
-        }
-
+        console.log(data); 
     
     } catch (err) {
         console.log(err);
     }
 }
-

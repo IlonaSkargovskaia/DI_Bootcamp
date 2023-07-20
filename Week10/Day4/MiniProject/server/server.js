@@ -28,7 +28,7 @@ app.post('/register',async (req, res) => {
 
     try {
 
-        const userExist = await db('users').where({username: username, password: password}).first();
+        const userExist = await db('users').where({username: username}).first();
 
         if (userExist) {
             console.log(userExist);
@@ -44,27 +44,52 @@ app.post('/register',async (req, res) => {
             last_name: lastname,
             email: email,
             username: username,
-            created_date: new Date(), // Use the current date as the registration date
-            last_login: null, // last_login to null since the user not logged in yet
-        }).returning('*');
+            created_date: new Date(), 
+            last_login: null, 
+        })
+        .returning('*');
     
-        // Insert login data into the 'logins' table
+       
         await db('login').insert({
-            login_id: newUser, //newly generated user_id from the 'users' table
             username: username,
             password: hashedPassword, 
-            login_date: null, //null since the user not logged in yet
+            login_date: new Date(),
         });
     
-        
-        res.json('User registered successfully!');
+        res.status(200).json('User registered successfully');
         
     } catch (error) {
         console.log(error);
         res.status(500).json('Internal server error');
     }
    
-})
+});
+
+
+app.post('/login', async (req, res) => {
+    console.log(req.body); //{ userNameLogin: 'ilona', userNamePass: '123 => convert in register' }
+
+    const {userNameLogin, userNamePass} = req.body;
+
+    const userExist = await db('login').select('password').where({username: userNameLogin});
+    console.log('User exist?', userExist);
+
+        if (userExist.length == 0) {
+            console.log('User doesnt exist in DB');
+            res.status(404).json({err: `Username or password not found, try again`});
+        }  else {
+            const match = bcrypt.compareSync(userNamePass, userExist[0].password);
+
+            if (match) {
+                await db('users').update({last_login: new Date()});
+                res.status(200).json(`Welcome, your username is ${userNameLogin}`);
+            } else {
+                res.status(400).json('Wrong password');
+            }
+            
+        }
+
+});
 
 
 app.listen(process.env.PORT, () => {
