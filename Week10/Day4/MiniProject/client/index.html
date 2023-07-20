@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-Project</title>
+    <style>
+        form{
+            border: 1px solid #ccc;
+            padding: 0 2rem 2rem;
+        }
+        input{
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; justify-content: center; gap: 2rem;">
+        <div class="left">
+            <form id="loginForm">
+                <h3>Login: </h3>
+                Username: <input type="text" id="username"><br>
+                Password: <input type="password" id="password"><br>
+                <button id="loginBtn">Login</button>
+            </form>
+            <div class="messLogin"></div>
+        </div>
+        <div class="right">
+            <form id="registerForm">
+                <h3>Register: </h3>
+                First name: <input type="text" id="firstname"><br>
+                Last name: <input type="text" id="lastname"><br>
+                Email: <input type="email" id="email"><br>
+                Username: <input type="text" id="usernameRegister"><br>
+                Password: <input type="password" id="passwordRegister"><br>
+                <button id="registerBtn">Register</button>
+                
+            </form>
+            <div class="messRegister"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
