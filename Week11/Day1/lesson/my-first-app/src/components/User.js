@@ -1,10 +1,10 @@
 import './User.css';
+// import Button from '@mui/material/Button';
 
 const User = (props) => {
 
-    // props - one object from array of objects
-    // userinfo one object from JSON and this - name which we put in props in App.js
-    const {userinfo} = props;
+    // userinfo one object from users.JSON 
+    const {userinfo} = props; 
 
     // const styling = {
     //     display: 'inline-block',
@@ -20,6 +20,7 @@ const User = (props) => {
             <h2>{userinfo.name}</h2>
             <h4>{userinfo.email}</h4>
             <p>{userinfo.username}</p>
+            {/* <Button variant="outlined" href="#outlined-buttons">Button</Button> */}
         </div>
     )
 }
