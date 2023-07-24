@@ -1,0 +1,8 @@
+.formBook{
+    margin: 0 auto;
+    margin-top:1rem;
+    width: 400px;
+    border: 1px solid #ccc;
+    padding: 2rem;
+    padding-top: 1rem;
+}
