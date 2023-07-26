@@ -1,49 +1,87 @@
-import React, { Component } from "react"
+import { Component } from 'react';
 
 
-class Color extends Component{
+class Color extends Component {
     constructor(props) {
-      super(props);
-      this.state = {favoriteColor : "red"};
+        super(props);
+        this.state = {
+            favoriteColor: "red",
+            show: true
+        };
+      }
+
+    changeColor = () => {
+        this.setState(
+            {
+              favoriteColor: "blue"
+            }
+        )
     }
 
-    //shouldComponentUpdate 2. If you set the return value of the shouldComponentUpdate() method to false, you won’t be able to change the value of the favoriteColor property to “blue”, (even after clicking on the button)
-    
-    shouldComponentUpdate() {
-        return true
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState(
+                {
+                  favoriteColor: "yellow"
+                }
+            );
+          }, 5000);
     }
-    //componentDidUpdate. 3. In the componentDidUpdate method, add a console.log("after update"). Open the Dev Tools, to see when this message is displayed.
+
+    // shouldComponentUpdate() {
+    //     return false;
+    // }
+
+    getSnapshotBeforeUpdate() {
+        console.log("in getSnapshotBeforeUpdate");
+    }
 
     componentDidUpdate() {
         console.log("after update");
     }
 
-    //getSnapshotBeforeUpdate Use the getSnapshotBeforeUpdate() method, add a console.log("in getSnapshotBeforeUpdate"). Open the Dev Tools, to see when this message is displayed.
-    componentWillUnmount() {
-        console.log("in getSnapshotBeforeUpdate");
-    }
-
-    changeColor = () => {
-        this.setState({favoriteColor : "blue"});
+    deleteHeader = () => {
+        this.setState(
+            {
+                show: false
+            }
+        )
     }
 
     render() {
-        console.log("render")
-       return (
+        let comp;
+        if (this.state.show) {
+            comp = <Child />;
+          }
 
-           <>
-            <h1>My favorite color is : {this.state.favoriteColor}</h1>
+      return (
+        <div>
+            {
+            comp ? 
+            comp :
+            <h1>My favorite color is <i>{ this.state.favoriteColor }</i></h1>
+        }
+
+            <button onClick={ this.deleteHeader }>Delete Header</button>
+            
             <button onClick={ this.changeColor }>Change color</button>
-           </>
-       )
-    }
-    componentDidMount() {
-        setTimeout(() => {
-            this.setState({favoriteColor:"yellow"})
-        },5000)
+        </div>
+      )
     }
 }
-   
   
-
 export default Color;
+
+
+
+class Child extends Component {
+    componentWillUnmount() {
+        alert("The component named Header is about to be unmounted.");
+    }
+
+    render() {
+        return (
+            <h1>Hello World!</h1>
+        )
+    }
+}

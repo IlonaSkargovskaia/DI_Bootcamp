@@ -13,6 +13,24 @@
   }
 }
 
+h1 {
+  background-color: #3b3636;
+  color: #fff;
+  padding: 10px;
+  margin: 0;
+  padding: 2rem ;
+}
+
+main{
+  background-color: antiquewhite;
+  padding: 2rem;
+}
+
+form.topForm input{
+  margin: 0.5rem 0rem;
+  /* min-width: 280px; */
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
