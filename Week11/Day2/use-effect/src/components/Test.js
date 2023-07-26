@@ -10,9 +10,7 @@ class Test extends Component {
         console.log('constructor');
     }
 
-    componentDidMount = () => {
-        console.log('componentDidMount');
-    }
+    
 
     componentDidUpdate = (prevProps, prevState) => {
         console.log('prevProps: ', prevProps);
