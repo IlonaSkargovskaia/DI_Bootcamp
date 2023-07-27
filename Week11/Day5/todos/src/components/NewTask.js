@@ -20,16 +20,22 @@ const NewTask = (props) => {
         setTask(e.target.value);
     }
 
+    const handleDelete = (itemToDelete) => {
+        setList((prevList) => prevList.filter((item) => item !== itemToDelete))
+    }
+
     return(
         <>
             <div className='todosBlock'>
                 
                 {
                     (list.length === 0) ? 
-                        <div className='noTodos'>`:) You have no todo's left`</div>
+                        <div className='noTodos'>:) You have no todo's left</div>
                     :
                     list.map((item, index) => (
-                        <div key={index} className='newTask'>{item}</div>
+                        <div key={index} className='newTask' onClick={() => handleDelete(item)}>
+                            {item}
+                        </div>
                     ))
                     
                 }
