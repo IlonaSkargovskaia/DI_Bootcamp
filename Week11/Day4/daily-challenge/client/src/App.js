@@ -5,14 +5,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      header: null
+      
     }
   }
 
   componentDidMount() {
     const getText = async () => {
       try {
-          const res = await fetch(`http://localhost:3001/api/hello`);
+          const res = await fetch(`http://localhost:3005/api/hello`);
           const data = await res.json();
           //console.log(data);
           this.setState({header: data});
@@ -28,6 +28,7 @@ class App extends Component {
       <div className="App">
         <header>
           <h1>{this.state.header}</h1>
+          <h2>Post to Server:</h2>
           
         </header>
       </div>
