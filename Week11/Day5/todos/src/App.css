@@ -19,6 +19,8 @@ label {
 }
 
 form {
+    max-width: 90%;
+    margin: auto;
     text-align: left;
     margin-top: 1rem;
 }

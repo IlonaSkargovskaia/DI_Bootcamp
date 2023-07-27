@@ -5,6 +5,18 @@ const NewTask = (props) => {
     const [task, setTask] = useState('');
     const [list, setList] = useState([]);
 
+    //get from localstorage
+    useEffect(() => {
+        const storedList = localStorage.getItem('todo');
+        if (storedList) {
+            setList(JSON.parse(storedList));
+        }
+    }, [])
+
+    //Save to localstorage
+    useEffect(() => {
+        localStorage.setItem('todo', JSON.stringify(list));
+    }, [list])
 
     const handleForm = (e) => {
         e.preventDefault();
