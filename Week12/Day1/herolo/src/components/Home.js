@@ -10,12 +10,10 @@ export const WeatherContext = createContext();
 export const Home = (props) => {
     return (
         <>
-            <h1>Home</h1>
-            <main>
-                <WeatherContext.Provider value={{ apiKey, BASE_URL }}>
-                    <WeatherTLV />
-                </WeatherContext.Provider>
-            </main>
+            <WeatherContext.Provider value={{ apiKey, BASE_URL }}>
+                <WeatherTLV />
+            </WeatherContext.Provider>
+            
         </>
     )
 }

@@ -1,6 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
+import { Routes, Route, Link } from "react-router-dom";
 import { Favorites } from "./components/Favorites";
 import { Home } from './components/Home'
 
@@ -11,14 +10,20 @@ function App() {
 
         <div>
             <header>
-                <Header />
+                <h2>Herolo Weather Task</h2>
+                <nav>
+                    <Link to="/">Home</Link>{" "}
+                    <Link to="/favorites">Favorites</Link>{" "}
+                </nav>
+                
+            </header>
+            <main>
                 <Routes>
                     <Route path='/' element={<Home />}/>
                     <Route path='/favorites' element={<Favorites/>}/>
                 </Routes>
-            </header>
+            </main>
             
-   
         </div>
     );
 }

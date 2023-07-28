@@ -1,28 +1,28 @@
 import {useContext, useState, useEffect} from 'react';
 import { WeatherContext } from './Home';
+import { AddToFavorites } from './AddToFavorites';
 
-const WeatherTLV = (props) => {
-
-    
+const WeatherTLV = (props) => {  
 
     const { apiKey, BASE_URL } = useContext(WeatherContext);
-    const locationKeyTLV = '215854';
+    const [locationKey, setLocationKey] = useState('215854');
 
-    const [weatherTLV, setWeatherTLV] = useState([]);
-    const [weatherTextTLV, setWeatherTextTLV] = useState();
+    const [weather, setWeather] = useState([]);
+    const [weatherText, setWeatherText] = useState();
     const [weatherImg, setWeatherImg] = useState();
+    const [cityName, setCityName] = useState('Tel Aviv');
 
     useEffect(() => {
         const getWeatherTLV = async () => {
         
             try {
-                const res = await fetch(`${BASE_URL}/currentconditions/v1/${locationKeyTLV}?apikey=${apiKey}`);
+                const res = await fetch(`${BASE_URL}/currentconditions/v1/${locationKey}?apikey=${apiKey}`);
                 const data = await res.json();
 
                 console.log(data[0]);
                 
-                setWeatherTLV(data[0].Temperature.Metric.Value);
-                setWeatherTextTLV(data[0].WeatherText);
+                setWeather(data[0].Temperature.Metric.Value);
+                setWeatherText(data[0].WeatherText);
                 setWeatherImg(data[0].WeatherIcon);
                 
             } catch (error) {
@@ -32,7 +32,7 @@ const WeatherTLV = (props) => {
         };
 
         getWeatherTLV();
-    }, []); 
+    }, [locationKey]); 
 
      // Load the image dynamically based on the weatherImg value
      useEffect(() => {
@@ -50,14 +50,38 @@ const WeatherTLV = (props) => {
 
         loadImage();
     }, [weatherImg]);
+
+    const handleInput = async (e) => {
+        console.log(e.target.value);
+        const city = e.target.value;
+
+        try {
+            const res = await fetch (`${BASE_URL}/locations/v1/cities/search?apikey=${apiKey}&q=${city}`);
+            const data = await res.json();
+            console.log(data[0].Key);
+            
+            setLocationKey(data[0].Key);
+            setCityName(e.target.value)
+        } catch (error) {
+            console.log('City not found', error);
+        }
+    }
     
 
     return(
         <>
-            <h3>Tel Aviv</h3>
+
+            <input type='text' onChange={(e) => handleInput(e)}/>
+
+            <h3>{cityName}</h3>
             { <img src={weatherImg} alt="Weather Icon" />}
-            <p>{weatherTLV} C</p>
-            <p>{weatherTextTLV}</p>
+            <p>{weather} C</p>
+
+            <div>
+                <AddToFavorites />
+            </div>
+
+            <div>{weatherText}</div>
         </>
     )
 }
