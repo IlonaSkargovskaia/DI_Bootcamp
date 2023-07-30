@@ -1,5 +1,5 @@
 import { createContext} from 'react';
-import WeatherTLV from "../components/WeatherTLV";
+import Weather from "./Weather";
 
 
 const apiKey = "oDFyXIQANMkcMM4GkaR4JOPEPts3MFug";
@@ -11,7 +11,7 @@ export const Home = (props) => {
     return (
         <>
             <WeatherContext.Provider value={{ apiKey, BASE_URL }}>
-                <WeatherTLV />
+                <Weather />
             </WeatherContext.Provider>
             
         </>
