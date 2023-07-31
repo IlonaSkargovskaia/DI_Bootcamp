@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { WeatherContext } from "./Home";
-import { Favorites } from '../components/Favorites';
+import Favorites from '../components/Favorites';
 
 const Weather = (props) => {
     const { apiKey, BASE_URL } = useContext(WeatherContext);
@@ -120,12 +120,16 @@ const Weather = (props) => {
 
 
     const handleAddToFavorites = () => {
-        if (!favorites.includes(cityName)) {
-            setFavorites((prevFavorites) => [...prevFavorites, cityName]);
-        }
-        console.log('Favorites: ', favorites);
+        setFavorites([{cityKey: cityName}, ...favorites]);
+        console.log('Favorites:', favorites);
     };
 
+    const removeFromFavorites = () => {
+        setFavorites((current) =>
+          current.filter((city) => city !== cityName)
+        );
+        console.log('Favorites:', favorites)
+    };
 
 
     return (
@@ -133,7 +137,7 @@ const Weather = (props) => {
             <form className="search">
                 <input
                     type="text"
-                    //onChange={(e) => handleInput(e)}
+                    onChange={(e) => handleInput(e)}
                     placeholder="Enter City..."
                 />
             </form>
@@ -149,7 +153,7 @@ const Weather = (props) => {
                 <div className="right">
                     {Object.keys(favorites).includes(locationKey) 
                     ? 
-                    <button >Remove {cityName} from Favorites</button> 
+                    <button onClick={removeFromFavorites}>Remove {cityName} from Favorites</button> 
                     :
                     <button onClick={handleAddToFavorites}>Add {cityName} to Favorites</button>
                     }
